@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vírus - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e9e7f7; /* Lilás/Lavanda claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #4a148c; /* Roxo escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #6a1b9a; /* Roxo médio */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #311b92; /* Índigo escuro */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #311b92; /* Índigo escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #4a148c; /* Roxo escuro */
+            min-height: 70px; /* Para manter alinhamento dos emojis */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 120px; /* Ajustado para definições */
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #311b92; /* Índigo escuro */
+            font-weight: bold;
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 75%;
+            max-width: 850px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #311b92; /* Índigo escuro */
+            margin-top: 0;
+            border-bottom: 2px solid #4a148c; /* Roxo escuro */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul, .modal-content ol {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: left;
+        }
+        .modal-content ul, .modal-content ol {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #4a148c; /* Roxo escuro */ }
+        .modal-content h4 { color: #6a1b9a; margin-top: 20px; margin-bottom: 10px; font-size: 1.2em; }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background-color: #28004d; /* Roxo muito escuro */
+            color: #e9e7f7; /* Lilás/Lavanda claro */
+            width: 100%;
+            box-sizing: border-box;
+        }
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vírus</h1>
+        <p>Os Piratas da Biologia: Entidades na Fronteira da Vida! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" 
+             data-concept="Características Gerais dos Vírus" 
+             data-details="<p>Os <strong>Vírus</strong> são entidades biológicas microscópicas com características muito particulares:</p><ul><li><strong>Acelulares:</strong> Não possuem organização celular (sem citoplasma, organelas, etc.). São considerados por muitos como não vivos fora de uma célula hospedeira.</li><li><strong>Parasitas Intracelulares Obrigatórios:</strong> Só conseguem se replicar (reproduzir) dentro de células vivas de outros organismos (hospedeiros), utilizando a maquinaria metabólica da célula infectada.</li><li><strong>Material Genético:</strong> Possuem apenas um tipo de ácido nucleico, que pode ser DNA ou RNA (nunca ambos simultaneamente). Este material genético pode ser de fita simples ou dupla.</li><li><strong>Capsídeo:</strong> O material genético é protegido por um envoltório proteico chamado capsídeo, formado por subunidades proteicas chamadas capsômeros.</li><li><strong>Envelope Viral (em alguns):</strong> Alguns vírus, especialmente os que infectam animais, possuem um envelope externo lipoproteico derivado da membrana da célula hospedeira.</li><li><strong>Especificidade:</strong> Geralmente, os vírus são específicos para certos tipos de células ou hospedeiros.</li><li><strong>Ausência de Metabolismo Próprio:</strong> Não realizam atividades metabólicas como respiração ou síntese de proteínas por conta própria.</li></ul>">
+            <h3>Características Gerais</h3>
+            <div class="visual-representation">🦠🔬🧬</div>
+            <p class="definition">Entidades acelulares, parasitas intracelulares obrigatórios, com material genético (DNA ou RNA) envolto por um capsídeo proteico.</p>
+            <p class="keywords">Acelular, Parasita Intracelular, DNA, RNA, Capsídeo, Envelope</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Estrutura Viral Detalhada" 
+             data-details="<p>A estrutura básica de um vírus (chamado vírion quando fora da célula) é relativamente simples, mas eficiente para proteger o material genético e facilitar a infecção.</p><h4>Componentes Principais:</h4><ul><li><strong>Ácido Nucleico (Genoma Viral):</strong> Pode ser DNA (fita simples ou dupla, linear ou circular) ou RNA (fita simples ou dupla, polaridade positiva ou negativa). Contém os genes virais.</li><li><strong>Capsídeo:</strong> Envoltório proteico que protege o ácido nucleico. A forma do capsídeo (simetria) é uma característica importante para a classificação viral (ex: icosaédrico, helicoidal, complexo). É formado por capsômeros. O conjunto do ácido nucleico e capsídeo é chamado de nucleocapsídeo.</li><li><strong>Envelope Viral (opcional):</strong> Presente em muitos vírus animais (ex: Influenza, HIV, Herpesvírus). É uma bicamada lipídica derivada da membrana plasmática ou nuclear da célula hospedeira, contendo proteínas virais (espículas ou glicoproteínas) inseridas. Essas espículas são importantes para a adsorção do vírus à célula hospedeira. Vírus sem envelope são chamados de vírus não envelopados ou nus.</li><li><strong>Enzimas Virais (em alguns):</strong> Alguns vírus carregam enzimas essenciais para sua replicação que não são encontradas na célula hospedeira ou que precisam agir logo após a infecção. Exemplos: transcriptase reversa (em retrovírus como o HIV), RNA polimerase RNA-dependente (em alguns vírus de RNA).</li></ul>">
+            <h3>Estrutura Viral</h3>
+            <div class="visual-representation">🔩🛡️🔑</div>
+            <p class="definition">Compostos por material genético (DNA/RNA), capsídeo proteico e, em alguns, um envelope lipoproteico com espículas.</p>
+            <p class="keywords">Vírion, Nucleocapsídeo, Capsômeros, Espículas, Transcriptase Reversa, RNA Polimerase</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Classificação dos Vírus" 
+             data-details="<p>Os vírus são classificados com base em diversos critérios, visando organizar a imensa diversidade viral.</p><h4>Principais Critérios de Classificação:</h4><ol><li><strong>Tipo de Ácido Nucleico:</strong><ul><li><strong>DNA Vírus:</strong> Genoma de DNA (ex: Herpesvírus, Adenovírus, Poxvírus, Papilomavírus).</li><li><strong>RNA Vírus:</strong> Genoma de RNA (ex: Coronavírus, Influenza, Dengue, Sarampo, Poliomielite, Raiva).</li><li><strong>Retrovírus:</strong> RNA vírus que utilizam a enzima transcriptase reversa para produzir uma cópia de DNA a partir do seu RNA genômico (ex: HIV).</li></ul></li><li><strong>Forma do Capsídeo (Simetria):</strong><ul><li><strong>Icosaédrica:</strong> Forma poliédrica com 20 faces triangulares (ex: Adenovírus, Herpesvírus).</li><li><strong>Helicoidal:</strong> Capsômeros arranjados em espiral ao redor do ácido nucleico (ex: Vírus do mosaico do tabaco, Influenza).</li><li><strong>Complexa:</strong> Estrutura mais elaborada, não puramente icosaédrica nem helicoidal (ex: Bacteriófagos, Poxvírus).</li></ul></li><li><strong>Presença ou Ausência de Envelope:</strong><ul><li><strong>Vírus Envelopados:</strong> Possuem envelope lipoproteico (ex: HIV, Influenza, Coronavírus).</li><li><strong>Vírus Não Envelopados (Nus):</strong> Não possuem envelope (ex: Adenovírus, Papilomavírus).</li></ul></li><li><strong>Tipo de Hospedeiro:</strong> Vírus de bactérias (bacteriófagos), de fungos (micovírus), de plantas, de animais (incluindo humanos).</li><li><strong>Estratégia de Replicação:</strong> O Sistema de Classificação de Baltimore agrupa os vírus em 7 classes com base no tipo de genoma e como ele é replicado para produzir mRNA.</li></ol>">
+            <h3>Classificação Viral</h3>
+            <div class="visual-representation">🧬📜🏷️</div>
+            <p class="definition">Agrupados por tipo de ácido nucleico (DNA/RNA), forma do capsídeo, presença de envelope e tipo de hospedeiro.</p>
+            <p class="keywords">DNA Vírus, RNA Vírus, Retrovírus, Icosaédrico, Helicoidal, Complexo, Envelopado, Não Envelopado, Baltimore</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Ciclo Replicativo Lítico" 
+             data-details="<p>O <strong>Ciclo Lítico</strong> é uma das duas principais formas de replicação viral, resultando na destruição (lise) da célula hospedeira e liberação de novas partículas virais (vírions).</p><h4>Etapas do Ciclo Lítico (ex: bacteriófagos):</h4><ol><li><strong>Adsorção (ou Ligação):</strong> O vírus se liga a receptores específicos na superfície da célula hospedeira.</li><li><strong>Penetração (ou Injeção):</strong> O vírus ou apenas seu material genético entra na célula hospedeira. Em bacteriófagos, o capsídeo permanece fora e apenas o DNA é injetado. Em vírus animais, pode ocorrer por endocitose ou fusão do envelope.</li><li><strong>Biossíntese (ou Replicação):</strong> O material genético viral assume o controle da maquinaria celular. A célula hospedeira passa a sintetizar os componentes virais: ácidos nucleicos virais e proteínas do capsídeo e enzimas virais. O DNA da célula hospedeira é frequentemente degradado.</li><li><strong>Maturação (ou Montagem):</strong> Os componentes virais recém-sintetizados são montados, formando novas partículas virais completas (vírions).</li><li><strong>Liberação (ou Lise):</strong> Os novos vírions são liberados da célula hospedeira. Em muitos casos, isso ocorre pela lise (rompimento) da célula, causada por enzimas virais (como a lisozima). Em vírus envelopados, a liberação pode ocorrer por brotamento, onde o vírus adquire seu envelope da membrana celular.</li></ol><p>Vírus que se replicam exclusivamente pelo ciclo lítico são chamados de <strong>vírus virulentos</strong>.</p>">
+            <h3>Ciclo Lítico</h3>
+            <div class="visual-representation">💥🧬➡️🦠🦠</div>
+            <p class="definition">Ciclo de replicação viral que leva à produção de novos vírus e à destruição (lise) da célula hospedeira.</p>
+            <p class="keywords">Adsorção, Penetração, Biossíntese, Maturação, Lise, Vírus Virulento, Bacteriófago</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Ciclo Replicativo Lisogênico" 
+             data-details="<p>O <strong>Ciclo Lisogênico</strong> é uma forma de replicação viral onde o material genético do vírus se integra ao genoma da célula hospedeira, permanecendo em estado latente (não ativo) por um período, sem causar a destruição imediata da célula.</p><h4>Etapas do Ciclo Lisogênico (ex: bacteriófagos temperados):</h4><ol><li><strong>Adsorção e Penetração:</strong> Semelhantes ao ciclo lítico.</li><li><strong>Integração (Lisogenia):</strong> O DNA viral (ou uma cópia de DNA do RNA viral, no caso de retrovírus) se integra ao cromossomo da célula hospedeira. O DNA viral integrado é chamado de <strong>profago</strong> (em bacteriófagos) ou <strong>provírus</strong> (em vírus animais).</li><li><strong>Replicação Conjunta:</strong> A célula hospedeira continua suas atividades normais, incluindo a divisão celular. Ao se dividir, o profago/provírus é replicado junto com o DNA da célula hospedeira e transmitido às células-filhas. A célula infectada é chamada de célula lisogênica.</li><li><strong>Indução (Opcional):</strong> Sob certas condições (ex: estresse celular, radiação UV), o profago/provírus pode ser ativado, excisado do genoma hospedeiro e iniciar um ciclo lítico, levando à produção de novos vírions e lise celular.</li></ol><p>Vírus capazes de realizar o ciclo lisogênico são chamados de <strong>vírus temperados</strong> ou <strong>lisogênicos</strong>. Este ciclo permite que o vírus persista na população hospedeira sem causar doença imediata.</p>">
+            <h3>Ciclo Lisogênico</h3>
+            <div class="visual-representation">🤫🧬➡️🧬+🦠</div>
+            <p class="definition">Ciclo de replicação viral onde o material genético viral se integra ao da célula hospedeira (profago/provírus) e é replicado com ela, sem destruição imediata.</p>
+            <p class="keywords">Profago, Provírus, Integração, Latência, Vírus Temperado, Indução</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Principais Viroses Humanas e Prevenção" 
+             data-details="<p>Os vírus são causadores de inúmeras doenças em humanos, conhecidas como <strong>viroses</strong>. A gravidade varia de infecções leves a condições fatais.</p><h4>Exemplos de Viroses Comuns e Importantes:</h4><ul><li><strong>Gripe (Influenza):</strong> Causada pelo vírus Influenza. Transmissão respiratória. Sintomas: febre, tosse, dores. Prevenção: vacinação anual.</li><li><strong>Resfriado Comum:</strong> Causado por diversos vírus (Rinovírus, Coronavírus não-SARS). Transmissão respiratória. Sintomas mais leves que a gripe.</li><li><strong>Dengue, Zika, Chikungunya:</strong> Arboviroses transmitidas pelo mosquito <em>Aedes aegypti</em>. Sintomas variados, podem incluir febre, dores, manchas na pele. Prevenção: combate ao mosquito vetor.</li><li><strong>HIV/AIDS:</strong> Causada pelo Vírus da Imunodeficiência Humana (HIV), um retrovírus. Ataca o sistema imunológico. Transmissão: sexual, sanguínea, vertical. Prevenção: preservativos, não compartilhamento de seringas, tratamento antirretroviral.</li><li><strong>COVID-19:</strong> Causada pelo SARS-CoV-2. Transmissão respiratória. Sintomas variados, pode ser grave. Prevenção: vacinação, máscaras, distanciamento.</li><li><strong>Hepatites Virais (A, B, C):</strong> Inflamação do fígado. Transmissão variada (fecal-oral para A; sanguínea/sexual para B e C). Prevenção: vacinas (A, B), saneamento, sexo seguro.</li><li><strong>Sarampo, Caxumba, Rubéola:</strong> Doenças exantemáticas. Prevenção: vacina tríplice viral (SCR).</li><li><strong>Herpes (Simples e Zoster):</strong> Infecções cutâneas e mucosas recorrentes.</li><li><strong>Poliomielite (Paralisia Infantil):</strong> Pode causar paralisia. Prevenção: vacinação.</li></ul><h4>Medidas Gerais de Prevenção:</h4><ul><li><strong>Vacinação:</strong> Principal forma de prevenção para muitas viroses.</li><li><strong>Higiene Pessoal:</strong> Lavar as mãos, etiqueta respiratória.</li><li><strong>Saneamento Básico.</strong></li><li><strong>Controle de Vetores</strong> (ex: mosquitos).</li><li><strong>Sexo Seguro.</strong></li><li><strong>Não compartilhamento de objetos perfurocortantes.</strong></li></ul>">
+            <h3>Viroses Humanas</h3>
+            <div class="visual-representation">🤧🤒💉</div>
+            <p class="definition">Doenças causadas por vírus, como gripe, dengue, HIV/AIDS, COVID-19. Prevenção inclui vacinação e hábitos de higiene.</p>
+            <p class="keywords">Gripe, Dengue, HIV, COVID-19, Hepatite, Sarampo, Vacinação, Prevenção</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Importância dos Vírus: Além das Doenças" 
+             data-details="<p>Embora frequentemente associados a doenças, os vírus também desempenham papéis importantes na natureza e têm aplicações benéficas na ciência e medicina.</p><h4>Aspectos Positivos e Aplicações:</h4><ul><li><strong>Regulação de Populações:</strong> Vírus infectam todos os tipos de organismos e podem controlar populações naturais, especialmente de microrganismos como bactérias e algas, influenciando ecossistemas.</li><li><strong>Motor da Evolução:</strong> Através da transferência horizontal de genes, os vírus podem introduzir novo material genético nos hospedeiros, contribuindo para a diversidade genética e evolução. Acredita-se que elementos virais endógenos (restos de vírus integrados ao nosso genoma) tiveram papel na evolução humana.</li><li><strong>Biotecnologia e Engenharia Genética:</strong><ul><li><strong>Vetores Virais:</strong> Vírus modificados são usados como vetores para introduzir genes específicos em células. Isso é fundamental na <strong>terapia gênica</strong> (tratamento de doenças genéticas) e na produção de proteínas recombinantes.</li><li><strong>Produção de Vacinas:</strong> Vírus atenuados, inativados ou partes de vírus são usados para criar vacinas que estimulam o sistema imunológico.</li></ul></li><li><strong>Fagoterapia (Terapia com Bacteriófagos):</strong> Uso de bacteriófagos (vírus que infectam bactérias) para tratar infecções bacterianas, especialmente aquelas resistentes a antibióticos. É uma área de pesquisa promissora.</li><li><strong>Nanotecnologia:</strong> As partículas virais, com sua estrutura regular e capacidade de auto-montagem, são exploradas como nanomateriais para diversas aplicações.</li><li><strong>Controle Biológico de Pragas:</strong> Alguns vírus podem ser usados para controlar populações de insetos-praga na agricultura.</li></ul><p>O estudo dos vírus (Virologia) é crucial não apenas para combater doenças, mas também para entender processos biológicos fundamentais e desenvolver novas tecnologias.</p>">
+            <h3>Importância dos Vírus</h3>
+            <div class="visual-representation">🌍🔬💡</div>
+            <p class="definition">Além de causar doenças, vírus regulam ecossistemas, impulsionam a evolução e são ferramentas em biotecnologia e medicina (terapia gênica, vacinas).</p>
+            <p class="keywords">Ecologia Viral, Evolução, Terapia Gênica, Vetores Virais, Fagoterapia, Biotecnologia, Virologia</p>
+        </div>
+
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = document.getElementById("myModal");
+            var modalTitle = document.getElementById("modalTitle");
+            var modalDetails = document.getElementById("modalDetails");
+            var span = document.getElementsByClassName("close-button")[0];
+
+            document.querySelectorAll('.card').forEach(function(card) {
+                card.onclick = function() {
+                    modalTitle.textContent = card.getAttribute('data-concept');
+                    modalDetails.innerHTML = card.getAttribute('data-details');
+                    modal.style.display = "block";
+                }
+            });
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+    <footer>
+        <p>Desvendando os mistérios dos gigantes microscópicos! 🔬🌍</p>
+    </footer>
+</body>
+</html>

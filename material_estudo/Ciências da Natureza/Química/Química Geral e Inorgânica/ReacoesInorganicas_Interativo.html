@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Química Geral e Inorgânica: Reações Inorgânicas - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #E3F2FD; /* Azul Muito Claro */
+            color: #01579B; /* Azul Cerúleo Escuro */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #0D47A1; /* Azul Escuro Intenso */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #1976D2; /* Azul Padrão */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff; 
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #2196F3; /* Azul Vibrante */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #1565C0; /* Azul Médio */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #1565C0; /* Azul Médio */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #01579B; /* Azul Cerúleo Escuro */
+            margin-bottom: 10px;
+            min-height: 80px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #1976D2; /* Azul Padrão */
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #0D47A1; /* Azul Escuro Intenso */
+            color: #FFFFFF; /* Branco */
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.6); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #E1F5FE; /* Azul Celeste Claro */
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #B3E5FC; /* Azul Céu Claro */
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #0D47A1; /* Azul Escuro Intenso */
+            margin-top: 0;
+            border-bottom: 2px solid #2196F3; /* Azul Vibrante */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+            color: #1565C0; /* Azul Médio */
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong {
+            color: #0D47A1; /* Azul Escuro Intenso */
+        }
+        .close-button {
+            color: #1976D2; /* Azul Padrão */
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #0D47A1; /* Azul Escuro Intenso */
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Reações Inorgânicas: A Dinâmica das Transformações</h1>
+        <p>Explorando como as substâncias interagem e se convertem no mundo inorgânico.</p>
+    </header>
+
+    <div class="concepts-grid">
+        <!-- Card 1: Introdução às Reações Inorgânicas -->
+        <div class="card" 
+             data-concept="Introdução às Reações Inorgânicas" 
+             data-details="<p>Uma <strong>reação química inorgânica</strong> é um processo no qual substâncias iniciais, chamadas <strong>reagentes</strong>, são transformadas em novas substâncias, chamadas <strong>produtos</strong>. Essa transformação envolve a quebra de ligações químicas existentes nos reagentes e a formação de novas ligações para originar os produtos.</p><p>As reações químicas são representadas por <strong>equações químicas</strong>, que utilizam fórmulas e símbolos para descrever as substâncias envolvidas e as proporções em que reagem. Exemplo: <code>2 H<sub>2(g)</sub> + O<sub>2(g)</sub> → 2 H<sub>2</sub>O<sub>(l)</sub></code>.</p><h4>Evidências de uma Reação Química:</h4><p>Alguns sinais podem indicar a ocorrência de uma reação química:</p><ul><li>Mudança de cor.</li><li>Liberação ou absorção de calor (reações exotérmicas ou endotérmicas).</li><li>Formação de um precipitado (sólido insolúvel).</li><li>Liberação de gás (efervescência).</li><li>Emissão de luz.</li></ul><h4>Fatores que Influenciam as Reações:</h4><ul><li><strong>Natureza dos reagentes:</strong> Diferentes substâncias têm diferentes reatividades.</li><li><strong>Concentração dos reagentes:</strong> Maior concentração geralmente leva a maior velocidade.</li><li><strong>Temperatura:</strong> O aumento da temperatura geralmente acelera a reação.</li><li><strong>Pressão (para gases):</strong> O aumento da pressão pode acelerar reações gasosas.</li><li><strong>Superfície de contato (para sólidos):</strong> Maior superfície de contato aumenta a velocidade.</li><li><strong>Catalisadores:</strong> Substâncias que aumentam a velocidade da reação sem serem consumidas.</li></ul><p>O estudo das reações inorgânicas é crucial para entender processos naturais, industriais e laboratoriais.</p>">
+            <h3>Introdução às Reações</h3>
+            <div class="visual-representation">A+B → C+D</div>
+            <p class="definition">Processos que transformam substâncias (reagentes) em novas substâncias (produtos) através da quebra e formação de ligações.</p>
+            <p class="keywords">Reagentes, Produtos, Transformação, Equação Química</p>
+        </div>
+
+        <!-- Card 2: Reações de Síntese ou Adição -->
+        <div class="card" 
+             data-concept="Reações de Síntese ou Adição" 
+             data-details="<p>As <strong>reações de síntese ou adição</strong> são aquelas em que duas ou mais substâncias (simples ou compostas), chamadas reagentes, se combinam para formar uma <strong>única substância mais complexa</strong> como produto.</p><p><strong>Forma Geral:</strong> <code>A + B → AB</code></p><p>Onde A e B podem ser substâncias simples (formadas por um único elemento químico, como O<sub>2</sub>, H<sub>2</sub>, S<sub>8</sub>) ou substâncias compostas (formadas por mais de um elemento químico, como H<sub>2</sub>O, CO<sub>2</sub>, NH<sub>3</sub>).</p><h4>Exemplos de Reações de Síntese:</h4><ul><li><strong>Síntese Total (reagentes são substâncias simples):</strong><ul><li><code>2 H<sub>2(g)</sub> + O<sub>2(g)</sub> → 2 H<sub>2</sub>O<sub>(l)</sub></code> (Formação da água)</li><li><code>N<sub>2(g)</sub> + 3 H<sub>2(g)</sub> → 2 NH<sub>3(g)</sub></code> (Síntese de Haber-Bosch para amônia)</li><li><code>C<sub>(s)</sub> + O<sub>2(g)</sub> → CO<sub>2(g)</sub></code> (Combustão completa do carbono)</li></ul></li><li><strong>Síntese Parcial (pelo menos um reagente é uma substância composta):</strong><ul><li><code>SO<sub>3(g)</sub> + H<sub>2</sub>O<sub>(l)</sub> → H<sub>2</sub>SO<sub>4(aq)</sub></code> (Formação do ácido sulfúrico)</li><li><code>CaO<sub>(s)</sub> + H<sub>2</sub>O<sub>(l)</sub> → Ca(OH)<sub>2(aq)</sub></code> (Formação do hidróxido de cálcio - cal hidratada)</li><li><code>NH<sub>3(g)</sub> + HCl<sub>(g)</sub> → NH<sub>4</sub>Cl<sub>(s)</sub></code> (Formação do cloreto de amônio)</li></ul></li></ul><p>Essas reações são fundamentais na obtenção de muitos compostos importantes industrialmente e em processos naturais.</p>">
+            <h3>Síntese ou Adição</h3>
+            <div class="visual-representation">A + B → AB</div>
+            <p class="definition">Duas ou mais substâncias simples ou compostas reagem para formar um único produto mais complexo.</p>
+            <p class="keywords">Combinação, Formação, Único Produto, Composição</p>
+        </div>
+
+        <!-- Card 3: Reações de Decomposição ou Análise -->
+        <div class="card" 
+             data-concept="Reações de Decomposição ou Análise" 
+             data-details="<p>As <strong>reações de decomposição ou análise</strong> são aquelas em que uma <strong>única substância composta</strong> (reagente) se decompõe, originando duas ou more substâncias mais simples (produtos).</p><p><strong>Forma Geral:</strong> <code>AB → A + B</code></p><p>Essas reações geralmente requerem o fornecimento de energia (calor, eletricidade, luz) para ocorrerem.</p><h4>Tipos Comuns de Decomposição (de acordo com o agente causador):</h4><ul><li><strong>Pirólise (Decomposição Térmica):</strong> Decomposição causada pelo calor (Δ).<ul><li><code>CaCO<sub>3(s)</sub> → CaO<sub>(s)</sub> + CO<sub>2(g)</sub></code> (Decomposição do carbonato de cálcio)</li><li><code>2 KClO<sub>3(s)</sub> → 2 KCl<sub>(s)</sub> + 3 O<sub>2(g)</sub></code> (Decomposição do clorato de potássio)</li></ul></li><li><strong>Eletrólise:</strong> Decomposição causada pela passagem de corrente elétrica.<ul><li><code>2 H<sub>2</sub>O<sub>(l)</sub> → 2 H<sub>2(g)</sub> + O<sub>2(g)</sub></code> (Eletrólise da água)</li><li><code>2 NaCl<sub>(l)</sub> → 2 Na<sub>(s)</sub> + Cl<sub>2(g)</sub></code> (Eletrólise ígnea do cloreto de sódio)</li></ul></li><li><strong>Fotólise:</strong> Decomposição causada pela luz (geralmente UV).<ul><li><code>2 AgBr<sub>(s)</sub> → 2 Ag<sub>(s)</sub> + Br<sub>2(g)</sub></code> (Usado em filmes fotográficos)</li><li><code>2 H<sub>2</sub>O<sub>2(aq)</sub> → 2 H<sub>2</sub>O<sub>(l)</sub> + O<sub>2(g)</sub></code> (Decomposição da água oxigenada pela luz)</li></ul></li></ul><p>As reações de decomposição são importantes para a obtenção de substâncias simples a partir de compostos, como a produção de oxigênio em laboratório.</p>">
+            <h3>Decomposição ou Análise</h3>
+            <div class="visual-representation">AB → A + B</div>
+            <p class="definition">Uma única substância se decompõe em duas ou mais substâncias mais simples.</p>
+            <p class="keywords">Dissociação, Quebra, Múltiplos Produtos, Pirólise, Eletrólise</p>
+        </div>
+
+        <!-- Card 4: Reações de Simples Troca ou Deslocamento -->
+        <div class="card" 
+             data-concept="Reações de Simples Troca ou Deslocamento" 
+             data-details="<p>As <strong>reações de simples troca ou deslocamento</strong> ocorrem quando uma <strong>substância simples</strong> reage com uma <strong>substância composta</strong>, deslocando um dos elementos da substância composta e formando uma nova substância simples e uma nova substância composta.</p><p><strong>Formas Gerais:</strong></p><ul><li><code>A + BC → AC + B</code> (Um metal ou hidrogênio desloca outro metal ou hidrogênio menos reativo)</li><li><code>X + BY → BX + Y</code> (Um ametal desloca outro ametal menos reativo)</li></ul><p>A ocorrência dessas reações depende da <strong>reatividade</strong> dos elementos envolvidos. Uma fila de reatividade (ou potencial de redução/oxidação) é usada para prever se a reação ocorrerá:</p><ul><li><strong>Metais:</strong> Li > K > Cs > Ba > Sr > Ca > Na > Mg > Al > Mn > Zn > Cr > Fe > Co > Ni > Sn > Pb > <strong>H</strong> > Cu > Hg > Ag > Pt > Au (Mais reativos deslocam os menos reativos e o hidrogênio de ácidos).</li><li><strong>Ametais (Halogênios):</strong> F > O > Cl > Br > I > S (Mais reativos deslocam os menos reativos de seus sais).</li></ul><h4>Exemplos:</h4><ul><li><code>Zn<sub>(s)</sub> + 2 HCl<sub>(aq)</sub> → ZnCl<sub>2(aq)</sub> + H<sub>2(g)</sub></code> (Zinco é mais reativo que hidrogênio)</li><li><code>Fe<sub>(s)</sub> + CuSO<sub>4(aq)</sub> → FeSO<sub>4(aq)</sub> + Cu<sub>(s)</sub></code> (Ferro é mais reativo que cobre)</li><li><code>Cl<sub>2(g)</sub> + 2 NaBr<sub>(aq)</sub> → 2 NaCl<sub>(aq)</sub> + Br<sub>2(l)</sub></code> (Cloro é mais reativo que bromo)</li><li><code>Cu<sub>(s)</sub> + HCl<sub>(aq)</sub> → Não ocorre</code> (Cobre é menos reativo que hidrogênio)</li></ul><p>Estas reações são importantes em processos metalúrgicos e na produção de certos elementos.</p>">
+            <h3>Simples Troca ou Deslocamento</h3>
+            <div class="visual-representation">A + BC → AC + B</div>
+            <p class="definition">Uma substância simples reage com uma substância composta, deslocando um dos componentes da substância composta.</p>
+            <p class="keywords">Substituição, Deslocamento, Reatividade, Metais, Ametais</p>
+        </div>
+
+        <!-- Card 5: Reações de Dupla Troca ou Permutação -->
+        <div class="card" 
+             data-concept="Reações de Dupla Troca ou Permutação" 
+             data-details="<p>As <strong>reações de dupla troca ou permutação</strong> ocorrem quando duas <strong>substâncias compostas</strong> reagem entre si, trocando seus íons ou grupos de átomos, resultando na formação de duas novas substâncias compostas.</p><p><strong>Forma Geral:</strong> <code>AB + CD → AD + CB</code></p><p>Para que uma reação de dupla troca ocorra efetivamente (seja considerada uma reação e não apenas uma mistura de íons em solução), pelo menos uma das seguintes condições deve ser satisfeita para um dos produtos formados:</p><ol><li><strong>Formação de um precipitado (sólido insolúvel):</strong> Um dos produtos é insolúvel no meio reacional e se separa como um sólido. É necessário consultar tabelas de solubilidade.<ul><li>Ex: <code>AgNO<sub>3(aq)</sub> + NaCl<sub>(aq)</sub> → AgCl<sub>(s)</sub>↓ + NaNO<sub>3(aq)</sub></code> (AgCl é um precipitado branco)</li></ul></li><li><strong>Formação de um gás (substância volátil):</strong> Um dos produtos é um gás que escapa do sistema.<ul><li>Ex: <code>Na<sub>2</sub>S<sub>(aq)</sub> + 2 HCl<sub>(aq)</sub> → 2 NaCl<sub>(aq)</sub> + H<sub>2</sub>S<sub>(g)</sub>↑</code> (H<sub>2</sub>S é um gás com cheiro de ovo podre)</li><li>Ex: <code>CaCO<sub>3(s)</sub> + 2 HCl<sub>(aq)</sub> → CaCl<sub>2(aq)</sub> + H<sub>2</sub>O<sub>(l)</sub> + CO<sub>2(g)</sub>↑</code> (CO<sub>2</sub> é um gás)</li></ul></li><li><strong>Formação de uma substância menos ionizada ou mais estável (geralmente água):</strong> A reação de neutralização ácido-base é um caso clássico.<ul><li>Ex: <code>HCl<sub>(aq)</sub> + NaOH<sub>(aq)</sub> → NaCl<sub>(aq)</sub> + H<sub>2</sub>O<sub>(l)</sub></code> (Água é uma molécula muito estável e pouco ionizada)</li></ul></li></ol><p>Se nenhum desses critérios for atendido, considera-se que não houve reação efetiva, apenas uma mistura de íons em solução.</p>">
+            <h3>Dupla Troca ou Permutação</h3>
+            <div class="visual-representation">AB + CD → AD + CB</div>
+            <p class="definition">Duas substâncias compostas reagem trocando seus componentes, geralmente formando um precipitado, gás ou água.</p>
+            <p class="keywords">Permutação, Precipitação, Volatilização, Neutralização</p>
+        </div>
+
+        <!-- Card 6: Reações de Oxirredução (Redox) -->
+        <div class="card" 
+             data-concept="Reações de Oxirredução (Redox)" 
+             data-details="<p>As <strong>reações de oxirredução (ou redox)</strong> são aquelas que envolvem a <strong>transferência de elétrons</strong> entre as espécies químicas participantes. Essa transferência resulta na variação do <strong>Número de Oxidação (NOX)</strong> dos átomos envolvidos.</p><h4>Conceitos Fundamentais:</h4><ul><li><strong>Oxidação:</strong> É a <strong>perda</strong> de elétrons por uma espécie química. O NOX do elemento que oxida <strong>aumenta</strong>.</li><li><strong>Redução:</strong> É o <strong>ganho</strong> de elétrons por uma espécie química. O NOX do elemento que reduz <strong>diminui</strong>.</li><li><strong>Agente Oxidante:</strong> É a espécie química que <strong>provoca a oxidação</strong> de outra espécie, e ao fazer isso, ela mesma <strong>sofre redução</strong> (ganha elétrons).</li><li><strong>Agente Redutor:</strong> É a espécie química que <strong>provoca a redução</strong> de outra espécie, e ao fazer isso, ela mesma <strong>sofre oxidação</strong> (perde elétrons).</li></ul><p><strong>Lembrete:</strong> &quot;Quem oxida, perde elétrons e aumenta o NOX. Quem reduz, ganha elétrons e diminui o NOX.&quot;</p><h4>Identificação de Reações Redox:</h4><p>Uma reação é de oxirredução se houver variação do NOX de pelo menos dois elementos entre reagentes e produtos. As reações de simples troca são sempre redox. Muitas reações de síntese e decomposição também são redox.</p><h4>Exemplos:</h4><ul><li><code>Zn<sub>(s)</sub> + CuSO<sub>4(aq)</sub> → ZnSO<sub>4(aq)</sub> + Cu<sub>(s)</sub></code><ul><li>Zn (NOX 0 → +2): Oxida, é o agente redutor.</li><li>Cu (NOX +2 → 0): Reduz, está no CuSO<sub>4</sub> que é o agente oxidante.</li></ul></li><li><code>2 KMnO<sub>4(aq)</sub> + 10 FeSO<sub>4(aq)</sub> + 8 H<sub>2</sub>SO<sub>4(aq)</sub> → K<sub>2</sub>SO<sub>4(aq)</sub> + 2 MnSO<sub>4(aq)</sub> + 5 Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3(aq)</sub> + 8 H<sub>2</sub>O<sub>(l)</sub></code><ul><li>Mn no KMnO<sub>4</sub> (NOX +7 → +2 no MnSO<sub>4</sub>): Reduz (KMnO<sub>4</sub> é o agente oxidante).</li><li>Fe no FeSO<sub>4</sub> (NOX +2 → +3 no Fe<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>): Oxida (FeSO<sub>4</sub> é o agente redutor).</li></ul></li></ul><p>As reações redox são fundamentais em processos como combustão, corrosão, respiração celular, fotossíntese e no funcionamento de pilhas e baterias.</p>">
+            <h3>Oxirredução (Redox)</h3>
+            <div class="visual-representation">e<sup>-</sup> 🔄</div>
+            <p class="definition">Reações que envolvem a transferência de elétrons entre espécies químicas, com variação do número de oxidação (NOX).</p>
+            <p class="keywords">Oxidação, Redução, NOX, Agente Oxidante, Agente Redutor</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Testemunhando a dança dos átomos e moléculas! 🔄🔬✨</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalConceptTitle"></h2>
+            <div id="modalConceptDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('myModal');
+        const modalTitle = document.getElementById('modalConceptTitle');
+        const modalDetails = document.getElementById('modalConceptDetails');
+        const closeButton = document.querySelector('.close-button');
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const concept = this.getAttribute('data-concept');
+                const details = this.getAttribute('data-details');
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details;
+                modal.style.display = 'block';
+            });
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

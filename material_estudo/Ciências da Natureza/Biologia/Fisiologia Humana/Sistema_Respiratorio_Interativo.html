@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Respiratório - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #eaf2f8; /* Azul bem claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #1565c0; /* Azul escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #1e88e5; /* Azul médio */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #0d47a1; /* Azul mais escuro para a borda */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #0b3d91; /* Azul bem escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #1565c0;
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 60px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #0b3d91; /* Azul bem escuro */
+            color: #e3f2fd; /* Azul muito claro */
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #0b3d91;
+            margin-top: 0;
+            border-bottom: 2px solid #0d47a1;
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #1565c0; }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Respiratório Humano</h1>
+        <p>A vital troca de gases que nos mantém vivos! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" data-concept="Visão Geral do Sistema Respiratório" data-details="O <strong>Sistema Respiratório</strong> é responsável pelas trocas gasosas entre o organismo e o ambiente, permitindo a captação de oxigênio (O₂) e a eliminação de dióxido de carbono (CO₂).<ul><li><strong>Funções Principais:</strong> Trocas gasosas (hematose), fonação (produção da voz), regulação do pH sanguíneo, defesa contra patógenos inalados e olfato.</li><li><strong>Componentes Principais:</strong> Vias aéreas (cavidades nasais, faringe, laringe, traqueia, brônquios, bronquíolos) e pulmões (onde se localizam os alvéolos).</li></ul>">
+            <h3>Visão Geral</h3>
+            <div class="visual-representation">🌬️💨👃🗣️</div>
+            <p class="definition">Conjunto de órgãos responsáveis pelas trocas gasosas (O₂ e CO₂), fonação e olfato.</p>
+            <p class="keywords">Trocas Gasosas, Oxigênio, Dióxido de Carbono, Pulmões</p>
+        </div>
+
+        <div class="card" data-concept="Vias Aéreas Superiores" data-details="As <strong>Vias Aéreas Superiores</strong> compreendem as estruturas que conduzem, filtram, aquecem e umedecem o ar inspirado antes que ele chegue aos pulmões.<ul><li><strong>Cavidades Nasais (Nariz):</strong> Porta de entrada do ar. Revestidas por pelos (filtram partículas maiores) e mucosa produtora de muco (umedece o ar e retém partículas menores e patógenos). Rica vascularização aquece o ar. Contêm células olfatórias.</li><li><strong>Faringe:</strong> Canal comum aos sistemas respiratório e digestório. Conduz o ar das cavidades nasais para a laringe.</li><li><strong>Laringe:</strong> Tubo cartilaginoso que conecta a faringe à traqueia. Contém as <strong>pregas vocais</strong> (responsáveis pela fonação) e a <strong>epiglote</strong> (impede a entrada de alimentos nas vias aéreas durante a deglutição).</li></ul>">
+            <h3>Vias Aéreas Superiores</h3>
+            <div class="visual-representation">👃🌡️💧🗣️</div>
+            <p class="definition">Nariz, faringe e laringe: filtram, aquecem, umedecem o ar e participam da fonação.</p>
+            <p class="keywords">Nariz, Filtração, Aquecimento, Umidificação, Laringe, Pregas Vocais</p>
+        </div>
+
+        <div class="card" data-concept="Vias Aéreas Inferiores" data-details="As <strong>Vias Aéreas Inferiores</strong> continuam o transporte do ar em direção aos pulmões.<ul><li><strong>Traqueia:</strong> Tubo formado por anéis cartilaginosos em forma de 'C' (que a mantêm aberta) e revestido internamente por epitélio ciliado e células produtoras de muco. Os cílios batem continuamente, empurrando o muco com partículas retidas para cima, em direção à faringe, para ser deglutido ou expectorado (mecanismo de limpeza).</li><li><strong>Brônquios Principais (Direito e Esquerdo):</strong> Bifurcações da traqueia que penetram nos pulmões. Possuem estrutura semelhante à traqueia.</li><li><strong>Bronquíolos:</strong> Ramificações menores dos brônquios dentro dos pulmões, sem cartilagem, com paredes musculares que controlam seu diâmetro. Terminam nos alvéolos pulmonares.</li></ul>">
+            <h3>Vias Aéreas Inferiores</h3>
+            <div class="visual-representation">🌳🌬️🧹</div>
+            <p class="definition">Traqueia, brônquios e bronquíolos: conduzem o ar e continuam a limpeza através de cílios e muco.</p>
+            <p class="keywords">Traqueia, Brônquios, Bronquíolos, Cílios, Muco</p>
+        </div>
+
+        <div class="card" data-concept="Pulmões e Alvéolos" data-details="Os <strong>Pulmões</strong> são os principais órgãos do sistema respiratório, onde ocorrem as trocas gasosas.<ul><li><strong>Estrutura:</strong> Órgãos esponjosos e elásticos, localizados na caixa torácica. O pulmão direito é dividido em três lobos e o esquerdo em dois (devido ao espaço ocupado pelo coração).</li><li><strong>Pleura:</strong> Membrana dupla que reveste os pulmões (pleura visceral) e a parede interna da caixa torácica (pleura parietal). Entre elas há um líquido lubrificante (líquido pleural) que reduz o atrito durante os movimentos respiratórios.</li><li><strong>Alvéolos Pulmonares:</strong> Minúsculas bolsas de ar de paredes muito finas (uma única camada de células epiteliais), agrupadas como cachos de uva no final dos bronquíolos. São ricamente vascularizados por capilares sanguíneos. É nos alvéolos que ocorre a <strong>hematose</strong> (troca de O₂ e CO₂ entre o ar e o sangue).</li></ul>">
+            <h3>Pulmões e Alvéolos</h3>
+            <div class="visual-representation">🫁🍇🔄🩸</div>
+            <p class="definition">Órgãos esponjosos onde o ar chega aos alvéolos, local das trocas gasosas (hematose).</p>
+            <p class="keywords">Alvéolos, Hematose, Troca Gasosa, Pleura, Capilares</p>
+        </div>
+
+        <div class="card" data-concept="Mecânica da Respiração" data-details="A ventilação pulmonar (entrada e saída de ar dos pulmões) ocorre devido a diferenças de pressão criadas pela ação de músculos respiratórios.<ul><li><strong>Inspiração (Entrada de Ar):</strong> Processo ativo. O <strong>diafragma</strong> (músculo em forma de cúpula abaixo dos pulmões) contrai e desce. Os <strong>músculos intercostais externos</strong> contraem, elevando as costelas. Isso aumenta o volume da caixa torácica, diminuindo a pressão interna dos pulmões em relação à atmosférica, e o ar entra.</li><li><strong>Expiração (Saída de Ar):</strong> Processo geralmente passivo (em repouso). O diafragma e os músculos intercostais externos relaxam. O volume da caixa torácica diminui devido à elasticidade dos pulmões e da parede torácica. A pressão interna dos pulmões torna-se maior que a atmosférica, e o ar sai. Em expiração forçada, músculos abdominais e intercostais internos podem contrair.</li></ul>">
+            <h3>Mecânica da Respiração</h3>
+            <div class="visual-representation">⬆️🌬️⬇️💨</div>
+            <p class="definition">Movimentos de inspiração (entrada de ar) e expiração (saída de ar) devido à ação do diafragma e músculos intercostais.</p>
+            <p class="keywords">Inspiração, Expiração, Diafragma, Músculos Intercostais, Pressão</p>
+        </div>
+
+        <div class="card" data-concept="Trocas Gasosas (Hematose)" data-details="A <strong>Hematose</strong> é o processo de troca de gases (O₂ e CO₂) entre o ar nos alvéolos e o sangue nos capilares pulmonares, e também entre o sangue nos capilares sistêmicos e as células dos tecidos. Ocorre por <strong>difusão simples</strong>, a favor do gradiente de concentração (ou pressão parcial) dos gases.<ul><li><strong>Hematose Pulmonar (nos Alvéolos):</strong> O ar alveolar é rico em O₂ e pobre em CO₂. O sangue venoso que chega aos capilares pulmonares é pobre em O₂ e rico em CO₂. Assim, o O₂ difunde-se do alvéolo para o sangue, e o CO₂ difunde-se do sangue para o alvéolo (para ser expirado). O sangue torna-se arterial (rico em O₂).</li><li><strong>Hematose Tecidual (nos Tecidos):</strong> O sangue arterial que chega aos capilares dos tecidos é rico em O₂ e pobre em CO₂. As células dos tecidos, devido à respiração celular, são pobres em O₂ e ricas em CO₂. Assim, o O₂ difunde-se do sangue para as células, e o CO₂ difunde-se das células para o sangue. O sangue torna-se venoso.</li></ul>">
+            <h3>Trocas Gasosas (Hematose)</h3>
+            <div class="visual-representation">💨🔄🩸🦠</div>
+            <p class="definition">Processo de troca de O₂ e CO₂ entre os alvéolos e o sangue (pulmonar) e entre o sangue e as células (tecidual) por difusão.</p>
+            <p class="keywords">Difusão, Oxigênio, Dióxido de Carbono, Alvéolos, Capilares, Tecidos</p>
+        </div>
+
+        <div class="card" data-concept="Transporte de Gases no Sangue" data-details="Após as trocas gasosas, O₂ e CO₂ são transportados pelo sangue.<ul><li><strong>Transporte de Oxigênio (O₂):</strong> A maior parte (cerca de 98,5%) do O₂ é transportada ligada à proteína <strong>hemoglobina (Hb)</strong>, presente nas hemácias (glóbulos vermelhos), formando a <strong>oxiemoglobina (HbO₂)</strong>. Uma pequena parte (1,5%) é transportada dissolvida no plasma. A ligação O₂-Hb é reversível e depende da pressão parcial de O₂.</li><li><strong>Transporte de Dióxido de Carbono (CO₂):</strong> O CO₂ é transportado de três formas principais:
+    <ul>
+        <li><strong>Íons Bicarbonato (HCO₃⁻):</strong> Cerca de 70%. O CO₂ entra nas hemácias, reage com a água (catalisado pela enzima anidrase carbônica) formando ácido carbônico (H₂CO₃), que se dissocia em H⁺ e HCO₃⁻. O HCO₃⁻ sai da hemácia para o plasma.</li>
+        <li><strong>Ligado à Hemoglobina:</strong> Cerca de 23%, formando a <strong>carboemoglobina (HbCO₂)</strong>. O CO₂ liga-se a porções proteicas da hemoglobina, não ao grupo heme como o O₂.</li>
+        <li><strong>Dissolvido no Plasma:</strong> Cerca de 7%.</li>
+    </ul>
+</li></ul>">
+            <h3>Transporte de Gases</h3>
+            <div class="visual-representation">🩸🚚💨💨</div>
+            <p class="definition">O₂ é transportado principalmente pela hemoglobina (oxiemoglobina). CO₂ é transportado como íon bicarbonato, ligado à hemoglobina ou dissolvido.</p>
+            <p class="keywords">Hemoglobina, Oxiemoglobina, Bicarbonato, Carboemoglobina, Anidrase Carbônica</p>
+        </div>
+
+        <div class="card" data-concept="Controle da Respiração" data-details="A respiração é controlada automaticamente pelo sistema nervoso central, mas pode ser influenciada voluntariamente até certo ponto.<ul><li><strong>Centro Respiratório:</strong> Localizado no <strong>bulbo</strong> (parte do tronco encefálico), controla o ritmo e a profundidade da respiração. Grupos de neurônios no bulbo geram impulsos nervosos rítmicos para os músculos respiratórios (diafragma e intercostais). A ponte também participa na modulação do ritmo.</li><li><strong>Controle Químico (Quimiorreceptores):</strong> A frequência e a profundidade da respiração são ajustadas em resposta a alterações nos níveis de CO₂, O₂ e pH no sangue e no líquido cefalorraquidiano.
+    <ul>
+        <li><strong>Quimiorreceptores Centrais (no bulbo):</strong> Sensíveis principalmente ao aumento da concentração de H⁺ (diminuição do pH) no líquido cefalorraquidiano, que reflete o aumento de CO₂ no sangue.</li>
+        <li><strong>Quimiorreceptores Periféricos (nas artérias carótidas e aorta):</strong> Sensíveis principalmente à diminuição acentuada de O₂ no sangue arterial, e também ao aumento de CO₂ e H⁺.</li>
+    </ul>
+    O principal estímulo para aumentar a respiração é o aumento da concentração de CO₂ (e consequente aumento de H⁺/diminuição do pH).</li></ul>">
+            <h3>Controle da Respiração</h3>
+            <div class="visual-representation">🧠📊⚙️💨</div>
+            <p class="definition">Regulação automática pelo centro respiratório (bulbo) e por quimiorreceptores sensíveis a CO₂, O₂ e pH.</p>
+            <p class="keywords">Bulbo, Centro Respiratório, Quimiorreceptores, CO₂, pH Sanguíneo</p>
+        </div>
+
+        <div class="card" data-concept="Principais Doenças Respiratórias" data-details="Diversas condições podem afetar o sistema respiratório. Algumas comuns incluem:<ul><li><strong>Asma:</strong> Inflamação crônica das vias aéreas, causando estreitamento dos brônquios e dificuldade respiratória (chiado, tosse, falta de ar). Desencadeada por alérgenos, irritantes, infecções.</li><li><strong>Bronquite:</strong> Inflamação dos brônquios, geralmente causada por infecção viral ou bacteriana (aguda) ou por irritantes como fumaça de cigarro (crônica). Causa tosse com muco.</li><li><strong>Pneumonia:</strong> Infecção que inflama os alvéolos em um ou ambos os pulmões. Os alvéolos podem se encher de líquido ou pus, causando tosse, febre, calafrios e dificuldade para respirar. Pode ser causada por bactérias, vírus ou fungos.</li><li><strong>Enfisema Pulmonar:</strong> Doença crônica, frequentemente associada ao tabagismo, onde as paredes dos alvéolos são destruídas, reduzindo a superfície para trocas gasosas e a elasticidade pulmonar. Causa falta de ar progressiva.</li><li><strong>Rinite e Sinusite:</strong> Inflamações da mucosa nasal e dos seios paranasais, respectivamente, muitas vezes de origem alérgica ou infecciosa.</li></ul><strong>Prevenção:</strong> Evitar tabagismo, vacinação, boa higiene, evitar exposição a poluentes e alérgenos são medidas importantes.">
+            <h3>Doenças Respiratórias</h3>
+            <div class="visual-representation">🤒😷🤧🌬️📉</div>
+            <p class="definition">Condições como asma, bronquite, pneumonia e enfisema que afetam a função respiratória.</p>
+            <p class="keywords">Asma, Bronquite, Pneumonia, Enfisema, Tabagismo</p>
+        </div>
+
+    </div>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Respire fundo, a vida agradece! 🌬️💙</p>
+    </footer>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close-button")[0];
+        var cards = document.querySelectorAll(".card");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDetails = document.getElementById("modalDetails");
+
+        cards.forEach(function(card) {
+            card.onclick = function() {
+                var concept = card.getAttribute("data-concept");
+                var details = card.getAttribute("data-details");
+                
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details; // Usar innerHTML para renderizar as tags <ul> e <li>
+                modal.style.display = "block";
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

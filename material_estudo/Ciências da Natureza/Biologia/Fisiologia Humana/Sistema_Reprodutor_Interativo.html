@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Reprodutor - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff0e1; /* Pêssego bem claro */
+            color: #4a3f35; /* Marrom suave */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #d9534f; /* Rosa avermelhado */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #7c5295; /* Roxo suave */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #7c5295; /* Roxo suave */
+            cursor: pointer; 
+        }
+        .card.male {
+            border-left-color: #5bc0de; /* Azul claro */
+        }
+        .card.female {
+            border-left-color: #f06292; /* Rosa claro */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #7c5295; /* Roxo suave */
+            margin-bottom: 15px;
+        }
+        .card.male h3 { color: #31708f; /* Azul escuro */ }
+        .card.female h3 { color: #c2185b; /* Rosa escuro */ }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #5a5a5a;
+            margin-bottom: 10px;
+            min-height: 70px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #7c5295;
+            font-weight: bold;
+        }
+        .card.male .keywords { color: #31708f; }
+        .card.female .keywords { color: #c2185b; }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #7c5295; /* Roxo suave */
+            color: #fce4ec; /* Rosa bem clarinho */
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fff9f2;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #d9534f;
+            margin-top: 0;
+            border-bottom: 2px solid #7c5295;
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #d9534f; }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Reprodutor</h1>
+        <p>A incrível jornada da vida: da formação dos gametas à perpetuação da espécie. (Clique nos cards!)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <h2 style="text-align: center; color: #31708f; width: 100%; margin-bottom: 20px; grid-column: 1 / -1; margin-top: 30px;">Sistema Masculino</h2>
+        <div class="card male" data-concept="Visão Geral Masculina" data-details="O <strong>Sistema Reprodutor Masculino</strong> é especializado na produção contínua de gametas masculinos (espermatozoides) e do principal hormônio sexual masculino, a testosterona.<ul><li><strong>Funções Principais:</strong><ul><li>Produção de espermatozoides.</li><li>Produção e secreção de testosterona, responsável pelo desenvolvimento de características sexuais secundárias masculinas (pelos, voz, massa muscular) e pela libido.</li><li>Transferência dos espermatozoides para o sistema reprodutor feminino através do ato sexual.</li></ul></li><li>Componentes chave incluem os testículos (gônadas), epidídimos, ductos deferentes, vesículas seminais, próstata e pênis.</li></ul>">
+            <h3>Visão Geral Masculina</h3>
+            <div class="visual-representation">♂️⚙️💪</div>
+            <p class="definition">Foco na produção de espermatozoides e hormônios masculinos (testosterona) para reprodução e características sexuais.</p>
+            <p class="keywords">Gametas Masculinos, Testosterona, Espermatogênese, Puberdade, Libido</p>
+        </div>
+        <div class="card male" data-concept="Sistema Reprodutor Masculino - Anatomia" data-details="<ul><li><strong>Órgãos Externos:</strong>
+    <ul>
+        <li><strong>Pênis:</strong> Órgão copulador, também participa da micção. Contém tecido erétil (corpos cavernosos e esponjoso).</li>
+        <li><strong>Escroto (Bolsa Escrotal):</strong> Bolsa de pele que aloja e protege os testículos, mantendo-os a uma temperatura ligeiramente inferior à do corpo, ideal para a produção de espermatozoides.</li>
+    </ul>
+</li><li><strong>Órgãos Internos e Glândulas Anexas:</strong>
+    <ul>
+        <li><strong>Testículos:</strong> Gônadas masculinas. Produzem espermatozoides (nos túbulos seminíferos) e testosterona.</li>
+        <li><strong>Epidídimos:</strong> Ductos onde os espermatozoides amadurecem e são armazenados.</li>
+        <li><strong>Ductos Deferentes:</strong> Conduzem os espermatozoides dos epidídimos até os ductos ejaculatórios.</li>
+        <li><strong>Vesículas Seminais:</strong> Produzem um fluido nutritivo e alcalino que compõe grande parte do sêmen.</li>
+        <li><strong>Próstata:</strong> Produz um fluido leitoso e alcalino que também compõe o sêmen, ajudando na motilidade e proteção dos espermatozoides.</li>
+        <li><strong>Glândulas Bulbouretrais (de Cowper):</strong> Secretam um muco lubrificante que limpa a uretra antes da ejaculação.</li>
+        <li><strong>Ductos Ejaculatórios:</strong> Formados pela união dos ductos deferentes com os ductos das vesículas seminais, desembocam na uretra.</li>
+        <li><strong>Uretra:</strong> Canal comum para a eliminação da urina e do sêmen.</li>
+    </ul>
+</li></ul>">
+            <h3>Anatomia Masculina</h3>
+            <div class="visual-representation">🚹🔧🔩</div>
+            <p class="definition">Órgãos: Pênis, escroto, testículos (produção de espermatozoides), epidídimos, ductos deferentes, próstata, vesículas seminais.</p>
+            <p class="keywords">Pênis, Testículos, Próstata, Epidídimo, Escroto, Sêmen</p>
+        </div>
+
+        <div class="card male" data-concept="Espermatogênese" data-details="A <strong>Espermatogênese</strong> é o processo de formação dos espermatozoides, que ocorre nos túbulos seminíferos dos testículos.<ul><li>Inicia-se na puberdade e continua por toda a vida adulta do homem.</li><li><strong>Etapas Principais:</strong>
+    <ol>
+        <li><strong>Fase de Multiplicação:</strong> Espermatogônias (células germinativas diploides, 2n) dividem-se por mitose, aumentando seu número.</li>
+        <li><strong>Fase de Crescimento:</strong> Algumas espermatogônias crescem e se transformam em espermatócitos primários (ou I), ainda diploides (2n).</li>
+        <li><strong>Fase de Maturação:</strong> Ocorre a meiose.
+            <ul>
+                <li><strong>Meiose I:</strong> Cada espermatócito I divide-se em dois espermatócitos secundários (ou II), que são haploides (n).</li>
+                <li><strong>Meiose II:</strong> Cada espermatócito II divide-se em duas espermátides, também haploides (n).</li>
+            </ul>
+        </li>
+        <li><strong>Fase de Diferenciação (Espermiogênese):</strong> As espermátides transformam-se em espermatozoides, desenvolvendo flagelo, acrossomo (capuz com enzimas para penetrar o óvulo) e perdendo parte do citoplasma.</li>
+    </ol>
+</li><li>Um espermatócito I origina quatro espermatozoides.</li></ul>">
+            <h3>Espermatogênese</h3>
+            <div class="visual-representation">🔬👨‍🔬⏳</div>
+            <p class="definition">Processo de formação dos espermatozoides nos testículos, a partir de células germinativas, envolvendo mitose e meiose.</p>
+            <p class="keywords">Espermatozoide, Testículo, Meiose, Gameta, Célula Germinativa</p>
+        </div>
+
+        <div class="card male" data-concept="Hormônios Masculinos" data-details="O principal hormônio sexual masculino é a <strong>Testosterona</strong>, produzida principalmente pelas células de Leydig nos testículos, sob estímulo do LH (Hormônio Luteinizante) da hipófise.<ul><li><strong>Funções da Testosterona:</strong>
+    <ul>
+        <li>Desenvolvimento e manutenção dos órgãos reprodutores masculinos.</li>
+        <li>Desenvolvimento e manutenção das características sexuais secundárias masculinas (voz grossa, pelos faciais e corporais, massa muscular aumentada, etc.).</li>
+        <li>Estimula a espermatogênese (juntamente com o FSH - Hormônio Folículo-Estimulante).</li>
+        <li>Influencia o comportamento sexual (libido) e a agressividade.</li>
+        <li>Efeitos anabólicos (crescimento de ossos e músculos).</li>
+    </ul>
+</li><li>Outros hormônios importantes incluem o FSH (estimula as células de Sertoli nos túbulos seminíferos, auxiliando na espermatogênese) e o LH. A regulação é feita pelo eixo hipotálamo-hipófise-testículos via feedback negativo.</li></ul>">
+            <h3>Hormônios Masculinos</h3>
+            <div class="visual-representation">💪🧔🗣️🧪</div>
+            <p class="definition">Principalmente a Testosterona, responsável pelas características sexuais masculinas, libido e produção de espermatozoides.</p>
+            <p class="keywords">Testosterona, LH, FSH, Puberdade, Libido, Músculos</p>
+        </div>
+
+        <h2 style="text-align: center; color: #c2185b; width: 100%; margin-bottom: 20px; grid-column: 1 / -1; margin-top: 30px;">Sistema Feminino</h2>
+        <div class="card female" data-concept="Visão Geral Feminina" data-details="O <strong>Sistema Reprodutor Feminino</strong> é especializado na produção de gametas femininos (óvulos), na produção de hormônios sexuais femininos (como estrogênio e progesterona), na recepção dos espermatozoides, na gestação de um novo ser e no parto.<ul><li><strong>Funções Principais:</strong><ul><li>Produção de óvulos (ovogênese).</li><li>Produção de hormônios como estrogênio e progesterona, que regulam o ciclo menstrual e o desenvolvimento de características sexuais secundárias femininas.</li><li>Fornecer o ambiente para a fecundação e o desenvolvimento do embrião/feto durante a gravidez.</li><li>Realização do parto.</li></ul></li><li>Componentes chave incluem os ovários (gônadas), tubas uterinas, útero, vagina e vulva.</li></ul>">
+            <h3>Visão Geral Feminina</h3>
+            <div class="visual-representation">♀️🌸🤰</div>
+            <p class="definition">Foco na produção de óvulos, hormônios femininos, ciclo menstrual, gestação e parto.</p>
+            <p class="keywords">Gametas Femininos, Estrogênio, Progesterona, Ciclo Menstrual, Gestação, Ovulação</p>
+        </div>
+        <div class="card female" data-concept="Sistema Reprodutor Feminino - Anatomia" data-details="<ul><li><strong>Órgãos Externos (Vulva ou Pudendo Feminino):</strong>
+    <ul>
+        <li><strong>Grandes Lábios:</strong> Dobras de pele mais externas, protegem as estruturas internas.</li>
+        <li><strong>Pequenos Lábios:</strong> Dobras de pele mais internas e delicadas, delimitam o vestíbulo vaginal.</li>
+        <li><strong>Clitóris:</strong> Pequeno órgão erétil altamente sensível, importante para o prazer sexual.</li>
+        <li><strong>Vestíbulo Vaginal:</strong> Área entre os pequenos lábios onde se abrem a uretra e a vagina.</li>
+    </ul>
+</li><li><strong>Órgãos Internos:</strong>
+    <ul>
+        <li><strong>Vagina:</strong> Canal muscular elástico que conecta o colo do útero ao exterior. Recebe o pênis durante a relação sexual e serve como canal de parto.</li>
+        <li><strong>Útero:</strong> Órgão muscular oco, em forma de pera invertida, onde o embrião/feto se desenvolve durante a gestação. Sua parede interna é o endométrio.</li>
+        <li><strong>Colo do Útero (Cérvix):</strong> Porção inferior e estreita do útero que se abre para a vagina.</li>
+        <li><strong>Tubas Uterinas (Trompas de Falópio):</strong> Dois tubos que conectam os ovários ao útero. Local onde geralmente ocorre a fecundação. Possuem fímbrias que capturam o óvulo liberado pelo ovário.</li>
+        <li><strong>Ovários:</strong> Gônadas femininas. Produzem óvulos e os hormônios sexuais femininos (estrogênio e progesterona).</li>
+    </ul>
+</li></ul>">
+            <h3>Anatomia Feminina</h3>
+            <div class="visual-representation">🚺🌷🤰</div>
+            <p class="definition">Órgãos: Vulva, vagina, útero (onde o bebê se desenvolve), ovários (produção de óvulos), tubas uterinas.</p>
+            <p class="keywords">Vagina, Útero, Ovário, Tuba Uterina, Vulva, Endométrio</p>
+        </div>
+
+        <div class="card female" data-concept="Ovogênese (Oogênese)" data-details="A <strong>Ovogênese</strong> (ou Oogênese) é o processo de formação dos óvulos (gametas femininos), que ocorre nos ovários.<ul><li>Inicia-se ainda durante o desenvolvimento fetal da mulher e é interrompido, sendo retomado na puberdade a cada ciclo menstrual.</li><li><strong>Etapas Principais:</strong>
+    <ol>
+        <li><strong>Fase de Multiplicação (Período Germinativo):</strong> Ovogônias (células germinativas diploides, 2n) dividem-se por mitose durante a vida fetal.</li>
+        <li><strong>Fase de Crescimento (Período de Crescimento):</strong> As ovogônias crescem e se transformam em ovócitos primários (ou I), ainda diploides (2n). Eles iniciam a meiose I, mas pausam na prófase I. A mulher já nasce com todos os seus ovócitos I.</li>
+        <li><strong>Fase de Maturação:</strong> Ocorre a partir da puberdade, a cada ciclo menstrual.
+            <ul>
+                <li>Sob estímulo hormonal, um ovócito I completa a meiose I, originando um ovócito secundário (ou II), grande e haploide (n), e o primeiro corpúsculo polar (pequena célula não funcional que degenera).</li>
+                <li>O ovócito II inicia a meiose II, mas pausa na metáfase II. É liberado do ovário nesse estágio (ovulação).</li>
+                <li>A meiose II só se completa se houver fecundação pelo espermatozoide. Se ocorrer, forma-se o óvulo maduro e o segundo corpúsculo polar.</li>
+            </ul>
+        </li>
+    </ol>
+</li><li>Um ovócito I origina apenas um óvulo funcional e corpúsculos polares.</li></ul>">
+            <h3>Ovogênese</h3>
+            <div class="visual-representation">🥚🔬⏳♀️</div>
+            <p class="definition">Processo de formação dos óvulos nos ovários. Inicia na vida fetal, pausa e é retomado na puberdade a cada ciclo.</p>
+            <p class="keywords">Óvulo, Ovário, Meiose, Gameta Feminino, Folículo Ovariano</p>
+        </div>
+
+        <div class="card female" data-concept="Ciclo Menstrual" data-details="O <strong>Ciclo Menstrual</strong> é um conjunto de alterações cíclicas que ocorrem no sistema reprodutor feminino (principalmente no útero e ovários) sob influência hormonal, preparando o corpo para uma possível gravidez. Dura em média 28 dias.<ul><li><strong>Fases do Ciclo (considerando o ciclo ovariano e uterino):</strong>
+    <ol>
+        <li><strong>Fase Menstrual (Menstruação - Dia 1 a ~5):</strong> Descamação do endométrio (revestimento interno do útero) caso não tenha ocorrido fecundação. Fluxo sanguíneo eliminado pela vagina. Baixos níveis de estrogênio e progesterona.</li>
+        <li><strong>Fase Folicular (Pré-Ovulatória - Dia ~6 a ~13):</strong> O FSH estimula o crescimento de folículos ovarianos. Um folículo dominante se desenvolve, produzindo estrogênio. O estrogênio estimula o espessamento do endométrio.</li>
+        <li><strong>Fase Ovulatória (Ovulação - Dia ~14):</strong> Um pico de LH (e também de FSH) provoca a ruptura do folículo maduro e a liberação do ovócito II (ovulação).</li>
+        <li><strong>Fase Lútea (Pós-Ovulatória - Dia ~15 a ~28):</strong> O folículo rompido transforma-se no corpo lúteo, que produz progesterona (e um pouco de estrogênio). A progesterona mantém o endométrio espesso e preparado para receber um embrião. Se não houver fecundação, o corpo lúteo degenera, os níveis hormonais caem, e um novo ciclo se inicia com a menstruação.</li>
+    </ol>
+</li><li><strong>Regulação Hormonal:</strong> Envolve o hipotálamo (GnRH), a hipófise (FSH, LH) e os ovários (estrogênio, progesterona).</li></ul>">
+            <h3>Ciclo Menstrual</h3>
+            <div class="visual-representation">🗓️🩸🔄♀️</div>
+            <p class="definition">Alterações mensais no útero e ovários, reguladas por hormônios, preparando para a gravidez. Inclui menstruação e ovulação.</p>
+            <p class="keywords">Menstruação, Ovulação, Endométrio, FSH, LH, Estrogênio, Progesterona</p>
+        </div>
+
+        <div class="card female" data-concept="Hormônios Femininos" data-details="Os principais hormônios sexuais femininos são o <strong>Estrogênio</strong> e a <strong>Progesterona</strong>, produzidos pelos ovários, e também o FSH e LH produzidos pela hipófise.<ul><li><strong>Estrogênio (principalmente Estradiol):</strong>
+    <ul>
+        <li>Desenvolvimento e manutenção dos órgãos reprodutores femininos.</li>
+        <li>Desenvolvimento e manutenção das características sexuais secundárias femininas (desenvolvimento das mamas, alargamento dos quadris, distribuição de gordura corporal, etc.).</li>
+        <li>Estimula o crescimento do endométrio na primeira fase do ciclo.</li>
+        <li>Importante para a saúde óssea.</li>
+    </ul>
+</li><li><strong>Progesterona:</strong>
+    <ul>
+        <li>Prepara o endométrio para a implantação do embrião e mantém a gravidez.</li>
+        <li>Estimula o desenvolvimento das glândulas mamárias durante a gravidez.</li>
+        <li>Inibe as contrações uterinas durante a gestação.</li>
+    </ul>
+</li><li><strong>FSH (Hormônio Folículo-Estimulante):</strong> Estimula o crescimento e desenvolvimento dos folículos ovarianos.</li><li><strong>LH (Hormônio Luteinizante):</strong> Desencadeia a ovulação e a formação do corpo lúteo.</li><li>A regulação é feita pelo eixo hipotálamo-hipófise-ovários via feedback.</li></ul>">
+            <h3>Hormônios Femininos</h3>
+            <div class="visual-representation">🌸🤰📈🧪</div>
+            <p class="definition">Principalmente Estrogênio e Progesterona, regulam o ciclo menstrual, características femininas e gravidez.</p>
+            <p class="keywords">Estrogênio, Progesterona, FSH, LH, Ciclo Menstrual, Gravidez, Mamas</p>
+        </div>
+
+        <h2 style="text-align: center; color: #7c5295; width: 100%; margin-bottom: 20px; grid-column: 1 / -1; margin-top: 30px;">Tópicos Comuns e Processos</h2>
+        <div class="card" data-concept="Fecundação" data-details="A <strong>Fecundação</strong> (ou Concepção) é o processo de união do gameta masculino (espermatozoide) com o gameta feminino (ovócito II, que se torna óvulo após a fecundação), resultando na formação do <strong>zigoto</strong>, a primeira célula do novo indivíduo.<ul><li>Geralmente ocorre na tuba uterina.</li><li><strong>Eventos Principais:</strong>
+    <ol>
+        <li><strong>Capacitação dos Espermatozoides:</strong> Alterações que ocorrem nos espermatozoides no trato reprodutor feminino, tornando-os aptos a fecundar.</li>
+        <li><strong>Reação Acrossômica:</strong> Liberação de enzimas pelo acrossomo do espermatozoide para atravessar as camadas protetoras do ovócito (corona radiata e zona pelúcida).</li>
+        <li><strong>Penetração na Zona Pelúcida e Fusão de Membranas:</strong> Um espermatozoide penetra a zona pelúcida e sua membrana se funde com a membrana do ovócito.</li>
+        <li><strong>Bloqueio da Poliespermia:</strong> Mecanismos que impedem que outros espermatozoides fecundem o mesmo óvulo (reação cortical).</li>
+        <li><strong>Conclusão da Meiose II do Ovócito:</strong> A entrada do espermatozoide estimula o ovócito II a completar a meiose II, formando o óvulo maduro e o segundo corpúsculo polar.</li>
+        <li><strong>Anfimixia (Singamia):</strong> Fusão dos pró-núcleos masculino e feminino, restaurando o número diploide de cromossomos (2n) no zigoto.</li>
+    </ol>
+</li><li>O zigoto começa a se dividir (clivagem) e se move em direção ao útero para implantação.</li></ul>">
+            <h3>Fecundação</h3>
+            <div class="visual-representation">♂️➕♀️<br>👶</div>
+            <p class="definition">União do espermatozoide com o óvulo, geralmente na tuba uterina, formando o zigoto (primeira célula do novo ser).</p>
+            <p class="keywords">Espermatozoide, Óvulo, Zigoto, Tuba Uterina, Concepção, Embrião</p>
+        </div>
+
+        <div class="card" data-concept="Gestação (Gravidez)" data-details="A <strong>Gestação</strong> ou gravidez é o período de desenvolvimento do embrião/feto dentro do útero materno, desde a fecundação até o parto. Dura aproximadamente 40 semanas (ou 9 meses).<ul><li><strong>Implantação (Nidação):</strong> O embrião (blastocisto) se fixa na parede do útero (endométrio).</li><li><strong>Desenvolvimento Embrionário (primeiras 8 semanas):</strong> Formação dos principais órgãos e sistemas do corpo. Período crítico.</li><li><strong>Desenvolvimento Fetal (a partir da 9ª semana até o parto):</strong> Crescimento e maturação dos órgãos e sistemas já formados.</li><li><strong>Placenta:</strong> Órgão temporário formado a partir de tecidos maternos e embrionários. Realiza trocas gasosas, de nutrientes e de excretas entre a mãe e o feto. Produz hormônios importantes para a manutenção da gravidez (ex: hCG, progesterona, estrogênio).</li><li><strong>Cordão Umbilical:</strong> Conecta o feto à placenta.</li><li><strong>Líquido Amniótico:</strong> Fluido que envolve o feto dentro da bolsa amniótica, protegendo-o contra choques mecânicos e auxiliando na manutenção da temperatura.</li></ul>">
+            <h3>Gestação (Gravidez)</h3>
+            <div class="visual-representation">🤰👶🗓️❤️</div>
+            <p class="definition">Período de desenvolvimento do embrião/feto no útero, da fecundação ao parto (cerca de 40 semanas). Inclui a placenta.</p>
+            <p class="keywords">Gravidez, Embrião, Feto, Útero, Placenta, Parto, Nidação</p>
+        </div>
+
+        <div class="card" data-concept="Parto" data-details="O <strong>Parto</strong> é o processo pelo qual o feto e a placenta são expelidos do útero materno ao final da gestação.<ul><li><strong>Sinais de Trabalho de Parto:</strong> Contrações uterinas regulares e progressivas, dilatação do colo do útero, ruptura da bolsa amniótica ('rompimento da bolsa').</li><li><strong>Fases do Parto:</strong>
+    <ol>
+        <li><strong>Dilatação:</strong> O colo do útero se dilata progressivamente até atingir cerca de 10 cm. É a fase mais longa.</li>
+        <li><strong>Expulsão:</strong> O feto é empurrado para fora do útero e da vagina pelas contrações uterinas e pelo esforço materno.</li>
+        <li><strong>Dequitação (ou Delivramento):</strong> Expulsão da placenta e das membranas fetais, geralmente alguns minutos após o nascimento do bebê.</li>
+    </ol>
+</li><li><strong>Tipos de Parto (principais):</strong>
+    <ul>
+        <li><strong>Parto Vaginal (Normal):</strong> O bebê nasce pela vagina.</li>
+        <li><strong>Parto Cesárea:</strong> Intervenção cirúrgica onde o bebê é retirado através de uma incisão no abdômen e no útero da mãe. Indicada em situações específicas.</li>
+    </ul>
+</li><li>Hormônios como a ocitocina (estimula contrações) e prostaglandinas desempenham papéis importantes.</li></ul>">
+            <h3>Parto</h3>
+            <div class="visual-representation">🏁👶🏥💪</div>
+            <p class="definition">Processo de expulsão do feto e da placenta do útero ao final da gestação. Fases: dilatação, expulsão, dequitação.</p>
+            <p class="keywords">Nascimento, Contrações, Dilatação, Expulsão, Placenta, Cesárea</p>
+        </div>
+
+        <div class="card" data-concept="Métodos Contraceptivos" data-details="<strong>Métodos Contraceptivos</strong> (ou Anticoncepcionais) são técnicas, dispositivos ou medicamentos utilizados para prevenir a gravidez. O planejamento familiar é um direito e uma importante ferramenta para a saúde individual e coletiva.<ul><li><strong>Principais Tipos:</strong>
+    <ul>
+        <li><strong>Métodos de Barreira:</strong> Impedem fisicamente o encontro dos espermatozoides com o óvulo.
+            <ul>
+                <li><em>Exemplos:</em> Camisinha masculina e feminina (também protegem contra ISTs), diafragma, espermicidas.</li>
+            </ul>
+        </li>
+        <li><strong>Métodos Hormonais:</strong> Utilizam hormônios (estrogênio e/ou progesterona sintéticos) para impedir a ovulação, alterar o muco cervical ou o endométrio.
+            <ul>
+                <li><em>Exemplos:</em> Pílula anticoncepcional, injeção hormonal, adesivo, anel vaginal, implante subcutâneo, DIU hormonal.</li>
+            </ul>
+        </li>
+        <li><strong>Dispositivos Intrauterinos (DIU):</strong> Pequenos dispositivos inseridos no útero.
+            <ul>
+                <li><em>DIU de Cobre:</em> Libera cobre, que é tóxico para os espermatozoides.</li>
+                <li><em>DIU Hormonal (SIU):</em> Libera progesterona localmente.</li>
+            </ul>
+        </li>
+        <li><strong>Métodos Comportamentais (ou Naturais):</strong> Baseiam-se na observação do ciclo menstrual para evitar relações sexuais no período fértil. Geralmente menos eficazes.
+            <ul>
+                <li><em>Exemplos:</em> Tabelinha (calendário), temperatura basal, muco cervical.</li>
+            </ul>
+        </li>
+        <li><strong>Métodos Cirúrgicos (Esterilização):</strong> Geralmente permanentes.
+            <ul>
+                <li><em>Vasectomia (masculina):</em> Interrupção dos ductos deferentes.</li>
+                <li><em>Laqueadura Tubária (feminina):</em> Interrupção das tubas uterinas.</li>
+            </ul>
+        </li>
+        <li><strong>Contracepção de Emergência ('Pílula do Dia Seguinte'):</strong> Usada após relação sexual desprotegida. Não deve ser usada como método regular.</li>
+    </ul>
+</li><li>A escolha do método deve ser individualizada e, idealmente, orientada por um profissional de saúde.</li></ul>">
+            <h3>Métodos Contraceptivos</h3>
+            <div class="visual-representation">🛡️💊🗓️🚫</div>
+            <p class="definition">Técnicas para prevenir a gravidez. Incluem métodos de barreira (camisinha), hormonais (pílula), DIU, comportamentais e cirúrgicos.</p>
+            <p class="keywords">Anticoncepcional, Camisinha, Pílula, DIU, Vasectomia, Laqueadura, Planejamento Familiar</p>
+        </div>
+
+        <div class="card" data-concept="Saúde Reprodutiva e ISTs" data-details="A <strong>Saúde Reprodutiva</strong> envolve o bem-estar físico, mental e social relacionado ao sistema reprodutor, suas funções e processos. Inclui a capacidade de ter uma vida sexual satisfatória e segura, e a liberdade de decidir se, quando e com que frequência ter filhos.<ul><li><strong>Importância da Prevenção:</strong>
+    <ul>
+        <li>Consultas ginecológicas (mulheres) e urológicas (homens) regulares.</li>
+        <li>Realização de exames preventivos (ex: Papanicolau, mamografia, exames de próstata).</li>
+        <li>Higiene íntima adequada.</li>
+    </ul>
+</li><li><strong>Infecções Sexualmente Transmissíveis (ISTs):</strong> São infecções causadas por vírus, bactérias ou outros microrganismos, transmitidas principalmente através do contato sexual (vaginal, anal ou oral) sem proteção com uma pessoa infectada. Algumas também podem ser transmitidas da mãe para o filho durante a gestação, parto ou amamentação.
+    <ul>
+        <li><strong>Exemplos Comuns:</strong> HIV/AIDS, Sífilis, Gonorreia, Clamídia, HPV (Papilomavírus Humano), Herpes Genital, Hepatites B e C.</li>
+        <li><strong>Prevenção de ISTs:</strong> Uso correto e consistente de preservativos (camisinha masculina ou feminina) em todas as relações sexuais é a forma mais eficaz. Vacinação (ex: HPV, Hepatite B). Redução do número de parceiros. Testagem regular.</li>
+        <li>Muitas ISTs podem ser assintomáticas, mas podem causar sérias complicações se não tratadas (infertilidade, câncer, problemas na gravidez, etc.).</li>
+    </ul>
+</li><li>Buscar informação e orientação médica é fundamental para a saúde reprodutiva.</li></ul>">
+            <h3>Saúde Reprodutiva e ISTs</h3>
+            <div class="visual-representation">🩺❤️🛡️🩹</div>
+            <p class="definition">Cuidados com o sistema reprodutor. Prevenção, diagnóstico e tratamento de Infecções Sexualmente Transmissíveis (ISTs).</p>
+            <p class="keywords">IST, HIV, HPV, Sífilis, Camisinha, Prevenção, Ginecologista, Urologista</p>
+        </div>
+
+    </div>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Conhecer o sistema reprodutor é fundamental para a saúde e para escolhas conscientes. 💕🧬</p>
+    </footer>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close-button")[0];
+        var cards = document.querySelectorAll(".card");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDetails = document.getElementById("modalDetails");
+
+        cards.forEach(function(card) {
+            card.onclick = function() {
+                var concept = card.getAttribute("data-concept");
+                var details = card.getAttribute("data-details");
+                
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details; // Usar innerHTML para renderizar as tags <ul> e <li>
+                modal.style.display = "block";
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problemas Ambientais e Biomas - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #eef7ea; /* Verde bem claro, remetendo à natureza */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header.main-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header.main-header h1 {
+            color: #2e7d32; /* Verde escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header.main-header p {
+            font-size: 1.2em;
+            color: #4caf50; /* Verde médio */
+        }
+        header.section-header h2 {
+            color: #388e3c; /* Verde escuro, um pouco mais claro */
+            font-size: 2.2em;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 2px solid #66bb6a;
+            padding-bottom: 10px;
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 95%;
+            max-width: 1400px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #4caf50; /* Borda verde média */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #1b5e20; /* Verde bem escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #2e7d32;
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 50px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #388e3c;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #1b5e20; /* Verde bem escuro */
+            color: #e8f5e9; /* Verde muito claro (quase branco) */
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #1b5e20;
+            margin-top: 0;
+            border-bottom: 2px solid #4caf50;
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #2e7d32; }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <h1>Problemas Ambientais e Biomas Brasileiros</h1>
+        <p>Explore os desafios ecológicos e a riqueza natural do Brasil! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <header class="section-header">
+        <h2>Problemas Ambientais</h2>
+    </header>
+    <div class="concepts-grid">
+        <div class="card" data-concept="Desmatamento" data-details="O desmatamento é a remoção da vegetação nativa de uma área, seja para expansão agrícola, extração de madeira, mineração ou urbanização. <ul><li><strong>Causas Principais:</strong> Agropecuária (soja, pastagens), exploração madeireira ilegal, projetos de infraestrutura, garimpo.</li><li><strong>Consequências:</strong> Perda de biodiversidade (destruição de habitats), erosão do solo, assoreamento de rios, alterações climáticas locais e globais (redução da capacidade de absorção de CO₂), desertificação em áreas vulneráveis.</li><li><strong>Importância da Conservação:</strong> Manutenção dos serviços ecossistêmicos (regulação hídrica, polinização), preservação de espécies, combate às mudanças climáticas. Ações como fiscalização, reflorestamento e manejo sustentável são cruciais.</li></ul>">
+            <h3>Desmatamento</h3>
+            <div class="visual-representation">🌳🪓📉</div>
+            <p class="definition">Remoção da vegetação nativa, causando perda de habitat e erosão.</p>
+            <p class="keywords">Florestas, Agropecuária, Erosão, Perda de Habitat</p>
+        </div>
+
+        <div class="card" data-concept="Poluição (Ar, Água, Solo)" data-details="A poluição é a introdução de substâncias ou energia no ambiente que causam efeitos negativos.<ul><li><strong>Poluição do Ar:</strong> Causada por indústrias, veículos, queimadas. Poluentes: CO, SO₂, NOx, material particulado. Consequências: doenças respiratórias, chuva ácida, efeito estufa.</li><li><strong>Poluição da Água:</strong> Causada por esgoto doméstico/industrial, agrotóxicos, lixo, vazamentos de petróleo. Consequências: morte de organismos aquáticos, contaminação da água potável, eutrofização.</li><li><strong>Poluição do Solo:</strong> Causada por agrotóxicos, lixo industrial/doméstico, descarte inadequado de resíduos. Consequências: infertilidade do solo, contaminação de alimentos e lençóis freáticos.</li></ul>Controle e prevenção envolvem tratamento de efluentes, uso de tecnologias limpas, gestão de resíduos e legislação ambiental rigorosa.">
+            <h3>Poluição</h3>
+            <div class="visual-representation">🏭💨💧🗑️</div>
+            <p class="definition">Introdução de substâncias nocivas no ar, água ou solo.</p>
+            <p class="keywords">Indústrias, Agrotóxicos, Esgoto, Doenças</p>
+        </div>
+
+        <div class="card" data-concept="Aquecimento Global e Mudanças Climáticas" data-details="O aquecimento global é o aumento da temperatura média da Terra devido ao acúmulo de gases de efeito estufa (GEE) na atmosfera, intensificando o efeito estufa natural.<ul><li><strong>Principais GEE:</strong> Dióxido de carbono (CO₂), metano (CH₄), óxido nitroso (N₂O).</li><li><strong>Causas:</strong> Queima de combustíveis fósseis (carvão, petróleo, gás natural), desmatamento, atividades agrícolas e industriais.</li><li><strong>Consequências (Mudanças Climáticas):</strong> Elevação do nível do mar, derretimento de geleiras, eventos climáticos extremos (secas, inundações, ondas de calor), perda de biodiversidade, impactos na agricultura e saúde humana.</li><li><strong>Mitigação:</strong> Redução das emissões de GEE, transição para energias renováveis, reflorestamento, acordos internacionais (ex: Acordo de Paris).</li></ul>">
+            <h3>Aquecimento Global</h3>
+            <div class="visual-representation">🔥🌍🌡️☀️</div>
+            <p class="definition">Aumento da temperatura média da Terra devido aos gases de efeito estufa.</p>
+            <p class="keywords">Efeito Estufa, CO₂, Derretimento de Geleiras, Eventos Extremos</p>
+        </div>
+
+        <div class="card" data-concept="Perda de Biodiversidade" data-details="A perda de biodiversidade refere-se à redução da variedade de formas de vida (genes, espécies, ecossistemas) em um determinado local ou no planeta.<ul><li><strong>Causas Principais:</strong> Destruição e fragmentação de habitats (desmatamento, urbanização), poluição, introdução de espécies invasoras, superexploração de recursos (caça e pesca predatórias), mudanças climáticas.</li><li><strong>Consequências:</strong> Desequilíbrio ecológico, extinção de espécies, perda de recursos genéticos valiosos (para medicina, agricultura), comprometimento dos serviços ecossistêmicos (polinização, controle de pragas, purificação da água).</li><li><strong>Conservação:</strong> Criação de unidades de conservação, corredores ecológicos, programas de reprodução em cativeiro, combate ao tráfico de animais, conscientização.</li></ul>">
+            <h3>Perda de Biodiversidade</h3>
+            <div class="visual-representation">🐼🌿📉💔</div>
+            <p class="definition">Redução da variedade de espécies, genes e ecossistemas.</p>
+            <p class="keywords">Extinção, Habitat, Desmatamento, Caça Ilegal</p>
+        </div>
+
+        <div class="card" data-concept="Eutrofização" data-details="A eutrofização é o processo de enriquecimento excessivo de um corpo d'água com nutrientes, principalmente nitrogênio (N) e fósforo (P), levando a um aumento descontrolado da produção primária (algas e cianobactérias).<ul><li><strong>Causas:</strong> Despejo de esgoto doméstico não tratado, efluentes industriais, uso excessivo de fertilizantes agrícolas que são carreados pela chuva.</li><li><strong>Processo:</strong> Proliferação de algas (florações), formação de uma camada densa na superfície que impede a passagem de luz, morte de plantas submersas. A decomposição dessa biomassa por bactérias aeróbicas consome grandes quantidades de oxigênio dissolvido (aumento da DBO - Demanda Bioquímica de Oxigênio), levando à hipóxia ou anoxia e à morte de peixes e outros organismos aquáticos.</li><li><strong>Consequências:</strong> Perda de biodiversidade aquática, produção de toxinas por cianobactérias, mau cheiro, comprometimento do uso da água.</li></ul>">
+            <h3>Eutrofização</h3>
+            <div class="visual-representation">🟢💧🐟💀</div>
+            <p class="definition">Aumento excessivo de nutrientes em corpos d'água, causando proliferação de algas.</p>
+            <p class="keywords">Esgoto, Fertilizantes, Algas, Falta de Oxigênio</p>
+        </div>
+
+        <div class="card" data-concept="Chuva Ácida" data-details="A chuva ácida é qualquer forma de precipitação (chuva, neve, granizo, neblina) com pH inferior a 5,6 (pH natural da chuva levemente ácida devido ao CO₂ atmosférico).<ul><li><strong>Causas:</strong> Emissão de dióxido de enxofre (SO₂) e óxidos de nitrogênio (NOx) para a atmosfera, principalmente pela queima de combustíveis fósseis em indústrias e veículos. Esses gases reagem com o vapor d'água, oxigênio e outros compostos para formar ácido sulfúrico (H₂SO₄) e ácido nítrico (HNO₃).</li><li><strong>Consequências:</strong> Acidificação de lagos e rios (prejudicando a vida aquática), danos a florestas (afetando folhas e solo), corrosão de edifícios, monumentos e estruturas metálicas, problemas respiratórios em humanos.</li><li><strong>Soluções:</strong> Redução da emissão de poluentes (uso de filtros em chaminés, catalisadores em veículos), uso de fontes de energia mais limpas.</li></ul>">
+            <h3>Chuva Ácida</h3>
+            <div class="visual-representation">🌧️🏭💨🌳</div>
+            <p class="definition">Precipitação com pH baixo, causada por poluentes atmosféricos.</p>
+            <p class="keywords">SO₂, NOx, Indústrias, Corrosão</p>
+        </div>
+
+        <div class="card" data-concept="Buraco na Camada de Ozônio" data-details="A camada de ozônio (O₃) está localizada na estratosfera e protege a Terra da radiação ultravioleta (UV) nociva do sol. O 'buraco' é, na verdade, uma rarefação (diminuição da concentração) dessa camada, especialmente sobre a Antártida.<ul><li><strong>Causa Principal:</strong> Liberação de gases clorofluorcarbonetos (CFCs), halons e outras substâncias que destroem o ozônio. Esses gases eram usados em geladeiras, ar-condicionado, aerossóis e espumas.</li><li><strong>Consequências da Destruição:</strong> Aumento da incidência de radiação UV-B na superfície, causando câncer de pele, catarata, supressão do sistema imunológico em humanos, danos a plantas (redução da fotossíntese) e ao plâncton marinho (base da cadeia alimentar aquática).</li><li><strong>Protocolo de Montreal (1987):</strong> Acordo internacional bem-sucedido para eliminar gradualmente a produção e consumo de substâncias destruidoras do ozônio. A camada de ozônio está se recuperando lentamente.</li></ul>">
+            <h3>Camada de Ozônio</h3>
+            <div class="visual-representation">☀️🛡️🌍💨</div>
+            <p class="definition">Redução da concentração de ozônio (O₃) na estratosfera, aumentando a radiação UV.</p>
+            <p class="keywords">Ozônio, CFCs, Radiação UV, Câncer de Pele</p>
+        </div>
+
+        <div class="card" data-concept="Lixo (Resíduos Sólidos)" data-details="Resíduos sólidos, popularmente conhecidos como lixo, são materiais descartados resultantes de atividades humanas e da natureza. A gestão inadequada é um grave problema ambiental e de saúde pública.<ul><li><strong>Tipos:</strong> Doméstico, comercial, industrial, hospitalar (serviços de saúde), construção civil, agrícola, público.</li><li><strong>Problemas do Descarte Inadequado (Lixões):</strong> Poluição do solo e da água (chorume), contaminação do ar (gases tóxicos e de efeito estufa como metano), proliferação de vetores de doenças (ratos, baratas, mosquitos), impacto visual e desvalorização de áreas.</li><li><strong>Soluções (Gestão Integrada):</strong> Política dos 3Rs (Reduzir, Reutilizar, Reciclar), coleta seletiva, compostagem (resíduos orgânicos), aterros sanitários controlados (para rejeitos), incineração com recuperação de energia (em alguns casos), logística reversa.</li></ul>">
+            <h3>Lixo (Resíduos Sólidos)</h3>
+            <div class="visual-representation">🗑️♻️🌎🚮</div>
+            <p class="definition">Materiais descartados que, se mal gerenciados, causam poluição e problemas de saúde.</p>
+            <p class="keywords">Aterro, Reciclagem, Coleta Seletiva, Chorume</p>
+        </div>
+    </div>
+
+    <header class="section-header">
+        <h2>Biomas Brasileiros</h2>
+    </header>
+    <div class="concepts-grid">
+        <div class="card" data-concept="Amazônia" data-details="A Amazônia é a maior floresta tropical do mundo e o maior bioma brasileiro, cobrindo cerca de 49% do território nacional.<ul><li><strong>Características:</strong> Clima equatorial (quente e úmido), vegetação densa e estratificada (mata de igapó, várzea e terra firme), imensa biodiversidade de fauna e flora, maior bacia hidrográfica do mundo (Rio Amazonas). Fenômeno dos 'rios voadores' (transporte de umidade para outras regiões).</li><li><strong>Importância:</strong> Regulação climática global, manutenção de recursos hídricos, vasta fonte de recursos naturais e genéticos, diversidade cultural (povos indígenas e comunidades tradicionais).</li><li><strong>Ameaças:</strong> Desmatamento (para agropecuária, extração de madeira, mineração), queimadas, garimpo ilegal, construção de hidrelétricas, biopirataria.</li></ul>">
+            <h3>Amazônia</h3>
+            <div class="visual-representation">🌳🐒🦜💧</div>
+            <p class="definition">Maior floresta tropical do mundo, rica em biodiversidade e recursos hídricos.</p>
+            <p class="keywords">Floresta Equatorial, Rios Voadores, Biodiversidade, Desmatamento</p>
+        </div>
+
+        <div class="card" data-concept="Cerrado" data-details="O Cerrado é o segundo maior bioma da América do Sul e do Brasil, conhecido como a 'savana brasileira'. É considerado um hotspot de biodiversidade.<ul><li><strong>Características:</strong> Clima tropical com estações seca e chuvosa bem definidas, solo geralmente ácido e pobre em nutrientes, vegetação com árvores de casca grossa e retorcida, arbustos e gramíneas. Raízes profundas para buscar água. Muitas espécies são adaptadas ao fogo.</li><li><strong>Importância:</strong> 'Berço das águas' (nascentes de importantes bacias hidrográficas), grande diversidade de espécies endêmicas, recursos para comunidades locais (frutos, plantas medicinais).</li><li><strong>Ameaças:</strong> Expansão agrícola (soja, milho, algodão), pecuária extensiva, produção de carvão vegetal, desmatamento acelerado.</li></ul>">
+            <h3>Cerrado</h3>
+            <div class="visual-representation">🌳🍂🐜☀️</div>
+            <p class="definition">Savana brasileira, com árvores retorcidas, rica biodiversidade e adaptada ao fogo.</p>
+            <p class="keywords">Savana, Casca Grossa, Raízes Profundas, Hotspot</p>
+        </div>
+
+        <div class="card" data-concept="Mata Atlântica" data-details="A Mata Atlântica é um bioma de floresta tropical que originalmente se estendia por grande parte do litoral brasileiro. É um dos biomas mais ricos em diversidade de espécies e um dos mais ameaçados do mundo (hotspot).<ul><li><strong>Características:</strong> Clima tropical úmido, alta pluviosidade, relevo acidentado (serras), grande variedade de formações florestais (floresta ombrófila densa, mista, estacional, restingas, manguezais). Alta taxa de endemismo.</li><li><strong>Importância:</strong> Fonte de água para grandes centros urbanos, regulação climática, proteção de encostas, rica biodiversidade.</li><li><strong>Ameaças:</strong> Desmatamento histórico para urbanização, agricultura e indústria. Atualmente, resta menos de 12% da cobertura original, altamente fragmentada. Esforços de restauração e criação de corredores ecológicos são fundamentais.</li></ul>">
+            <h3>Mata Atlântica</h3>
+            <div class="visual-representation">🌳🐒🌺🌊</div>
+            <p class="definition">Floresta tropical úmida costeira, altamente biodiversa e fragmentada.</p>
+            <p class="keywords">Floresta Ombrófila, Hotspot, Fragmentação, Restauração</p>
+        </div>
+
+        <div class="card" data-concept="Caatinga" data-details="A Caatinga é um bioma exclusivamente brasileiro, caracterizado por um clima semiárido. O nome significa 'mata branca' em tupi-guarani, devido ao aspecto da vegetação na estação seca.<ul><li><strong>Características:</strong> Clima quente com chuvas escassas e irregulares, baixa umidade do ar, solos geralmente rasos e pedregosos. Vegetação xeromórfica, adaptada à seca (plantas com espinhos, folhas pequenas ou ausentes na seca, caules suculentos - cactáceas, bromeliáceas). Muitas espécies perdem as folhas na estação seca.</li><li><strong>Importância:</strong> Rica biodiversidade endêmica adaptada a condições extremas, recursos genéticos únicos, cultura sertaneja.</li><li><strong>Ameaças:</strong> Desmatamento para lenha e pastagem, agricultura inadequada, desertificação, salinização do solo devido à irrigação mal manejada.</li></ul>">
+            <h3>Caatinga</h3>
+            <div class="visual-representation">🌵☀️🏜️🐐</div>
+            <p class="definition">Bioma semiárido exclusivo do Brasil, com vegetação adaptada à seca.</p>
+            <p class="keywords">Semiárido, Xeromorfismo, Seca, Desertificação</p>
+        </div>
+
+        <div class="card" data-concept="Pampa (Campos Sulinos)" data-details="O Pampa, também conhecido como Campos Sulinos, ocorre no extremo sul do Brasil (principalmente no Rio Grande do Sul). Caracteriza-se por paisagens campestres.<ul><li><strong>Características:</strong> Clima subtropical com as quatro estações bem definidas, relevo geralmente plano a suavemente ondulado (coxilhas), predomínio de vegetação herbácea (gramíneas, leguminosas) e arbustiva. Matas ciliares e capões de mata podem ocorrer.</li><li><strong>Importância:</strong> Solo fértil para agricultura e pecuária, rica biodiversidade de gramíneas e fauna associada (aves campestres, mamíferos).</li><li><strong>Ameaças:</strong> Expansão da monocultura (soja, arroz, eucalipto), pecuária intensiva, introdução de espécies exóticas, arenização (formação de bancos de areia devido ao manejo inadequado do solo).</li></ul>">
+            <h3>Pampa</h3>
+            <div class="visual-representation">🌾🐂🐎🌄</div>
+            <p class="definition">Campos temperados do sul do Brasil, com predomínio de gramíneas.</p>
+            <p class="keywords">Campos, Gramíneas, Pecuária, Arenização</p>
+        </div>
+
+        <div class="card" data-concept="Pantanal" data-details="O Pantanal é a maior planície alagável do mundo, localizado no centro-oeste do Brasil (Mato Grosso e Mato Grosso do Sul) e estendendo-se por Bolívia e Paraguai.<ul><li><strong>Características:</strong> Relevo plano, ciclo anual de cheias e secas que define a paisagem e a vida no bioma. Mosaico de diferentes formações vegetais (campos inundáveis, savanas, florestas). Fauna extremamente rica e abundante, especialmente aves aquáticas, peixes e répteis.</li><li><strong>Importância:</strong> 'Santuário' de vida selvagem, regulação hídrica, pesca, ecoturismo.</li><li><strong>Ameaças:</strong> Desmatamento nas cabeceiras dos rios que formam o Pantanal (causando assoreamento e alteração do regime hídrico), expansão agrícola, pesca predatória, caça ilegal, grandes projetos de infraestrutura (hidrovias), queimadas intensas.</li></ul>">
+            <h3>Pantanal</h3>
+            <div class="visual-representation">🐊🐟💧🌿</div>
+            <p class="definition">Maior planície alagável do mundo, com rica fauna e ciclo de cheias e secas.</p>
+            <p class="keywords">Planície Alagável, Cheias e Secas, Biodiversidade, Queimadas</p>
+        </div>
+
+        <div class="card" data-concept="Manguezal" data-details="O Manguezal é um ecossistema costeiro de transição entre os ambientes terrestre e marinho, típico de regiões tropicais e subtropicais, encontrado em estuários, baías e lagunas.<ul><li><strong>Características:</strong> Solo lodoso, salino ou salobro, pobre em oxigênio. Vegetação adaptada (halófitas), com raízes aéreas (pneumatóforos, escoras) para sustentação e trocas gasosas. Ex: mangue-vermelho, mangue-branco, mangue-preto.</li><li><strong>Importância:</strong> 'Berçário' de muitas espécies de peixes, crustáceos e moluscos (alta produtividade primária), proteção da linha de costa contra erosão, filtro de poluentes, fonte de alimento e renda para comunidades tradicionais.</li><li><strong>Ameaças:</strong> Aterramento para expansão urbana e industrial, carcinicultura (criação de camarões) desordenada, poluição por esgoto e lixo, desmatamento.</li></ul>">
+            <h3>Manguezal</h3>
+            <div class="visual-representation">🦀🌳🌊🐦</div>
+            <p class="definition">Ecossistema costeiro de transição, lodoso, salino e berçário de espécies.</p>
+            <p class="keywords">Estuário, Solo Lodoso, Raízes Escoras, Berçário</p>
+        </div>
+
+        <div class="card" data-concept="Restinga" data-details="A Restinga é um ecossistema costeiro associado à Mata Atlântica, que se desenvolve sobre solos arenosos formados por sedimentos marinhos ao longo do litoral.<ul><li><strong>Características:</strong> Solo arenoso, pobre em nutrientes, alta salinidade e exposição ao vento. Vegetação varia conforme a proximidade do mar e estabilidade das dunas, desde formações herbáceas (pioneiras), passando por arbustivas até formações florestais (floresta de restinga). Plantas adaptadas à insolação, secura e salinidade.</li><li><strong>Importância:</strong> Fixação de dunas, proteção da costa contra erosão, habitat para espécies especializadas (muitas endêmicas), beleza cênica.</li><li><strong>Ameaças:</strong> Ocupação urbana desordenada (construção de casas, estradas), turismo predatório, extração de areia, introdução de espécies exóticas.</li></ul>">
+            <h3>Restinga</h3>
+            <div class="visual-representation">🏖️🌿🦋☀️</div>
+            <p class="definition">Ecossistema costeiro em solo arenoso, com vegetação adaptada à salinidade.</p>
+            <p class="keywords">Dunas, Solo Arenoso, Vegetação Pioneira, Fixação de Areia</p>
+        </div>
+    </div>
+
+    <header class="section-header">
+        <h2>Principais Biomas Mundiais</h2>
+    </header>
+    <div class="concepts-grid">
+        <div class="card" data-concept="Tundra" data-details="A Tundra é um bioma encontrado em altas latitudes (ártica) ou altitudes elevadas (alpina), caracterizado por temperaturas muito baixas e um curto período de crescimento vegetal.<ul><li><strong>Características:</strong> Solo permanentemente congelado em profundidade (permafrost), que impede a infiltração de água e o desenvolvimento de raízes profundas. Vegetação rasteira composta por musgos, liquens, gramíneas e pequenos arbustos. Baixa precipitação (deserto frio).</li><li><strong>Fauna:</strong> Adaptada ao frio, com animais como renas (caribus), bois-almiscarados, lemingues, raposas-do-ártico, ursos polares (na tundra ártica costeira) e aves migratórias durante o verão.</li><li><strong>Importância:</strong> Sensível às mudanças climáticas (degelo do permafrost libera metano, um potente GEE).</li><li><strong>Localização:</strong> Norte do Canadá, Alasca, Sibéria, Groenlândia; topos de altas montanhas.</li></ul>">
+            <h3>Tundra</h3>
+            <div class="visual-representation">❄️🥶🏞️🦌</div>
+            <p class="definition">Bioma frio e sem árvores, com solo congelado (permafrost) e vegetação rasteira.</p>
+            <p class="keywords">Permafrost, Ártico, Alpina, Musgos, Renas</p>
+        </div>
+
+        <div class="card" data-concept="Taiga (Floresta Boreal)" data-details="A Taiga, também conhecida como Floresta Boreal, é um bioma dominado por florestas de coníferas, localizado em altas latitudes do Hemisfério Norte, ao sul da Tundra.<ul><li><strong>Características:</strong> Invernos longos e rigorosos, verões curtos e amenos. Solo ácido e pobre em nutrientes. Vegetação predominantemente de coníferas (pinheiros, abetos, larícios), adaptadas ao frio e à neve (folhas em forma de agulha, formato cônico).</li><li><strong>Fauna:</strong> Ursos, lobos, alces, linces, esquilos, aves migratórias e residentes. Muitos animais hibernam ou migram durante o inverno.</li><li><strong>Importância:</strong> Grande reservatório de carbono, fonte de madeira.</li><li><strong>Localização:</strong> Canadá, Alasca, Escandinávia, Rússia (Sibéria).</li></ul>">
+            <h3>Taiga</h3>
+            <div class="visual-representation">🌲🐻🐺❄️</div>
+            <p class="definition">Floresta de coníferas de clima frio, com invernos longos e rigorosos.</p>
+            <p class="keywords">Coníferas, Floresta Boreal, Neve, Ursos</p>
+        </div>
+
+        <div class="card" data-concept="Floresta Temperada Decídua" data-details="A Floresta Temperada Decídua (ou Caducifólia) ocorre em regiões de clima temperado com as quatro estações bem definidas.<ul><li><strong>Características:</strong> Invernos frios e verões quentes e úmidos. Solo fértil devido à decomposição da serrapilheira (folhas caídas). Árvores decíduas, que perdem suas folhas no outono/inverno (carvalhos, bordos, faias, nogueiras).</li><li><strong>Fauna:</strong> Diversificada, incluindo veados, ursos, esquilos, texugos, muitas espécies de aves e insetos. Adaptações como hibernação e migração são comuns.</li><li><strong>Importância:</strong> Muitas áreas foram convertidas para agricultura e urbanização devido ao solo fértil.</li><li><strong>Localização:</strong> Leste da América do Norte, Europa Ocidental e Central, Leste da Ásia.</li></ul>">
+            <h3>Floresta Temperada</h3>
+            <div class="visual-representation">🌳🍂🍁🐿️</div>
+            <p class="definition">Floresta com árvores que perdem as folhas no outono, típica de clima temperado.</p>
+            <p class="keywords">Decídua, Quatro Estações, Serrapilheira, Carvalhos</p>
+        </div>
+
+        <div class="card" data-concept="Pradarias/Estepes (Campos Temperados)" data-details="As Pradarias (América do Norte) e Estepes (Eurásia) são biomas dominados por gramíneas, com poucas árvores, localizados em regiões de clima temperado continental.<ul><li><strong>Características:</strong> Verões quentes e invernos frios, precipitação moderada, insuficiente para sustentar florestas densas. Solos férteis (chernossolos), ricos em matéria orgânica. Fogo e herbivoria são fatores ecológicos importantes.</li><li><strong>Fauna:</strong> Grandes herbívoros pastadores (bisões, cavalos selvagens, antílopes), roedores (cães-da-pradaria), aves de rapina.</li><li><strong>Importância:</strong> Muitas áreas foram convertidas em terras agrícolas altamente produtivas (celeiros do mundo).</li><li><strong>Localização:</strong> Centro da América do Norte (Grandes Planícies), Europa Oriental, Ásia Central.</li></ul>">
+            <h3>Pradarias/Estepes</h3>
+            <div class="visual-representation">🌾🐃💨☀️</div>
+            <p class="definition">Campos dominados por gramíneas, com solo fértil e poucas árvores.</p>
+            <p class="keywords">Gramíneas, Bisões, Solo Fértil, Celeiro do Mundo</p>
+        </div>
+
+        <div class="card" data-concept="Desertos (Quentes)" data-details="Os Desertos são biomas caracterizados pela extrema aridez, com baixíssima precipitação e grande variação de temperatura entre o dia e a noite.<ul><li><strong>Características:</strong> Precipitação anual inferior a 250 mm. Solos pobres em matéria orgânica, arenosos ou rochosos. Vegetação xerófita, adaptada à escassez de água (cactos, suculentas, arbustos com raízes profundas ou folhas reduzidas/modificadas).</li><li><strong>Fauna:</strong> Adaptada à aridez e ao calor, com animais de hábitos noturnos, capacidade de armazenar água ou obtê-la de alimentos (roedores, répteis, insetos, camelos).</li><li><strong>Importância:</strong> Ecossistemas frágeis, sensíveis à desertificação (expansão de áreas desérticas devido a atividades humanas e mudanças climáticas).</li><li><strong>Localização:</strong> Saara (África), Atacama (América do Sul), Arábia, Austrália Central, Sudoeste dos EUA.</li></ul>">
+            <h3>Desertos</h3>
+            <div class="visual-representation">🌵🏜️☀️🐍</div>
+            <p class="definition">Bioma árido com baixa precipitação e vegetação adaptada à seca.</p>
+            <p class="keywords">Aridez, Cactos, Xerófitas, Dunas</p>
+        </div>
+
+        <div class="card" data-concept="Chaparral (Vegetação Mediterrânea)" data-details="O Chaparral, ou Vegetação Mediterrânea, é encontrado em regiões costeiras de latitudes médias com clima mediterrâneo.<ul><li><strong>Características:</strong> Invernos amenos e chuvosos, verões quentes e secos. Vegetação composta por arbustos densos, perenes, com folhas pequenas, duras e cerosas (esclerófilas) para reduzir a perda de água. Muitas plantas são aromáticas e adaptadas ao fogo (que é um fator natural importante).</li><li><strong>Fauna:</strong> Coelhos, roedores, lagartos, cobras, aves e insetos.</li><li><strong>Importância:</strong> Áreas com alta biodiversidade e endemismo, frequentemente ameaçadas pela urbanização e agricultura.</li><li><strong>Localização:</strong> Bacia do Mediterrâneo, Califórnia (EUA), Chile Central, Sudoeste da Austrália, Cabo da Boa Esperança (África do Sul).</li></ul>">
+            <h3>Chaparral</h3>
+            <div class="visual-representation">🌿☀️🪨🔥</div>
+            <p class="definition">Vegetação de arbustos adaptada a verões secos e invernos chuvosos, com fogo frequente.</p>
+            <p class="keywords">Mediterrâneo, Arbustos Esclerófilos, Fogo, Verões Secos</p>
+        </div>
+    </div>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Conhecer para preservar: nosso planeta, nossa responsabilidade! 🌍💚</p>
+    </footer>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close-button")[0];
+        var cards = document.querySelectorAll(".card");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDetails = document.getElementById("modalDetails");
+
+        cards.forEach(function(card) {
+            card.onclick = function() {
+                var concept = card.getAttribute("data-concept");
+                var details = card.getAttribute("data-details");
+                
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details; // Usar innerHTML para renderizar as tags <ul> e <li>
+                modal.style.display = "block";
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

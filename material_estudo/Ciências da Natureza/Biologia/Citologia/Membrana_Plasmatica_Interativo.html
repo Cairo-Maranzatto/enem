@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Membrana Plasmática - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e0f7fa; /* Ciano muito, muito claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #0277bd; /* Azul escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #039be5; /* Azul médio */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #01579b; /* Azul bem escuro */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #01579b; /* Azul bem escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #0288d1; /* Azul escuro/médio */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 80px; /* AJUSTADO */
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #01579b; /* Azul bem escuro */
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #003c6c; /* Azul muito escuro */
+            color: #e0f7fa; /* Ciano muito, muito claro */
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.6); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #01579b; /* Azul bem escuro */
+            margin-top: 0;
+            border-bottom: 2px solid #0277bd; /* Azul escuro */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul, .modal-content ol {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+            color: #333; /* AJUSTADO/ADICIONADO */
+        }
+        .modal-content ul, .modal-content ol {
+            padding-left: 30px; /* AJUSTADO */
+        }
+        .modal-content strong { 
+            color: #0288d1; /* Azul escuro/médio */ 
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Membrana Plasmática</h1>
+        <p>O Envelope Dinâmico e Seletivo da Célula! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card"
+             data-concept="Introdução à Citologia: Teoria Celular e Tipos Celulares"
+             data-details="<p>A <strong>Citologia</strong> (ou Biologia Celular) é o ramo da Biologia que estuda as células, as unidades fundamentais da vida.</p><h4>Teoria Celular: Os Pilares da Biologia Celular</h4><p>A Teoria Celular é um dos conceitos unificadores da Biologia e estabelece que:</p><ul><li><strong>Todos os seres vivos são formados por células:</strong> Desde organismos unicelulares simples até os multicelulares complexos.</li><li><strong>As células são as unidades funcionais e estruturais dos seres vivos:</strong> Todas as atividades vitais ocorrem dentro das células ou dependem delas.</li><li><strong>Toda célula origina-se de outra célula preexistente:</strong> Através do processo de divisão celular.</li></ul><h4>Tipos Fundamentais de Células: Procariontes vs. Eucariontes</h4><p>Com base na sua organização interna, as células são classificadas em dois tipos principais:</p><ol><li><strong>Células Procariontes (ou Procarióticas):</strong><ul><li><strong>Estrutura:</strong> Mais simples e geralmente menores.</li><li><strong>Núcleo:</strong> Ausência de um núcleo verdadeiro delimitado por membrana (carioteca). O material genético (DNA circular) fica disperso em uma região do citoplasma chamada <strong>nucleoide</strong>.</li><li><strong>Organelas:</strong> Ausência de organelas membranosas (como mitocôndrias, retículo endoplasmático, complexo de Golgi, lisossomos). Possuem <strong>ribossomos</strong> (para síntese de proteínas), que não são membranosos.</li><li><strong>Exemplos:</strong> Bactérias e Arqueas (Archaea).</li></ul></li><li><strong>Células Eucariontes (ou Eucarióticas):</strong><ul><li><strong>Estrutura:</strong> Mais complexas e geralmente maiores.</li><li><strong>Núcleo:</strong> Presença de um núcleo verdadeiro, individualizado e delimitado pela <strong>carioteca</strong> (envoltório nuclear), onde o material genético (DNA linear organizado em cromossomos) está contido.</li><li><strong>Organelas:</strong> Presença de diversas <strong>organelas membranosas</strong> no citoplasma, cada uma com funções especializadas (ex: mitocôndrias para respiração celular, retículo endoplasmático para síntese e transporte, complexo de Golgi para processamento e secreção, lisossomos para digestão intracelular). Também possuem ribossomos.</li><li><strong>Exemplos:</strong> Células de animais, plantas, fungos e protistas.</li></ul></li></ol><p>Compreender esses conceitos básicos é essencial para o estudo de qualquer aspecto da Biologia Celular, incluindo a membrana plasmática.</p>">
+            <h3>Introdução à Citologia</h3>
+            <div class="visual-representation">🔬📜🆚</div>
+            <p class="definition">Fundamentos da Citologia: a célula como unidade da vida (Teoria Celular) e os dois tipos básicos de organização celular (Procariontes e Eucariontes).</p>
+            <p class="keywords">Teoria Celular, Célula, Procarionte, Eucarionte, Nucleoide, Carioteca, Organelas</p>
+        </div>
+        <div class="card" data-concept="Visão Geral da Membrana Plasmática" data-details="A <strong>Membrana Plasmática</strong>, também conhecida como plasmalema, é uma película delicada e complexa que delimita todas as células vivas, tanto procarióticas quanto eucarióticas. Ela não é apenas uma barreira passiva, mas uma estrutura dinâmica e fundamental para a vida celular.<ul><li><strong>Funções Essenciais:</strong> Delimitar o conteúdo celular, proteger a célula, controlar a entrada e saída de substâncias (permeabilidade seletiva), permitir o reconhecimento celular e a comunicação entre células.</li><li><strong>Modelo do Mosaico Fluido:</strong> Proposto por Singer e Nicolson em 1972, descreve a membrana como uma estrutura fluida onde proteínas estão imersas ou atravessam uma bicamada lipídica.</li></ul>">
+            <h3>Visão Geral</h3>
+            <div class="visual-representation">🛡️🔬🧱</div>
+            <p class="definition">Estrutura fina e elástica que envolve as células, separando os meios intra e extracelular e controlando a passagem de substâncias.</p>
+            <p class="keywords">Envelope Celular, Mosaico Fluido, Permeabilidade Seletiva</p>
+        </div>
+
+        <div class="card" data-concept="Composição Química" data-details="A <strong>Composição Química</strong> da membrana plasmática é crucial para suas propriedades e funções. Os principais componentes são:<ul><li><strong>Fosfolipídios:</strong> Formam a bicamada lipídica, a estrutura básica da membrana. Cada fosfolipídio possui uma 'cabeça' hidrofílica (afinidade com a água) e duas 'caudas' hidrofóbicas (aversão à água), arranjadas com as caudas voltadas para o interior da bicamada.</li><li><strong>Proteínas:</strong> Podem ser <strong>integrais</strong> (atravessam a membrana) ou <strong>periféricas</strong> (associadas a uma das superfícies). Desempenham diversas funções, como transporte, atividade enzimática, recepção de sinais, reconhecimento celular e adesão.</li><li><strong>Colesterol (em células animais):</strong> Intercalado entre os fosfolipídios, confere estabilidade à membrana, diminuindo sua fluidez excessiva e impedindo sua solidificação em baixas temperaturas.</li><li><strong>Glicocálix (em células animais):</strong> Camada de carboidratos (oligossacarídeos) ligados a lipídios (glicolipídios) ou proteínas (glicoproteínas) na superfície externa da membrana. Participa no reconhecimento celular, proteção contra danos mecânicos e químicos, e adesão celular.</li></ul>">
+            <h3>Composição Química</h3>
+            <div class="visual-representation">🧪🧬🔩</div>
+            <p class="definition">Principalmente composta por lipídios (fosfolipídios, colesterol) e proteínas, com carboidratos associados (glicocálix).</p>
+            <p class="keywords">Fosfolipídios, Proteínas, Colesterol, Glicocálix</p>
+        </div>
+
+        <div class="card" data-concept="Modelo do Mosaico Fluido" data-details="O <strong>Modelo do Mosaico Fluido</strong>, proposto por S. Jonathan Singer e Garth L. Nicolson em 1972, é o modelo mais aceito para descrever a estrutura da membrana plasmática.<ul><li><strong>Bicamada Lipídica Fluida:</strong> Os fosfolipídios não estão fixos, mas podem se mover lateralmente, girar e até trocar de camada (flip-flop, raramente). Essa fluidez é essencial para muitas funções da membrana, como a fusão de membranas e a movimentação de proteínas.</li><li><strong>Mosaico de Proteínas:</strong> As proteínas estão dispersas na bicamada lipídica, como peças de um mosaico. Algumas atravessam a membrana (transmembrana), outras estão parcialmente imersas ou apenas ligadas à superfície. Essa disposição permite uma grande variedade de funções.</li><li><strong>Assimetria:</strong> A distribuição de lipídios, proteínas e carboidratos não é igual nas duas faces da membrana, conferindo-lhe assimetria funcional.</li></ul>A fluidez da membrana é influenciada pela temperatura e pela composição lipídica (ex: presença de colesterol e ácidos graxos insaturados).">
+            <h3>Modelo do Mosaico Fluido</h3>
+            <div class="visual-representation">🌊🧩🖼️</div>
+            <p class="definition">Modelo que descreve a membrana como uma bicamada lipídica fluida com proteínas inseridas ou associadas, movendo-se lateralmente.</p>
+            <p class="keywords">Singer-Nicolson, Bicamada Lipídica, Fluidez, Proteínas Móveis</p>
+        </div>
+
+        <div class="card" data-concept="Funções da Membrana Plasmática" data-details="A membrana plasmática desempenha uma miríade de <strong>Funções Vitais</strong> para a célula:<ul><li><strong>Delimitação e Proteção:</strong> Separa o meio intracelular (citoplasma) do meio extracelular, mantendo a integridade celular e protegendo-a contra agressões.</li><li><strong>Permeabilidade Seletiva:</strong> Controla rigorosamente a entrada e saída de substâncias, permitindo a passagem de algumas moléculas e íons enquanto barra outras. Essencial para manter a homeostase celular.</li><li><strong>Transporte de Substâncias:</strong> Realiza o transporte ativo e passivo de íons e moléculas através da membrana.</li><li><strong>Reconhecimento Celular:</strong> Através do glicocálix e de proteínas específicas, permite que as células se reconheçam, fundamental para a formação de tecidos e para o sistema imune.</li><li><strong>Adesão Celular:</strong> Permite que células vizinhas se unam para formar tecidos, através de junções celulares especializadas.</li><li><strong>Recepção de Sinais (Transdução de Sinal):</strong> Possui proteínas receptoras que se ligam a moléculas sinalizadoras (ex: hormônios), desencadeando respostas no interior da célula.</li><li><strong>Atividade Enzimática:</strong> Algumas proteínas de membrana possuem atividade catalítica.</li></ul>">
+            <h3>Funções da Membrana</h3>
+            <div class="visual-representation">🛡️🚦📡🤝</div>
+            <p class="definition">Envolve proteção, permeabilidade seletiva, transporte, reconhecimento celular, adesão e comunicação.</p>
+            <p class="keywords">Proteção, Transporte, Reconhecimento, Comunicação</p>
+        </div>
+
+        <div class="card" data-concept="Transporte Passivo" data-details="O <strong>Transporte Passivo</strong> ocorre quando substâncias atravessam a membrana plasmática sem que a célula precise gastar energia metabólica (ATP), geralmente a favor de um gradiente de concentração, elétrico ou de pressão.<ul><li><strong>Difusão Simples:</strong> Movimento de pequenas moléculas apolares (ex: O₂, CO₂, lipídios) diretamente através da bicamada lipídica, do meio mais concentrado para o menos concentrado.</li><li><strong>Difusão Facilitada:</strong> Transporte de moléculas maiores ou polares (ex: glicose, aminoácidos) e íons através da membrana com o auxílio de proteínas transportadoras (permeases ou proteínas canal). Também ocorre a favor do gradiente de concentração. As proteínas canal formam poros hidrofílicos, enquanto as permeases se ligam à substância e mudam sua conformação para transportá-la.</li><li><strong>Osmose:</strong> É a difusão da água através de uma membrana semipermeável, do meio menos concentrado em soluto (hipotônico) para o meio mais concentrado em soluto (hipertônico). A água se move para diluir o meio mais concentrado, buscando o equilíbrio osmótico. Proteínas chamadas aquaporinas facilitam a osmose.</li></ul>">
+            <h3>Transporte Passivo</h3>
+            <div class="visual-representation">🚶‍♂️↘️💧</div>
+            <p class="definition">Movimento de substâncias através da membrana sem gasto de energia (ATP), a favor do gradiente de concentração.</p>
+            <p class="keywords">Difusão Simples, Difusão Facilitada, Osmose, Gradiente</p>
+        </div>
+
+        <div class="card" data-concept="Transporte Ativo" data-details="O <strong>Transporte Ativo</strong> é o movimento de substâncias através da membrana plasmática que requer gasto de energia pela célula, geralmente na forma de ATP. Esse tipo de transporte pode ocorrer contra o gradiente de concentração, ou seja, do local de menor concentração para o de maior concentração.<ul><li><strong>Transporte Ativo Primário:</strong> Utiliza diretamente a energia da hidrólise do ATP para mover substâncias. O exemplo mais clássico é a <strong>Bomba de Sódio e Potássio (Na⁺/K⁺ ATPase)</strong>, que bombeia íons sódio (Na⁺) para fora da célula e íons potássio (K⁺) para dentro, mantendo os gradientes desses íons essenciais para funções como a transmissão de impulsos nervosos.</li><li><strong>Transporte Ativo Secundário (Cotransporte):</strong> Utiliza a energia armazenada em um gradiente iônico (geralmente de Na⁺ ou H⁺, estabelecido por transporte ativo primário) para mover outra substância contra seu próprio gradiente. Pode ser <strong>simporte</strong> (as duas substâncias são transportadas na mesma direção) ou <strong>antiporte</strong> (as substâncias são transportadas em direções opostas).</li><li><strong>Transporte em Massa (ou Vesicular):</strong> Envolve a formação de vesículas para transportar grandes moléculas ou partículas.<ul><li><strong>Endocitose:</strong> A célula engloba substâncias do meio externo, formando vesículas. Inclui a <strong>fagocitose</strong> ('comer celular', para partículas sólidas grandes) e a <strong>pinocitose</strong> ('beber celular', para fluidos e solutos dissolvidos). A endocitose mediada por receptor é um tipo específico de pinocitose.</li><li><strong>Exocitose:</strong> Vesículas contendo substâncias produzidas pela célula (ex: hormônios, neurotransmissores, muco) se fundem com a membrana plasmática, liberando seu conteúdo no meio extracelular.</li></ul></li></ul>">
+            <h3>Transporte Ativo</h3>
+            <div class="visual-representation">🏋️‍♂️↗️🔋</div>
+            <p class="definition">Movimento de substâncias através da membrana com gasto de energia (ATP), geralmente contra o gradiente de concentração.</p>
+            <p class="keywords">Bomba Na⁺/K⁺, ATP, Contragradiente, Endocitose, Exocitose</p>
+        </div>
+
+        <div class="card" data-concept="Especializações da Membrana" data-details="A membrana plasmática de certas células pode apresentar <strong>Especializações</strong> que aumentam sua eficiência em funções específicas:<ul><li><strong>Microvilosidades:</strong> Dobras microscópicas da membrana que aumentam enormemente a superfície de contato, comuns em células de absorção (ex: intestino delgado, túbulos renais).</li><li><strong>Junções Celulares:</strong> Estruturas que unem células vizinhas ou conectam a célula à matriz extracelular.<ul><li><strong>Junções de Adesão (Desmossomos, Hemidesmossomos, Junções Aderentes):</strong> Conferem resistência mecânica aos tecidos, unindo fortemente as células.</li><li><strong>Junções Impermeáveis (Junções Oclusivas ou Zônulas de Oclusão):</strong> Vedam o espaço entre as células, impedindo a passagem de substâncias por entre elas (ex: epitélio intestinal, bexiga).</li><li><strong>Junções Comunicantes (Gap Junctions):</strong> Formam canais que permitem a passagem direta de íons e pequenas moléculas entre citoplasmas de células adjacentes, possibilitando a comunicação rápida (ex: músculo cardíaco, neurônios).</li></ul></li><li><strong>Invaginações e Evaginações:</strong> Dobras para dentro ou para fora que podem estar relacionadas a processos de endocitose, exocitose ou aumento de superfície.</li><li><strong>Glicocálix (reforço):</strong> Já mencionado na composição, mas sua função como especialização em reconhecimento, proteção e adesão é fundamental, especialmente em células animais.</li></ul>">
+            <h3>Especializações</h3>
+            <div class="visual-representation">🔗🔬〰️</div>
+            <p class="definition">Modificações como microvilosidades e junções celulares que conferem funções específicas à membrana.</p>
+            <p class="keywords">Microvilosidades, Junções Celulares, Glicocálix, Desmossomos</p>
+        </div>
+
+    </div>
+
+    <div id="myModal" class="modal"> <!-- ID AJUSTADO -->
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalConceptTitle"></h2> <!-- ID AJUSTADO -->
+            <div id="modalConceptDetails"></div> <!-- ID AJUSTADO -->
+        </div>
+    </div>
+
+    <footer>
+        <p>Membrana Plasmática: A fronteira dinâmica que define a vida celular! 🔬✨</p> <!-- CONTEÚDO AJUSTADO -->
+    </footer>
+
+    <script>
+        const modal = document.getElementById('myModal'); // ID AJUSTADO
+        const modalTitle = document.getElementById('modalConceptTitle'); // ID AJUSTADO
+        const modalDetails = document.getElementById('modalConceptDetails'); // ID AJUSTADO
+        const closeButton = document.querySelector('.close-button');
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const concept = this.getAttribute('data-concept');
+                const details = this.getAttribute('data-details');
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details;
+                modal.style.display = 'block';
+            });
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

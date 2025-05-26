@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divisão Celular - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e6f7f2; /* Verde menta muito claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #00695c; /* Teal escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #00897b; /* Teal médio */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #004d40; /* Teal bem escuro */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #004d40; /* Teal bem escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #00796b; /* Teal escuro */
+            min-height: 70px; /* Para manter alinhamento dos emojis */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 80px; /* Ajustado para definições */
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #004d40; /* Teal bem escuro */
+            font-weight: bold;
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 75%; /* Aumentado para melhor visualização de conteúdo mais extenso */
+            max-width: 850px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #004d40; /* Teal bem escuro */
+            margin-top: 0;
+            border-bottom: 2px solid #00695c; /* Teal escuro */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul, .modal-content ol {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul, .modal-content ol {
+            padding-left: 30px;
+        }
+        .modal-content strong { color: #00796b; /* Teal escuro */ }
+        .modal-content h4 { color: #00897b; /* Teal médio */ margin-top: 20px; margin-bottom: 10px; font-size: 1.2em; }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #00332e; /* Teal muito escuro */
+            color: #e9e7f7; /* Lilás/Lavanda claro */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Divisão Celular</h1>
+        <p>Mitose e Meiose: Os Processos de Multiplicação e Variabilidade da Vida! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" 
+             data-concept="Introdução à Divisão Celular e Ciclo Celular" 
+             data-details="<p>A <strong>Divisão Celular</strong> é o processo pelo qual uma célula (célula-mãe) se divide para formar novas células (células-filhas). É fundamental para:</p><ul><li><strong>Crescimento</strong> de organismos multicelulares.</li><li><strong>Reparo</strong> de tecidos danificados.</li><li><strong>Reprodução</strong> em organismos unicelulares (assexuada) e formação de gametas em organismos sexuados.</li></ul><h4>Ciclo Celular:</h4><p>É a sequência de eventos que ocorrem desde a formação de uma célula até sua própria divisão. Compreende duas fases principais:</p><ol><li><strong>Interfase:</strong> Período de maior atividade metabólica e crescimento celular, onde a célula não está se dividindo. É subdividida em:<ul><li><strong>Fase G1 (Gap 1):</strong> Intenso crescimento celular, síntese de proteínas e RNA.</li><li><strong>Fase S (Síntese):</strong> Ocorre a duplicação do DNA (replicação). Cada cromossomo passa a ter duas cromátides-irmãs.</li><li><strong>Fase G2 (Gap 2):</strong> Continuação do crescimento e preparação final para a divisão, com síntese de mais proteínas e centríolos duplicados.</li></ul></li><li><strong>Fase M (Mitose ou Meiose):</strong> Período da divisão celular propriamente dita, que inclui a divisão do núcleo (cariocinese) e a divisão do citoplasma (citocinese).</li></ol><p>A regulação do ciclo celular é crucial para evitar a proliferação descontrolada de células (câncer).</p>">
+            <h3>Ciclo Celular</h3>
+            <div class="visual-representation">🔄⏳🧬</div>
+            <p class="definition">Sequência de eventos desde a formação de uma célula até sua divisão, incluindo a interfase (crescimento e duplicação do DNA) e a fase de divisão (M).</p>
+            <p class="keywords">Interfase, G1, S, G2, Fase M, Crescimento Celular, Replicação DNA</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Cromossomos: Os Portadores da Informação Genética" 
+             data-details="<p>Os <strong>Cromossomos</strong> são estruturas filamentosas presentes no núcleo das células eucarióticas, constituídos principalmente por DNA associado a proteínas (histonas). Eles contêm os genes, que são as unidades da hereditariedade.</p><h4>Estrutura de um Cromossomo Duplicado (Metafásico):</h4><ul><li><strong>Cromátides-irmãs:</strong> Duas moléculas de DNA idênticas, unidas pelo centrômero, resultantes da replicação na fase S.</li><li><strong>Centrômero:</strong> Região de constrição do cromossomo onde as cromátides-irmãs se unem e onde as fibras do fuso se ligam durante a divisão.</li><li><strong>Cinetócoro:</strong> Estrutura proteica no centrômero à qual as fibras do fuso se ligam.</li><li><strong>Telômeros:</strong> Extremidades dos cromossomos, importantes para sua estabilidade.</li></ul><h4>Ploidia:</h4><ul><li><strong>Células Diploides (2n):</strong> Possuem dois conjuntos de cromossomos, um herdado de cada progenitor. Os cromossomos ocorrem em pares homólogos. Ex: células somáticas humanas (46 cromossomos, 23 pares).</li><li><strong>Células Haploides (n):</strong> Possuem apenas um conjunto de cromossomos. Ex: gametas humanos (23 cromossomos).</li></ul><p>O número e a forma dos cromossomos são característicos de cada espécie (cariótipo).</p>">
+            <h3>Cromossomos</h3>
+            <div class="visual-representation">🧬📜🔬</div>
+            <p class="definition">Estruturas no núcleo celular que contêm o DNA e os genes. Formados por cromátides-irmãs durante a divisão.</p>
+            <p class="keywords">DNA, Histonas, Cromátides-irmãs, Centrômero, Diploide (2n), Haploide (n), Cariótipo</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Mitose: Divisão para Crescimento e Reparo" 
+             data-details="<p>A <strong>Mitose</strong> é um tipo de divisão celular em que uma célula-mãe diploide (2n) origina duas células-filhas geneticamente idênticas à célula-mãe, também diploides (2n). É uma divisão equacional.</p><h4>Importância da Mitose:</h4><ul><li>Crescimento de organismos multicelulares.</li><li>Renovação e reparo de tecidos.</li><li>Reprodução assexuada em alguns organismos.</li></ul><h4>Fases da Mitose:</h4><ol><li><strong>Prófase:</strong><ul><li>Condensação dos cromossomos (tornam-se visíveis).</li><li>Desaparecimento do nucléolo e da carioteca (envoltório nuclear).</li><li>Formação do fuso mitótico (fibras do fuso) a partir dos centrossomos, que migram para os polos da célula.</li></ul></li><li><strong>Metáfase:</strong><ul><li>Cromossomos atingem o máximo de condensação.</li><li>Alinhamento dos cromossomos na placa equatorial (metafásica) da célula.</li><li>Cada cromossomo está ligado às fibras do fuso pelo cinetócoro de suas cromátides-irmãs.</li></ul></li><li><strong>Anáfase:</strong><ul><li>Separação das cromátides-irmãs, que agora são chamadas de cromossomos-filhos.</li><li>Os cromossomos-filhos migram para os polos opostos da célula, puxados pelas fibras do fuso.</li></ul></li><li><strong>Telófase:</strong><ul><li>Os cromossomos-filhos chegam aos polos e começam a se descondensar.</li><li>Reorganização da carioteca ao redor de cada conjunto de cromossomos.</li><li>Reaparecimento dos nucléolos.</li><li>O fuso mitótico desaparece.</li></ul></li></ol><h4>Citocinese:</h4><p>Divisão do citoplasma, geralmente iniciando-se no final da anáfase ou na telófase. Em células animais, ocorre por estrangulamento (formação de um anel contrátil). Em células vegetais, ocorre pela formação de uma placa celular (fragmoplasto) de dentro para fora.</p><p><strong>Resultado:</strong> Duas células-filhas geneticamente idênticas à célula-mãe (2n).</p>">
+            <h3>Mitose</h3>
+            <div class="visual-representation">🧬➡️👯</div>
+            <p class="definition">Divisão celular que produz duas células-filhas geneticamente idênticas à célula-mãe. Essencial para crescimento e reparo.</p>
+            <p class="keywords">Prófase, Metáfase, Anáfase, Telófase, Citocinese, Células Somáticas, Divisão Equacional</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Meiose: Divisão para Variabilidade e Gametas" 
+             data-details="<p>A <strong>Meiose</strong> é um tipo de divisão celular em que uma célula-mãe diploide (2n) origina quatro células-filhas haploides (n), geneticamente diferentes entre si e da célula-mãe. Ocorre em duas divisões sucessivas: Meiose I (reducional) e Meiose II (equacional).</p><h4>Importância da Meiose:</h4><ul><li>Formação de gametas (células sexuais) em animais e esporos em plantas.</li><li>Manutenção do número de cromossomos da espécie ao longo das gerações.</li><li>Aumento da variabilidade genética (devido ao crossing-over e à segregação independente dos cromossomos homólogos).</li></ul><h4>Meiose I (Divisão Reducional):</h4><p>Separação dos cromossomos homólogos.</p><ul><li><strong>Prófase I:</strong> Fase longa e complexa, subdividida em Leptóteno, Zigóteno, Paquíteno (ocorre o <em>crossing-over</em> ou permutação), Diplóteno e Diacinese. Cromossomos homólogos pareiam (sinapse) e trocam segmentos (crossing-over).</li><li><strong>Metáfase I:</strong> Pares de cromossomos homólogos alinham-se na placa equatorial.</li><li><strong>Anáfase I:</strong> Separação dos cromossomos homólogos (cada um com duas cromátides), que migram para polos opostos. Não há separação das cromátides-irmãs.</li><li><strong>Telófase I:</strong> Cromossomos chegam aos polos. Pode haver descondensação e formação de carioteca. Citocinese forma duas células haploides (n), mas com cromossomos duplicados.</li></ul><h4>Intercinese:</h4><p>Curto intervalo entre Meiose I e Meiose II. Não ocorre nova duplicação de DNA.</p><h4>Meiose II (Divisão Equacional):</h4><p>Semelhante à mitose, mas com células haploides. Separação das cromátides-irmãs.</p><ul><li><strong>Prófase II:</strong> Condensação dos cromossomos (se descondensaram), formação do fuso.</li><li><strong>Metáfase II:</strong> Cromossomos (com duas cromátides) alinham-se na placa equatorial.</li><li><strong>Anáfase II:</strong> Separação das cromátides-irmãs, que migram para polos opostos.</li><li><strong>Telófase II:</strong> Cromossomos chegam aos polos, descondensam, cariotecas e nucléolos se reorganizam. Citocinese.</li></ul><p><strong>Resultado:</strong> Quatro células-filhas haploides (n), geneticamente distintas.</p>">
+            <h3>Meiose</h3>
+            <div class="visual-representation">🧬➡️➗➡️🎲</div>
+            <p class="definition">Divisão celular que produz quatro células-filhas haploides e geneticamente diferentes. Essencial para reprodução sexuada e variabilidade.</p>
+            <p class="keywords">Meiose I, Meiose II, Crossing-over, Gametas, Esporos, Divisão Reducional, Divisão Equacional, Variabilidade Genética</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Comparativo: Mitose vs. Meiose" 
+             data-details="<h4>Principais Diferenças e Semelhanças entre Mitose e Meiose:</h4>
+             <table>
+                <thead>
+                    <tr>
+                        <th>Característica</th>
+                        <th>Mitose</th>
+                        <th>Meiose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Célula-mãe (ploidia)</strong></td>
+                        <td>Diploide (2n) ou Haploide (n)</td>
+                        <td>Diploide (2n)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Número de divisões</strong></td>
+                        <td>Uma</td>
+                        <td>Duas (Meiose I e Meiose II)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Células-filhas (número)</strong></td>
+                        <td>Duas</td>
+                        <td>Quatro</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Células-filhas (ploidia)</strong></td>
+                        <td>Igual à célula-mãe (2n ou n)</td>
+                        <td>Haploides (n)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Identidade genética das células-filhas</strong></td>
+                        <td>Geneticamente idênticas à célula-mãe e entre si</td>
+                        <td>Geneticamente diferentes da célula-mãe e entre si</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ocorrência de Crossing-over</strong></td>
+                        <td>Não</td>
+                        <td>Sim (Prófase I)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pareamento de homólogos</strong></td>
+                        <td>Não</td>
+                        <td>Sim (Prófase I e Metáfase I)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Separação na Anáfase</strong></td>
+                        <td>Cromátides-irmãs</td>
+                        <td>Anáfase I: Cromossomos homólogos<br>Anáfase II: Cromátides-irmãs</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Função principal</strong></td>
+                        <td>Crescimento, reparo, reprodução assexuada</td>
+                        <td>Produção de gametas/esporos, variabilidade genética</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Onde ocorre (em humanos)</strong></td>
+                        <td>Células somáticas</td>
+                        <td>Células germinativas (para formar gametas)</td>
+                    </tr>
+                </tbody>
+             </table>
+             <style>
+                table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+                th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 0.95em; }
+                th { background-color: #e0f2f1; color: #00695c; }
+                td strong { color: #00796b; }
+             </style>">
+            <h3>Mitose vs. Meiose</h3>
+            <div class="visual-representation">🆚🔄🔀</div>
+            <p class="definition">Comparação dos processos de divisão celular, destacando suas finalidades, etapas e resultados distintos na célula.</p>
+            <p class="keywords">Divisão Equacional, Divisão Reducional, Células Somáticas, Células Germinativas, Variabilidade, Conservação</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Multiplicando a vida, perpetuando a espécie! 🧬🔄</p>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = document.getElementById("myModal");
+            var modalTitle = document.getElementById("modalTitle");
+            var modalDetails = document.getElementById("modalDetails");
+            var span = document.getElementsByClassName("close-button")[0];
+
+            document.querySelectorAll('.card').forEach(function(card) {
+                card.onclick = function() {
+                    modalTitle.textContent = card.getAttribute('data-concept');
+                    modalDetails.innerHTML = card.getAttribute('data-details');
+                    modal.style.display = "block";
+                }
+            });
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

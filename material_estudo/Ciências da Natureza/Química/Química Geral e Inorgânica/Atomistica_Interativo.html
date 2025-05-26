@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomística - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ECEFF1; /* COR_FUNDO_BODY */
+            color: #37474F; /* COR_TEXTO_PRINCIPAL_BODY */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #263238; /* COR_HEADER_H1 */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #546E7A; /* COR_HEADER_SUBTITULO */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff; 
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #03A9F4; /* COR_CARD_BORDA_ESQUERDA */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #455A64; /* COR_CARD_H3 */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #455A64; /* COR_CARD_VISUAL_REPRESENTATION */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #37474F; /* COR_TEXTO_CARD_DEFINITION */
+            margin-bottom: 10px;
+            min-height: 80px; /* CARD_DEFINITION_MIN_HEIGHT */
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #546E7A; /* COR_CARD_KEYWORDS */
+            font-weight: bold;
+        }
+
+        /* CSS Atom Representation */
+        .css-atom {
+            width: 72px; /* Approx 4.5em if base is 16px */
+            height: 72px;
+            position: relative;
+            margin: 0 auto 15px auto; /* Vertically center and provide bottom margin */
+        }
+
+        .css-atom .nucleus {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 14px;
+            height: 14px;
+            background-color: #455A64; /* Card H3 color / Borda */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .css-atom .orbit {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            border: 1.5px solid #607D8B; /* Visual representation color */
+            border-radius: 50%;
+        }
+
+        .css-atom .orbit .electron {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            background-color: #607D8B;
+            border-radius: 50%;
+        }
+
+        /* Orbit 1 */
+        .css-atom .orbit1 {
+            width: 45px;
+            height: 45px;
+            margin-left: -23.25px; /* (width/2) + (border-width/2) */
+            margin-top: -23.25px;
+            animation: css-atom-rotate 4s linear infinite;
+        }
+        .css-atom .orbit1 .electron {
+            top: -3.5px; /* Centered on orbit path */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Orbit 2 */
+        .css-atom .orbit2 {
+            width: 65px;
+            height: 65px;
+            margin-left: -33.25px;
+            margin-top: -33.25px;
+            animation: css-atom-rotate 5.5s linear infinite reverse; /* Different speed/direction */
+        }
+        .css-atom .orbit2 .electron {
+            /* Position on the side for variety */
+            top: 50%;
+            left: -3.5px;
+            transform: translateY(-50%);
+        }
+
+        @keyframes css-atom-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #263238; /* COR_FOOTER_BACKGROUND */
+            color: #B0BEC5; /* COR_FOOTER_TEXTO */
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.6); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #FFFFFF;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #CFD8DC;
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #263238; /* COR_MODAL_H2 */
+            margin-top: 0;
+            border-bottom: 2px solid #03A9F4; /* COR_MODAL_H2_BORDA_INFERIOR */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+            color: #37474F; /* COR_TEXTO_MODAL_CONTEUDO */
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong {
+            color: #0277BD; /* COR_MODAL_STRONG */
+        }
+        .modal-content code {
+            background-color: #CFD8DC; /* MODAL_CODE_BACKGROUND */
+            color: #37474F; /* MODAL_CODE_COLOR */
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .close-button {
+            color: #78909C;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Atomística: A Estrutura Fundamental da Matéria</h1>
+        <p>Explore os conceitos básicos da atomística. Clique nos cards para saber mais!</p>
+    </header>
+
+    <div class="concepts-grid">
+        <!-- Card 1: Modelos Atômicos -->
+        <div class="card" 
+             data-concept="Modelos Atômicos: A Evolução da Ideia" 
+             data-details="<p>A compreensão do átomo evoluiu significativamente ao longo do tempo, com cientistas propondo diferentes modelos para explicar suas propriedades e comportamento. Cada modelo foi um passo crucial, construído sobre as descobertas e limitações dos anteriores.</p><ul><li><strong>Modelo de Dalton (1808):</strong> Propôs que os átomos eram esferas maciças, indivisíveis e indestrutíveis. Elementos diferentes teriam átomos de massas diferentes. Foi fundamental para estabelecer a teoria atômica.</li><li><strong>Modelo de Thomson (1897):</strong> Após a descoberta do elétron, Thomson sugeriu o modelo do &quot;pudim de passas&quot;. O átomo seria uma esfera de carga positiva com elétrons (carga negativa) incrustados, tornando-o eletricamente neutro.</li><li><strong>Modelo de Rutherford (1911):</strong> Baseado em experimentos de bombardeamento de partículas alfa em uma fina lâmina de ouro, Rutherford propôs o modelo nuclear. O átomo teria um núcleo pequeno, denso e positivo, onde estaria concentrada a maior parte da massa, com elétrons orbitando ao redor em uma região chamada eletrosfera.</li><li><strong>Modelo de Bohr (1913):</strong> Niels Bohr aprimorou o modelo de Rutherford, incorporando ideias da mecânica quântica. Ele postulou que os elétrons se movem em órbitas circulares com níveis de energia definidos (camadas eletrônicas). Elétrons podem saltar entre níveis ao absorver ou emitir energia.</li><li><strong>Modelo Quântico (Schrödinger e outros, a partir de 1926):</strong> É o modelo mais atual e complexo. Descreve os elétrons não em órbitas definidas, mas em regiões de probabilidade chamadas orbitais. Este modelo utiliza equações matemáticas para descrever o comportamento dos elétrons.</li></ul><p>Cada modelo contribuiu para a nossa compreensão atual da matéria e suas interações.</p>">
+            <h3>Modelos Atômicos</h3>
+            <div class="visual-representation">
+                <div class="css-atom">
+                    <div class="nucleus"></div>
+                    <div class="orbit orbit1"><div class="electron"></div></div>
+                    <div class="orbit orbit2"><div class="electron"></div></div>
+                </div>
+            </div>
+            <p class="definition">A jornada histórica para entender a estrutura do átomo, desde as primeiras ideias até os modelos quânticos.</p>
+            <p class="keywords">Dalton, Thomson, Rutherford, Bohr, Evolução</p>
+        </div>
+
+        <!-- Card 2: Partículas Fundamentais -->
+        <div class="card" 
+             data-concept="Partículas Fundamentais do Átomo" 
+             data-details="<p>Os átomos são compostos por três tipos principais de partículas subatômicas, cada uma com propriedades distintas de carga e massa:</p><ul><li><strong>Prótons (p<sup>+</sup>):</strong><ul><li>Localização: Núcleo atômico.</li><li>Carga Elétrica: Positiva (+1 unidade elementar de carga, aproximadamente +1.602 x 10<sup>-19</sup> C).</li><li>Massa Relativa: Aproximadamente 1 unidade de massa atômica (u.m.a).</li><li>Função: Determina o número atômico (Z) e, portanto, a identidade do elemento químico.</li></ul></li><li><strong>Nêutrons (n<sup>0</sup>):</strong><ul><li>Localização: Núcleo atômico (junto com os prótons).</li><li>Carga Elétrica: Neutra (sem carga).</li><li>Massa Relativa: Aproximadamente 1 unidade de massa atômica (u.m.a), ligeiramente maior que a do próton.</li><li>Função: Contribuem para a massa do átomo (número de massa A) e ajudam a estabilizar o núcleo, especialmente em átomos maiores, ao separar as cargas positivas dos prótons.</li></ul></li><li><strong>Elétrons (e<sup>-</sup>):</strong><ul><li>Localização: Eletrosfera, orbitando o núcleo em níveis de energia específicos.</li><li>Carga Elétrica: Negativa (-1 unidade elementar de carga, aproximadamente -1.602 x 10<sup>-19</sup> C).</li><li>Massa Relativa: Muito pequena, cerca de 1/1836 da massa de um próton (aproximadamente 0.00054 u.m.a). Sua massa é frequentemente considerada desprezível em cálculos de massa atômica.</li><li>Função: Responsáveis pelas propriedades químicas dos elementos, formação de ligações químicas e interações entre átomos.</li></ul></li></ul><p>A interação e a quantidade dessas partículas definem as características de cada átomo.</p>">
+            <h3>Partículas Fundamentais</h3>
+            <div class="visual-representation">➕<span style='font-size:0.7em; vertical-align:middle;'>⚪</span>➖</div>
+            <p class="definition">Os componentes básicos que formam o átomo: prótons, nêutrons e elétrons, e suas características.</p>
+            <p class="keywords">Prótons, Nêutrons, Elétrons, Carga, Massa</p>
+        </div>
+
+        <!-- Card 3: Identidade Atômica (Z e A) -->
+        <div class="card" 
+             data-concept="Identidade Atômica: Número Atômico (Z) e Número de Massa (A)" 
+             data-details="<p>Dois números são fundamentais para identificar e caracterizar um átomo: o Número Atômico (Z) e o Número de Massa (A).</p><ul><li><strong>Número Atômico (Z):</strong><ul><li>Definição: É o número de <strong>prótons</strong> presentes no núcleo de um átomo.</li><li>Importância: O número atômico é a &quot;identidade&quot; de um elemento químico. Cada elemento possui um número atômico único. Por exemplo, todo átomo com Z=1 é Hidrogênio, todo átomo com Z=6 é Carbono.</li><li>Em um átomo neutro, o número de elétrons é igual ao número de prótons (Z).</li><li>Representação: Geralmente escrito como subscrito à esquerda do símbolo do elemento (ex: <sub>6</sub>C).</li></ul></li><li><strong>Número de Massa (A):</strong><ul><li>Definição: É a soma do número de <strong>prótons (Z)</strong> e do número de <strong>nêutrons (N)</strong> no núcleo de um átomo.</li><li>Fórmula: <strong>A = Z + N</strong></li><li>Importância: Indica a massa aproximada do átomo, já que prótons e nêutrons concentram quase toda a massa atômica.</li><li>Representação: Geralmente escrito como sobrescrito à esquerda do símbolo do elemento (ex: <sup>12</sup>C).</li></ul></li></ul><p>Conhecendo Z e A, podemos determinar o número de nêutrons em um átomo: <strong>N = A - Z</strong>.</p><p>Por exemplo, para o átomo de Carbono-12 (<sup>12</sup><sub>6</sub>C):</p><ul><li>Número Atômico (Z) = 6 (6 prótons, 6 elétrons em estado neutro)</li><li>Número de Massa (A) = 12</li><li>Número de Nêutrons (N) = A - Z = 12 - 6 = 6 nêutrons</li></ul>">
+            <h3>Identidade Atômica (Z, A)</h3>
+            <div class="visual-representation"><sup>A</sup><sub>Z</sub>X</div>
+            <p class="definition">Como o número de prótons (Z) define um elemento e o número de massa (A) indica a soma de prótons e nêutrons.</p>
+            <p class="keywords">Número Atômico, Número de Massa, Elemento</p>
+        </div>
+
+        <!-- Card 4: Íons -->
+        <div class="card" 
+             data-concept="Íons: Átomos com Carga Elétrica" 
+             data-details="<p>Um átomo é eletricamente neutro quando o número de prótons (cargas positivas) é igual ao número de elétrons (cargas negativas). No entanto, os átomos podem ganhar ou perder elétrons em suas camadas mais externas (camada de valência) durante interações químicas, resultando na formação de <strong>íons</strong>.</p><ul><li><strong>Cátions:</strong><ul><li>Formação: Ocorrem quando um átomo <strong>perde</strong> um ou mais elétrons.</li><li>Carga: Como o número de prótons se torna maior que o número de elétrons, o íon resultante possui uma <strong>carga positiva</strong>.</li><li>Exemplo: O átomo de Sódio (Na), com Z=11, possui 11 prótons e 11 elétrons. Ao perder 1 elétron, forma o íon Na<sup>+</sup>, que tem 11 prótons e 10 elétrons.</li><li>Metais tendem a formar cátions.</li></ul></li><li><strong>Ânions:</strong><ul><li>Formação: Ocorrem quando um átomo <strong>ganha</strong> um ou mais elétrons.</li><li>Carga: Como o número de elétrons se torna maior que o número de prótons, o íon resultante possui uma <strong>carga negativa</strong>.</li><li>Exemplo: O átomo de Cloro (Cl), com Z=17, possui 17 prótons e 17 elétrons. Ao ganhar 1 elétron, forma o íon Cl<sup>-</sup>, que tem 17 prótons e 18 elétrons.</li><li>Ametais tendem a formar ânions.</li></ul></li></ul><p>A carga de um íon é indicada como um sobrescrito à direita do símbolo do elemento. Por exemplo, Ca<sup>2+</sup> (cálcio perdeu 2 elétrons), O<sup>2-</sup> (oxigênio ganhou 2 elétrons).</p><p>É importante notar que, ao formar um íon, <strong>apenas o número de elétrons muda</strong>. O número de prótons (e, portanto, a identidade do elemento) permanece o mesmo.</p>">
+            <h3>Íons</h3>
+            <div class="visual-representation">➕↔️➖</div>
+            <p class="definition">Quando átomos ganham ou perdem elétrons, tornam-se íons, adquirindo carga elétrica positiva (cátions) ou negativa (ânions).</p>
+            <p class="keywords">Cátion, Ânion, Ganho de Elétrons, Perda de Elétrons</p>
+        </div>
+
+        <!-- Card 5: Semelhanças Atômicas -->
+        <div class="card" 
+             data-concept="Semelhanças Atômicas: Isótopos, Isóbaros e Isótonos" 
+             data-details="<p>Átomos podem ser classificados com base em semelhanças no número de suas partículas fundamentais. Essas classificações são importantes para entender variações dentro de um mesmo elemento ou relações entre elementos diferentes.</p><ul><li><strong>Isóto<span style='color: #607D8B; font-weight: bold;'>p</span>os:</strong><ul><li>Definição: São átomos do <strong>mesmo elemento químico</strong> (mesmo número atômico Z, ou seja, mesmo número de <strong>P</strong>rótons) que possuem <strong>diferentes números de massa (A)</strong>.</li><li>Causa: Diferem no número de nêutrons.</li><li>Propriedades: Possuem propriedades químicas muito semelhantes, mas podem ter propriedades físicas diferentes (como densidade ou estabilidade nuclear, no caso de isótopos radioativos).</li><li>Exemplo: Os isótopos do Hidrogênio:<ul><li>Prótio (<sup>1</sup>H): 1 próton, 0 nêutrons.</li><li>Deutério (<sup>2</sup>H): 1 próton, 1 nêutron.</li><li>Trítio (<sup>3</sup>H): 1 próton, 2 nêutrons.</li></ul></li><li>Outro exemplo: Carbono-12 (<sup>12</sup>C) e Carbono-14 (<sup>14</sup>C).</li></ul></li><li><strong>Isób<span style='color: #607D8B; font-weight: bold;'>a</span>ros:</strong><ul><li>Definição: São átomos de <strong>elementos químicos diferentes</strong> (diferentes números atômicos Z) que possuem o <strong>mesmo número de massa (A)</strong>.</li><li>Causa: A soma de prótons e nêutrons é a mesma, mas as quantidades individuais de prótons e nêutrons são diferentes.</li><li>Propriedades: Possuem propriedades químicas e físicas distintas, pois são elementos diferentes.</li><li>Exemplo: Carbono-14 (<sup>14</sup><sub>6</sub>C) e Nitrogênio-14 (<sup>14</sup><sub>7</sub>N). Ambos têm A=14, mas Z=6 para o C e Z=7 para o N.</li></ul></li><li><strong>Isóto<span style='color: #607D8B; font-weight: bold;'>n</span>os:</strong><ul><li>Definição: São átomos de <strong>elementos químicos diferentes</strong> (diferentes números atômicos Z e diferentes números de massa A) que possuem o <strong>mesmo número de Nêutrons (N)</strong>.</li><li>Causa: O número de nêutrons (N = A - Z) é igual.</li><li>Propriedades: Possuem propriedades químicas e físicas distintas.</li><li>Exemplo: Potássio-39 (<sup>39</sup><sub>19</sub>K) tem N = 39 - 19 = 20 nêutrons. Cálcio-40 (<sup>40</sup><sub>20</sub>Ca) tem N = 40 - 20 = 20 nêutrons.</li></ul></li></ul><p>Uma dica mnemônica:<ul><li>Isóto<strong>P</strong>os: mesmo número de <strong>P</strong>rótons.</li><li>Isób<strong>A</strong>ros: mesmo número de massa (<strong>A</strong>).</li><li>Isóto<strong>N</strong>os: mesmo número de <strong>N</strong>êutrons.</li></ul></p>">
+            <h3>Semelhanças Atômicas</h3>
+            <div class="visual-representation">⚛️🔄⚛️</div>
+            <p class="definition">Átomos de diferentes elementos ou do mesmo elemento podem compartilhar certas características, como número de prótons, massa ou nêutrons.</p>
+            <p class="keywords">Isótopos, Isóbaros, Isótonos, Prótons, Nêutrons, Massa</p>
+        </div>
+
+        <!-- Card 6: Distribuição Eletrônica -->
+        <div class="card" 
+             data-concept="Distribuição Eletrônica: Organização dos Elétrons" 
+             data-details="<p>A distribuição eletrônica descreve como os elétrons de um átomo estão arranjados em diferentes níveis e subníveis de energia ao redor do núcleo. Essa organização é fundamental para entender as propriedades químicas dos elementos e como eles formam ligações.</p><h4>Camadas ou Níveis de Energia (K, L, M, N, O, P, Q)</h4><p>Os elétrons ocupam regiões chamadas <strong>camadas eletrônicas</strong> ou <strong>níveis de energia</strong>. Existem até 7 camadas, designadas pelas letras K, L, M, N, O, P, Q, ou pelos números quânticos principais (n = 1, 2, 3, 4, 5, 6, 7).</p><ul><li>Camada K (n=1): comporta até 2 elétrons.</li><li>Camada L (n=2): comporta até 8 elétrons.</li><li>Camada M (n=3): comporta até 18 elétrons.</li><li>Camada N (n=4): comporta até 32 elétrons.</li><li>E assim por diante, com a capacidade máxima teórica de uma camada sendo 2n<sup>2</sup> elétrons.</li></ul><p>Quanto mais distante do núcleo, maior a energia da camada.</p><h4>Subcamadas ou Subníveis de Energia (s, p, d, f)</h4><p>Cada camada eletrônica é dividida em <strong>subcamadas</strong> ou <strong>subníveis de energia</strong>, designados pelas letras s, p, d, f.</p><ul><li>Subnível s: comporta até 2 elétrons (1 orbital).</li><li>Subnível p: comporta até 6 elétrons (3 orbitais).</li><li>Subnível d: comporta até 10 elétrons (5 orbitais).</li><li>Subnível f: comporta até 14 elétrons (7 orbitais).</li></ul><p>A ordem de preenchimento dos subníveis não segue necessariamente a ordem das camadas, mas sim a ordem crescente de energia, que é determinada pelo <strong>Diagrama de Linus Pauling</strong>.</p><h4>Diagrama de Linus Pauling</h4><p>O Diagrama de Linus Pauling é uma ferramenta mnemônica que indica a ordem correta de preenchimento dos subníveis eletrônicos em um átomo:</p><p style='font-family: &quot;Courier New&quot;, Courier, monospace; text-align: center; line-height: 1.4;'>1s<sup>2</sup><br>2s<sup>2</sup> 2p<sup>6</sup><br>3s<sup>2</sup> 3p<sup>6</sup> 3d<sup>10</sup><br>4s<sup>2</sup> 4p<sup>6</sup> 4d<sup>10</sup> 4f<sup>14</sup><br>5s<sup>2</sup> 5p<sup>6</sup> 5d<sup>10</sup> 5f<sup>14</sup><br>6s<sup>2</sup> 6p<sup>6</sup> 6d<sup>10</sup><br>7s<sup>2</sup> 7p<sup>6</sup></p><p>A ordem de preenchimento é seguida pelas diagonais: 1s, 2s, 2p, 3s, 3p, 4s, 3d, 4p, 5s, 4d, 5p, 6s, 4f, 5d, 6p, 7s, 5f, 6d, 7p.</p><p><strong>Exemplo:</strong> Distribuição eletrônica do Ferro (Fe), Z=26:</p><p><code>1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>6</sup></code></p><h4>Camada de Valência</h4><p>A <strong>camada de valência</strong> é a última camada eletrônica a receber elétrons (a camada mais externa ocupada). Os elétrons presentes na camada de valência são chamados de <strong>elétrons de valência</strong> e são os principais responsáveis pelas ligações químicas e pelo comportamento químico do átomo.</p><p>No exemplo do Ferro (Fe), a camada de valência é a camada N (n=4), com 2 elétrons (4s<sup>2</sup>).</p>">
+            <h3>Distribuição Eletrônica</h3>
+            <div class="visual-representation">⚛️ <span style="font-size: 0.4em; vertical-align: middle;">K L M...</span></div>
+            <p class="definition">Como os elétrons se distribuem em camadas (níveis) e subcamadas (subníveis) de energia ao redor do núcleo.</p>
+            <p class="keywords">Camadas, Subníveis, Pauling, Valência</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Desvendando os segredos do átomo, a base de tudo! ⚛️🔬✨</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalConceptTitle"></h2>
+            <div id="modalConceptDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('myModal');
+        const modalTitle = document.getElementById('modalConceptTitle');
+        const modalDetails = document.getElementById('modalConceptDetails');
+        const closeButton = document.querySelector('.close-button');
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const concept = this.getAttribute('data-concept');
+                const detailsHTML = this.getAttribute('data-details');
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = detailsHTML;
+                modal.style.display = 'block';
+            });
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Adiciona funcionalidade para fechar modal com a tecla Esc
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape" && modal.style.display === 'block') {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

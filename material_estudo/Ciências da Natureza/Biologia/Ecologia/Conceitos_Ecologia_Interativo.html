@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceitos Básicos de Ecologia - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e6f7ff; /* Azul bem claro de fundo */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #00508e; /* Azul escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #007bff;
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #007bff; /* Borda azul */
+            cursor: pointer; /* Indica que é clicável */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #00508e;
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em; /* Tamanho grande para emojis/ícones */
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #007bff;
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 60px; /* Para alinhar altura */
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .hierarchy-section {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 40px;
+            text-align: center;
+        }
+        .hierarchy-title {
+            font-size: 2.2em;
+            color: #00508e;
+            margin-bottom: 20px;
+        }
+        .hierarchy-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+        .hierarchy-level {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            font-size: 1.2em;
+            width: 60%;
+            min-width: 250px;
+            border: 2px solid #007bff;
+        }
+        .hierarchy-level strong {
+            color: #00508e;
+        }
+        .hierarchy-arrow {
+            font-size: 2em;
+            color: #007bff;
+            transform: rotate(90deg);
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #00508e;
+            color: #e6f7ff;
+        }
+
+        /* Estilos do Modal */
+        .modal {
+            display: none; /* Oculto por padrão */
+            position: fixed; /* Fica fixo na tela */
+            z-index: 1000; /* Fica sobre todos os outros elementos */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto; /* Habilita scroll se o conteúdo for grande */
+            background-color: rgba(0,0,0,0.6); /* Fundo escurecido */
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #00508e;
+            margin-top: 0;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+        }
+        .modal-content p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Conceitos Básicos de Ecologia</h1>
+        <p>Os blocos de construção para entender a vida no planeta! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" data-concept="Ecologia" data-details="A Ecologia (do grego oikos, casa, e logos, estudo) é o ramo da Biologia que investiga como os organismos interagem entre si (relações bióticas) e com os componentes não vivos do seu ambiente (fatores abióticos, como luz, temperatura, água, solo). Ela busca entender a distribuição e abundância dos seres vivos, o fluxo de energia e a ciclagem de matéria nos ecossistemas. É fundamental para a conservação da biodiversidade e para a compreensão dos impactos humanos no planeta.">
+            <h3>Ecologia</h3>
+            <div class="visual-representation">🌍🔬</div>
+            <p class="definition">Ciência que estuda as <strong>interações</strong> dos seres vivos entre si e com o ambiente.</p>
+            <p class="keywords">Oikos (casa) + Logos (estudo)</p>
+        </div>
+        <div class="card" data-concept="Indivíduo" data-details="Em Ecologia, um indivíduo é um organismo singular, uma unidade viva que pode ser desde uma bactéria unicelular até uma baleia azul. Cada indivíduo possui características genéticas próprias e interage com o ambiente de forma a garantir sua sobrevivência e reprodução. É o nível mais fundamental da organização ecológica.">
+            <h3>Indivíduo</h3>
+            <div class="visual-representation">👤</div>
+            <p class="definition">Um único organismo, a unidade básica da vida.</p>
+            <p class="keywords">Ser vivo singular</p>
+        </div>
+        <div class="card" data-concept="População" data-details="Uma população é um grupo de indivíduos da mesma espécie que habitam uma determinada área geográfica em um mesmo período de tempo. Os membros de uma população compartilham o mesmo pool gênico (conjunto de genes) e são capazes de se reproduzir entre si, gerando descendentes férteis. O estudo das populações (dinâmica populacional) analisa fatores como taxas de natalidade, mortalidade, imigração e emigração.">
+            <h3>População</h3>
+            <div class="visual-representation">👥👥</div>
+            <p class="definition">Conjunto de indivíduos da <strong>mesma espécie</strong> que vivem em uma mesma área e ao mesmo tempo.</p>
+            <p class="keywords">Mesma espécie, mesma área</p>
+        </div>
+        <div class="card" data-concept="Comunidade (Biocenose)" data-details="A comunidade, também chamada de biocenose, representa o conjunto de todas as populações de diferentes espécies que coexistem e interagem em uma mesma área ou habitat. Essas interações podem ser relações ecológicas como competição, predação, mutualismo, etc. A estrutura de uma comunidade é definida pela diversidade de espécies e pela complexidade de suas interações.">
+            <h3>Comunidade (Biocenose)</h3>
+            <div class="visual-representation">🌲🐒🦅</div>
+            <p class="definition">Conjunto de <strong>diferentes populações</strong> (espécies) que vivem e interagem em uma mesma área.</p>
+            <p class="keywords">Várias espécies, interações</p>
+        </div>
+        <div class="card" data-concept="Ecossistema" data-details="Um ecossistema é a unidade funcional básica da Ecologia, compreendendo a interação complexa entre a comunidade (componentes bióticos) e o ambiente físico-químico (componentes abióticos) em que ela vive. Inclui o fluxo de energia (que geralmente se inicia com a luz solar captada pelos produtores) e a ciclagem de nutrientes (como água, carbono, nitrogênio). Exemplos variam de uma pequena poça d'água a uma vasta floresta tropical.">
+            <h3>Ecossistema</h3>
+            <div class="visual-representation">🏞️☀️💧</div>
+            <p class="definition">Interação entre os componentes <strong>bióticos</strong> (vivos: comunidade) e <strong>abióticos</strong> (não vivos: luz, água, solo, temperatura).</p>
+            <p class="keywords">Vivos + Não Vivos + Interação</p>
+        </div>
+        <div class="card" data-concept="Biosfera" data-details="A biosfera é a camada da Terra onde a vida existe. Ela engloba todos os ecossistemas do planeta, desde as profundezas dos oceanos até as altas montanhas. É um sistema global dinâmico e interconectado, onde a energia solar é o motor principal e os ciclos biogeoquímicos garantem a manutenção da vida.">
+            <h3>Biosfera</h3>
+            <div class="visual-representation">🌐</div>
+            <p class="definition">Conjunto de <strong>todos os ecossistemas</strong> da Terra. A porção do planeta onde existe vida.</p>
+            <p class="keywords">Toda a vida na Terra</p>
+        </div>
+        <div class="card" data-concept="Habitat" data-details="Habitat é o ambiente físico específico onde uma espécie ou organismo vive naturalmente. É o &quot;endereço&quot; da espécie, caracterizado por fatores abióticos (clima, tipo de solo, disponibilidade de água) e bióticos (presença de outras espécies) que fornecem as condições necessárias para sua sobrevivência e reprodução. Um mesmo habitat pode ser compartilhado por diversas espécies.">
+            <h3>Habitat</h3>
+            <div class="visual-representation">🏡</div>
+            <p class="definition">O <strong>&quot;endereço&quot;</strong> de uma espécie; o local físico onde ela vive.</p>
+            <p class="keywords">Onde vive, local físico</p>
+        </div>
+        <div class="card" data-concept="Nicho Ecológico" data-details="O nicho ecológico descreve o papel funcional de uma espécie dentro de um ecossistema. É a &quot;profissão&quot; da espécie, abrangendo não apenas onde ela vive (habitat), mas também o que ela come (hábitos alimentares), como obtém alimento, seus predadores, seus parasitas, seus competidores, seus períodos de atividade (diurno/noturno), e como ela se reproduz e interage com os fatores físicos do ambiente. Duas espécies não podem ocupar o mesmo nicho ecológico por muito tempo no mesmo habitat devido ao princípio da exclusão competitiva.">
+            <h3>Nicho Ecológico</h3>
+            <div class="visual-representation">🛠️🍽️😴</div>
+            <p class="definition">A <strong>&quot;profissão&quot;</strong> da espécie no ecossistema: o que come, como se reproduz, hábitos, interações, etc.</p>
+            <p class="keywords">Função, papel no ecossistema</p>
+        </div>
+        <div class="card" data-concept="Cadeia Alimentar" data-details="Uma cadeia alimentar é uma representação linear do fluxo de energia e matéria através de uma série de organismos, onde cada um serve de alimento para o organismo seguinte. Começa com os produtores (seres autótrofos, como plantas, que convertem energia solar em energia química), seguidos pelos consumidores primários (herbívoros), consumidores secundários (carnívoros que comem herbívoros), consumidores terciários, e assim por diante. Os decompositores (fungos e bactérias) atuam em todos os níveis, quebrando a matéria orgânica morta.">
+            <h3>Cadeia Alimentar</h3>
+            <div class="visual-representation">🌿➡️🦗➡️🐸➡️🐍</div>
+            <p class="definition">Sequência linear de organismos onde um serve de <strong>alimento</strong> para o outro, mostrando o fluxo de energia.</p>
+            <p class="keywords">Produtor → Consumidor → Decompositor</p>
+        </div>
+        <div class="card" data-concept="Níveis Tróficos" data-details="Nível trófico (ou nível alimentar) refere-se à posição que um organismo ocupa em uma cadeia ou teia alimentar, de acordo com sua fonte de energia. Os produtores estão no primeiro nível trófico. Os consumidores primários (herbívoros) estão no segundo. Os consumidores secundários (carnívoros que comem herbívoros) estão no terceiro, e assim sucessivamente. A energia diminui a cada transferência de um nível trófico para o seguinte (cerca de 10% é transferido).">
+            <h3>Níveis Tróficos</h3>
+            <div class="visual-representation">🥇🥈🥉</div>
+            <p class="definition">A <strong>posição</strong> que cada organismo ocupa em uma cadeia alimentar (Produtor, Consumidor Primário, Secundário, etc.).</p>
+            <p class="keywords">Posição na cadeia, fluxo de energia</p>
+        </div>
+        <div class="card" data-concept="Teia Alimentar" data-details="Uma teia alimentar é uma representação mais realista e complexa das relações alimentares em um ecossistema. Ela consiste em múltiplas cadeias alimentares interconectadas, mostrando que a maioria dos organismos consome mais de um tipo de alimento e é consumida por mais de um tipo de predador. As teias alimentares ilustram a interdependência entre as espécies e a complexidade do fluxo de energia e nutrientes.">
+            <h3>Teia Alimentar</h3>
+            <div class="visual-representation"><img src="https://img.icons8.com/ios/100/000000/spider-web.png" alt="Teia" style="width:80px; height:80px;"/></div>
+            <p class="definition">Conjunto de <strong>várias cadeias alimentares</strong> interconectadas em um ecossistema. Mais complexa e realista.</p>
+            <p class="keywords">Múltiplas cadeias, interconexões</p>
+        </div>
+         <div class="card" data-concept="Decompositores" data-details="Decompositores são organismos, principalmente fungos e bactérias, que desempenham um papel crucial na ciclagem de nutrientes nos ecossistemas. Eles obtêm energia quebrando a matéria orgânica morta (cadáveres de plantas e animais, fezes, restos de alimentos) em substâncias inorgânicas mais simples. Esses nutrientes (como nitratos, fosfatos) são então liberados de volta ao solo ou à água, tornando-se disponíveis novamente para os produtores, fechando o ciclo da matéria.">
+            <h3>Decompositores</h3>
+            <div class="visual-representation">🍄🦠♻️</div>
+            <p class="definition">Organismos (fungos e bactérias) que <strong>reciclam a matéria orgânica</strong>, devolvendo nutrientes ao ambiente.</p>
+            <p class="keywords">Reciclagem, matéria orgânica, nutrientes</p>
+        </div>
+    </div>
+
+    <div class="hierarchy-section">
+        <h2 class="hierarchy-title">Níveis de Organização em Ecologia</h2>
+        <div class="hierarchy-diagram">
+            <div class="hierarchy-level"><strong>Biosfera</strong> (Toda a vida)</div>
+            <div class="hierarchy-arrow">⬇️</div>
+            <div class="hierarchy-level"><strong>Ecossistema</strong> (Vivos + Não Vivos + Interação)</div>
+            <div class="hierarchy-arrow">⬇️</div>
+            <div class="hierarchy-level"><strong>Comunidade</strong> (Várias Populações)</div>
+            <div class="hierarchy-arrow">⬇️</div>
+            <div class="hierarchy-level"><strong>População</strong> (Mesma Espécie)</div>
+            <div class="hierarchy-arrow">⬇️</div>
+            <div class="hierarchy-level"><strong>Indivíduo</strong> (Um Organismo)</div>
+        </div>
+    </div>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDetails"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Continue explorando o incrível mundo da Ecologia! 🌱✨</p>
+    </footer>
+
+    <script>
+        // Pega o modal
+        var modal = document.getElementById("myModal");
+
+        // Pega o elemento <span> que fecha o modal
+        var span = document.getElementsByClassName("close-button")[0];
+
+        // Pega todos os cards
+        var cards = document.querySelectorAll(".card");
+
+        // Pega os elementos do modal que serão preenchidos
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDetails = document.getElementById("modalDetails");
+
+        // Adiciona evento de clique para cada card
+        cards.forEach(function(card) {
+            card.onclick = function() {
+                var concept = card.getAttribute("data-concept");
+                var details = card.getAttribute("data-details");
+                
+                modalTitle.textContent = concept;
+                modalDetails.textContent = details;
+                modal.style.display = "block";
+            }
+        });
+
+        // Quando o usuário clicar no <span> (x), fecha o modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        // Quando o usuário clicar em qualquer lugar fora do modal, fecha-o
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Políticas Públicas de Saúde no Brasil - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e8f5e9; /* Verde bem claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #2e7d32; /* Verde escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #388e3c; /* Verde médio */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #1b5e20; /* Verde mais escuro */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #1b5e20; /* Verde mais escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #4caf50; /* Verde */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 10px;
+            min-height: 80px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #1b5e20; /* Verde mais escuro */
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #1b5e20; /* Verde mais escuro */
+            color: #e8f5e9; /* Verde bem claro */
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.6); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #1b5e20; /* Verde mais escuro */
+            margin-top: 0;
+            border-bottom: 2px solid #2e7d32; /* Verde escuro */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+            color: #333;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong {
+            color: #4caf50; /* Verde */
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Políticas Públicas de Saúde no Brasil</h1>
+        <p>Clique nos cards para entender a estrutura, funcionamento e desafios da saúde pública brasileira.</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" data-concept="Histórico das Políticas de Saúde no Brasil" data-details="<p>A saúde pública no Brasil passou por diversas fases:</p><ul><li><strong>Período Colonial e Imperial:</strong> Ações isoladas, foco em controle de epidemias em portos e cidades importantes. Caráter filantrópico e privado predominante.</li><li><strong>República Velha (até 1930):</strong> Modelo campanhista, com Oswaldo Cruz e Carlos Chagas. Foco em saneamento e combate a doenças como febre amarela, peste bubônica e varíola. Criação do Departamento Nacional de Saúde Pública (1920).</li><li><strong>Era Vargas (1930-1945):</strong> Início da medicina previdenciária com os Institutos de Aposentadorias e Pensões (IAPs), atendendo categorias específicas de trabalhadores.</li><li><strong>Pós-1945 até Ditadura Militar:</strong> Expansão dos IAPs, unificados no INPS (Instituto Nacional de Previdência Social). Saúde ainda não era um direito universal.</li><li><strong>Ditadura Militar (1964-1985):</strong> Crise no modelo médico-assistencial privatista. Movimento da Reforma Sanitária ganha força, defendendo a saúde como direito de todos e dever do Estado.</li><li><strong>Nova República e Constituição de 1988:</strong> Criação do Sistema Único de Saúde (SUS), marco fundamental que estabelece a saúde como direito universal.</li></ul>">
+            <h3>Histórico das Políticas</h3>
+            <div class="visual-representation">📜🕰️🇧🇷</div>
+            <p class="definition">A evolução da saúde pública no Brasil, das ações isoladas à criação do SUS como direito universal.</p>
+            <p class="keywords">Reforma Sanitária, IAPs, Constituição de 1988</p>
+        </div>
+
+        <div class="card" data-concept="O Sistema Único de Saúde (SUS): Princípios e Diretrizes" data-details="<p>O <strong>SUS</strong>, criado pela Constituição Federal de 1988 e regulamentado pelas Leis nº 8.080/90 e nº 8.142/90, é um dos maiores sistemas públicos de saúde do mundo.</p><p><strong>Princípios Doutrinários (Ideológicos):</strong></p><ul><li><strong>Universalidade:</strong> A saúde é um direito de todos os cidadãos, sem qualquer tipo de discriminação.</li><li><strong>Equidade:</strong> Tratar desigualmente os desiguais, investindo mais onde a carência é maior, visando diminuir as desigualdades.</li><li><strong>Integralidade:</strong> Atenção à saúde em todos os níveis (promoção, prevenção, tratamento e reabilitação), considerando o indivíduo como um todo.</li></ul><p><strong>Princípios Organizativos (Operacionais):</strong></p><ul><li><strong>Regionalização e Hierarquização:</strong> Organização dos serviços em redes de atenção à saúde, com diferentes níveis de complexidade, em regiões definidas.</li><li><strong>Descentralização Político-Administrativa:</strong> Com comando único em cada esfera de governo (União, Estados, Municípios).</li><li><strong>Participação da Comunidade (Controle Social):</strong> Através dos Conselhos e Conferências de Saúde.</li></ul>">
+            <h3>O SUS: Princípios</h3>
+            <div class="visual-representation">💚🤝🏛️</div>
+            <p class="definition">Baseado na universalidade, equidade e integralidade, com organização descentralizada e participação social.</p>
+            <p class="keywords">Universalidade, Equidade, Integralidade, Controle Social</p>
+        </div>
+
+        <div class="card" data-concept="Níveis de Atenção à Saúde" data-details="<p>O SUS organiza a atenção à saúde em níveis de complexidade crescente:</p><ul><li><strong>Atenção Primária à Saúde (APS) ou Atenção Básica:</strong> É a porta de entrada preferencial do sistema. Foco na promoção da saúde, prevenção de doenças, diagnóstico, tratamento e reabilitação dos agravos mais comuns. Ex: Unidades Básicas de Saúde (UBS), Estratégia Saúde da Família (ESF). Resolve cerca de 85% dos problemas de saúde da população.</li><li><strong>Atenção Secundária à Saúde (Média Complexidade):</strong> Serviços especializados, como consultas com especialistas (cardiologistas, endocrinologistas), exames mais complexos (ultrassonografia, endoscopia) e algumas cirurgias ambulatoriais. Ex: Ambulatórios de especialidades, hospitais de pequeno e médio porte.</li><li><strong>Atenção Terciária à Saúde (Alta Complexidade):</strong> Procedimentos de alta tecnologia e custo elevado, como transplantes, cirurgias cardíacas complexas, tratamento de câncer. Ex: Hospitais universitários, hospitais especializados de grande porte.</li></ul><p>Esses níveis devem funcionar de forma integrada, através de um sistema de referência e contrarreferência.</p>">
+            <h3>Níveis de Atenção</h3>
+            <div class="visual-representation">🏥🩺🔬</div>
+            <p class="definition">Organização dos serviços em Atenção Primária, Secundária e Terciária, de forma integrada e hierarquizada.</p>
+            <p class="keywords">Atenção Básica, Média Complexidade, Alta Complexidade</p>
+        </div>
+
+        <div class="card" data-concept="Financiamento do SUS" data-details="<p>O financiamento do SUS é de responsabilidade das três esferas de governo: União, Estados e Municípios.</p><ul><li><strong>União:</strong> Principal fonte de recursos, provenientes de impostos federais e contribuições sociais (como a CSLL e parte da COFINS). Define políticas nacionais e repassa verbas para estados e municípios.</li><li><strong>Estados:</strong> Destinam um percentual mínimo de sua arrecadação de impostos para a saúde (atualmente 12%, conforme Emenda Constitucional nº 29).</li><li><strong>Municípios:</strong> Destinam um percentual mínimo de sua arrecadação de impostos para a saúde (atualmente 15%, conforme EC nº 29). São os principais executores das ações e serviços de saúde.</li></ul><p>Apesar dos avanços, o subfinanciamento crônico é um dos maiores desafios do SUS, impactando a qualidade e a capacidade de atendimento.</p><p>A Emenda Constitucional nº 95/2016 (Teto de Gastos) impôs limites aos gastos primários da União, incluindo saúde, o que tem gerado debates sobre seu impacto no financiamento do sistema.</p>">
+            <h3>Financiamento do SUS</h3>
+            <div class="visual-representation">💰📊📉</div>
+            <p class="definition">Responsabilidade tripartite (União, Estados, Municípios), com desafios relacionados ao subfinanciamento.</p>
+            <p class="keywords">Recursos, Orçamento, Teto de Gastos, EC29</p>
+        </div>
+
+        <div class="card" data-concept="Principais Programas de Saúde Pública no Brasil" data-details="<p>O SUS implementa diversos programas para atender às necessidades de saúde da população. Alguns exemplos notáveis:</p><ul><li><strong>Programa Nacional de Imunizações (PNI):</strong> Referência mundial, oferece gratuitamente um extenso calendário de vacinas para todas as faixas etárias.</li><li><strong>Estratégia Saúde da Família (ESF):</strong> Principal modelo de Atenção Primária, com equipes multiprofissionais atuando em territórios definidos, promovendo vínculo e cuidado longitudinal.</li><li><strong>SAMU 192 (Serviço de Atendimento Móvel de Urgência):</strong> Atendimento pré-hospitalar de urgência e emergência.</li><li><strong>Farmácia Popular do Brasil:</strong> Facilita o acesso a medicamentos essenciais, com subsídios ou gratuidade.</li><li><strong>Programa Nacional de Controle do Tabagismo.</strong></li><li><strong>Rede Cegonha:</strong> Atenção à saúde materno-infantil, desde o planejamento reprodutivo até o puerpério e cuidados com o recém-nascido.</li><li><strong>Programas de Controle de Doenças Crônicas (Hipertensão, Diabetes).</strong></li><li><strong>Programas de Controle de Doenças Transmissíveis (HIV/AIDS, Tuberculose, Hanseníase, Dengue).</strong></li></ul>">
+            <h3>Programas de Saúde</h3>
+            <div class="visual-representation">💉👨‍👩‍👧‍👦🚑</div>
+            <p class="definition">Iniciativas como PNI, Saúde da Família e SAMU, visando atender diversas necessidades da população.</p>
+            <p class="keywords">PNI, ESF, SAMU, Rede Cegonha, Prevenção</p>
+        </div>
+
+        <div class="card" data-concept="Desafios e Perspectivas para a Saúde Pública Brasileira" data-details="<p>Apesar de suas conquistas, o SUS enfrenta grandes desafios:</p><ul><li><strong>Subfinanciamento crônico:</strong> Insuficiência de recursos para atender à demanda crescente.</li><li><strong>Gestão e regionalização:</strong> Dificuldades na articulação entre os entes federativos e na organização das redes de atenção.</li><li><strong>Filas e tempo de espera:</strong> Especialmente para consultas especializadas, exames e cirurgias.</li><li><strong>Valorização dos profissionais de saúde:</strong> Questões salariais, condições de trabalho e fixação em áreas remotas.</li><li><strong>Judicialização da saúde:</strong> Aumento de ações judiciais para obtenção de medicamentos e tratamentos não incorporados ao SUS.</li><li><strong>Transição demográfica e epidemiológica:</strong> Envelhecimento da população e aumento de doenças crônicas.</li><li><strong>Incorporação de novas tecnologias:</strong> Equilibrar acesso à inovação com sustentabilidade financeira.</li></ul><p><strong>Perspectivas:</strong> Fortalecimento da Atenção Primária, melhoria da gestão, investimento em tecnologia, maior participação social e garantia de financiamento adequado são caminhos para aprimorar o sistema.</p>">
+            <h3>Desafios e Perspectivas</h3>
+            <div class="visual-representation">🚧📈💡</div>
+            <p class="definition">Enfrenta subfinanciamento, problemas de gestão e filas, buscando fortalecer a atenção primária e o financiamento.</p>
+            <p class="keywords">Subfinanciamento, Gestão, Filas, Futuro do SUS</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>SUS: Direito de todos, dever do Estado, construindo um Brasil mais saudável! 🇧🇷🏥❤️</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalConceptTitle"></h2>
+            <div id="modalConceptDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('myModal');
+        const modalTitle = document.getElementById('modalConceptTitle');
+        const modalDetails = document.getElementById('modalConceptDetails');
+        const closeButton = document.querySelector('.close-button');
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const concept = this.getAttribute('data-concept');
+                const details = this.getAttribute('data-details');
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details;
+                modal.style.display = 'block';
+            });
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

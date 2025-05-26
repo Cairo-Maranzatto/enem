@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Imunológico - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #e3f2fd; /* Azul bem claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #0d47a1; /* Azul escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #1565c0; /* Azul médio */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #0a3678; /* Azul mais escuro */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #0a3678; /* Azul mais escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #0d47a1;
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 70px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #0a3678;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #0a3678; /* Azul mais escuro */
+            color: #bbdefb; /* Azul muito claro */
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #0a3678;
+            margin-top: 0;
+            border-bottom: 2px solid #0d47a1;
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #0d47a1; }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Imunológico</h1>
+        <p>Seu exército de defesa contra invasores! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" data-concept="Visão Geral do Sistema Imunológico" data-details="O <strong>Sistema Imunológico</strong> é uma complexa rede de células, tecidos e órgãos que trabalham juntos para defender o corpo contra agentes infecciosos (como bactérias, vírus, fungos e parasitas) e outras ameaças (como células cancerosas).<ul><li><strong>Funções Principais:</strong>
+    <ul>
+        <li><strong>Defesa:</strong> Reconhecer e eliminar patógenos e substâncias estranhas.</li>
+        <li><strong>Vigilância Imunológica:</strong> Identificar e destruir células anormais ou infectadas (ex: cancerosas).</li>
+        <li><strong>Homeostase:</strong> Remover células mortas ou danificadas e regular processos inflamatórios.</li>
+    </ul>
+</li><li><strong>Componentes:</strong> Células (leucócitos), órgãos linfoides (medula óssea, timo, linfonodos, baço), moléculas solúveis (anticorpos, citocinas, sistema complemento).</li></ul>">
+            <h3>Visão Geral</h3>
+            <div class="visual-representation">🛡️🔬🦠💪</div>
+            <p class="definition">Sistema de defesa do corpo contra patógenos (vírus, bactérias) e células anormais, mantendo a saúde.</p>
+            <p class="keywords">Defesa, Patógenos, Células, Anticorpos, Vigilância</p>
+        </div>
+
+        <div class="card" data-concept="Órgãos do Sistema Imunológico" data-details="Os órgãos do sistema imunológico são classificados como primários ou secundários:<ul><li><strong>Órgãos Linfoides Primários:</strong> Onde os linfócitos (células chave da imunidade) são formados e/ou amadurecem.
+    <ul>
+        <li><strong>Medula Óssea:</strong> Local de origem de todas as células sanguíneas, incluindo os leucócitos. Linfócitos B amadurecem aqui.</li>
+        <li><strong>Timo:</strong> Glândula localizada no tórax onde os linfócitos T amadurecem e aprendem a distinguir o 'próprio' do 'não-próprio'.</li>
+    </ul>
+</li><li><strong>Órgãos Linfoides Secundários:</strong> Onde os linfócitos maduros encontram antígenos e as respostas imunes são iniciadas.
+    <ul>
+        <li><strong>Linfonodos (Gânglios Linfáticos):</strong> Pequenas estruturas espalhadas pelo corpo que filtram a linfa e concentram linfócitos, facilitando o encontro com antígenos.</li>
+        <li><strong>Baço:</strong> Filtra o sangue, removendo células velhas e patógenos, e é um local importante para respostas imunes a antígenos sanguíneos.</li>
+        <li><strong>Tecidos Linfoides Associados a Mucosas (MALT):</strong> Aglomerados de tecido linfoide em locais estratégicos como trato respiratório (adenoides, amígdalas), digestório (Placas de Peyer) e urogenital, protegendo contra invasores que entram por essas vias.</li>
+    </ul>
+</li></ul>">
+            <h3>Órgãos Imunológicos</h3>
+            <div class="visual-representation">🏭🎓🛡️📍</div>
+            <p class="definition">Primários (medula óssea, timo) onde células imunes se formam/amadurecem. Secundários (linfonodos, baço) onde respostas ocorrem.</p>
+            <p class="keywords">Medula Óssea, Timo, Linfonodos, Baço, MALT, Maturação</p>
+        </div>
+
+        <div class="card" data-concept="Células do Sistema Imunológico" data-details="Os <strong>Leucócitos (glóbulos brancos)</strong> são as principais células de defesa. Diversos tipos existem:<ul><li><strong>Fagócitos:</strong> Células que 'comem' (fagocitam) patógenos, restos celulares e partículas estranhas.
+    <ul>
+        <li><strong>Neutrófilos:</strong> Mais abundantes, primeira linha de defesa contra bactérias.</li>
+        <li><strong>Macrófagos:</strong> Grandes fagócitos, também apresentam antígenos aos linfócitos T e liberam citocinas. Originam-se de monócitos.</li>
+        <li><strong>Células Dendríticas:</strong> Principais células apresentadoras de antígenos (APCs), ativam linfócitos T.</li>
+    </ul>
+</li><li><strong>Linfócitos:</strong> Responsáveis pela imunidade específica (adaptativa).
+    <ul>
+        <li><strong>Linfócitos B:</strong> Produzem anticorpos (imunidade humoral).</li>
+        <li><strong>Linfócitos T:</strong> Atuam na imunidade celular. Incluem T Auxiliares (CD4+), T Citotóxicos (CD8+) e T Reguladores.</li>
+        <li><strong>Células Natural Killer (NK):</strong> Matam células infectadas por vírus e células tumorais (parte da imunidade inata).</li>
+    </ul>
+</li><li><strong>Outras Células:</strong>
+    <ul>
+        <li><strong>Mastócitos e Basófilos:</strong> Liberam histamina e outras substâncias em alergias e inflamações.</li>
+        <li><strong>Eosinófilos:</strong> Combatem parasitas e participam de reações alérgicas.</li>
+    </ul>
+</li></ul>">
+            <h3>Células Imunológicas</h3>
+            <div class="visual-representation">👥🛡️🍽️🎯</div>
+            <p class="definition">Leucócitos: Fagócitos (neutrófilos, macrófagos), Linfócitos (T, B, NK), Mastócitos, Basófilos, Eosinófilos.</p>
+            <p class="keywords">Leucócitos, Fagócitos, Linfócitos T, Linfócitos B, Células NK, APC</p>
+        </div>
+
+        <div class="card" data-concept="Imunidade Inata (Não Específica)" data-details="A <strong>Imunidade Inata</strong> é a primeira linha de defesa, agindo rapidamente e de forma não específica contra qualquer invasor.<ul><li><strong>Componentes:</strong>
+    <ul>
+        <li><strong>Barreiras Físicas e Químicas:</strong> Pele intacta, mucosas, cílios, pH ácido do estômago, lisozima (saliva, lágrimas).</li>
+        <li><strong>Células:</strong> Fagócitos (neutrófilos, macrófagos), células Natural Killer (NK), mastócitos.</li>
+        <li><strong>Proteínas Sanguíneas:</strong> Sistema Complemento (conjunto de proteínas que ajudam a destruir patógenos e promovem inflamação), citocinas (mensageiros químicos como interferons).</li>
+        <li><strong>Resposta Inflamatória:</strong> Processo que atrai células de defesa ao local da infecção/lesão.</li>
+    </ul>
+</li><li><strong>Características:</strong> Resposta rápida (horas), não requer exposição prévia ao patógeno, não gera memória imunológica duradoura.</li></ul>">
+            <h3>Imunidade Inata</h3>
+            <div class="visual-representation">🧱⚔️🔥⏱️</div>
+            <p class="definition">Primeira linha de defesa, rápida e não específica. Inclui barreiras (pele), fagócitos, células NK e inflamação.</p>
+            <p class="keywords">Barreiras, Fagocitose, Células NK, Inflamação, Sistema Complemento, Rápida</p>
+        </div>
+
+        <div class="card" data-concept="Imunidade Adaptativa (Específica)" data-details="A <strong>Imunidade Adaptativa</strong> é uma defesa mais lenta, porém altamente específica e com capacidade de memória. Desenvolve-se após o contato com um antígeno específico.<ul><li><strong>Características Principais:</strong>
+    <ul>
+        <li><strong>Especificidade:</strong> Responde de forma direcionada a antígenos específicos.</li>
+        <li><strong>Memória Imunológica:</strong> Após o primeiro contato, 'lembra-se' do antígeno, permitindo uma resposta mais rápida e forte em exposições futuras.</li>
+        <li><strong>Diversidade:</strong> Capacidade de reconhecer uma vasta gama de antígenos.</li>
+        <li><strong>Autotolerância:</strong> Capacidade de distinguir entre o 'próprio' (componentes do corpo) e o 'não-próprio' (invasores), evitando atacar o próprio organismo.</li>
+    </ul>
+</li><li><strong>Dois Ramos Principais:</strong>
+    <ul>
+        <li><strong>Imunidade Humoral:</strong> Mediada por Linfócitos B, que produzem anticorpos para combater patógenos extracelulares.</li>
+        <li><strong>Imunidade Celular:</strong> Mediada por Linfócitos T, que combatem patógenos intracelulares (ex: vírus) e células anormais.</li>
+    </ul>
+</li></ul>">
+            <h3>Imunidade Adaptativa</h3>
+            <div class="visual-representation">🎯🧠💪🔄</div>
+            <p class="definition">Defesa específica, desenvolvida após contato com o antígeno. Gera memória. Envolve Linfócitos T e B.</p>
+            <p class="keywords">Especificidade, Memória, Linfócitos T, Linfócitos B, Anticorpos, Autotolerância</p>
+        </div>
+
+        <div class="card" data-concept="Antígenos e Anticorpos" data-details="<ul><li><strong>Antígenos (Ag):</strong> São moléculas (geralmente proteínas ou polissacarídeos) capazes de serem reconhecidas pelo sistema imune e desencadear uma resposta imune. Podem ser parte de patógenos, toxinas, células estranhas, etc. A porção específica do antígeno que é reconhecida é chamada de <strong>epítopo</strong>.</li><li><strong>Anticorpos (Ac) ou Imunoglobulinas (Ig):</strong> São proteínas em forma de 'Y' produzidas pelos plasmócitos (linfócitos B diferenciados) em resposta a um antígeno específico. 
+    <ul>
+        <li><strong>Estrutura:</strong> Possuem regiões variáveis (que se ligam ao antígeno, conferindo especificidade) e regiões constantes (que determinam a classe do anticorpo e suas funções efetoras).</li>
+        <li><strong>Funções:</strong> Neutralização de toxinas e patógenos, opsonização (marcam patógenos para fagocitose), ativação do sistema complemento, citotoxicidade celular dependente de anticorpo (ADCC).</li>
+        <li><strong>Classes Principais:</strong>
+            <ul>
+                <li><strong>IgG:</strong> Mais abundante no sangue, atravessa a placenta (imunidade passiva ao feto).</li>
+                <li><strong>IgM:</strong> Primeiro anticorpo produzido na resposta primária, grande e eficiente na ativação do complemento.</li>
+                <li><strong>IgA:</strong> Presente em secreções (saliva, lágrimas, leite materno, muco), protege mucosas.</li>
+                <li><strong>IgE:</strong> Envolvida em alergias e defesa contra parasitas.</li>
+                <li><strong>IgD:</strong> Presente na superfície de linfócitos B, papel na ativação dessas células.</li>
+            </ul>
+        </li>
+    </ul>
+</li></ul>">
+            <h3>Antígenos e Anticorpos</h3>
+            <div class="visual-representation">🔑🛡️🧬🔬</div>
+            <p class="definition">Antígenos (Ag) são moléculas que disparam a resposta imune. Anticorpos (Ac/Ig) são proteínas que neutralizam Ag.</p>
+            <p class="keywords">Epítopo, Imunoglobulina, IgG, IgM, IgA, IgE, IgD, Neutralização, Opsonização</p>
+        </div>
+
+        <div class="card" data-concept="Linfócitos B e Resposta Humoral" data-details="A <strong>Resposta Imune Humoral</strong> é mediada pelos Linfócitos B e é eficaz contra patógenos extracelulares e suas toxinas.<ul><li><strong>Ativação dos Linfócitos B:</strong> Ocorre quando um linfócito B encontra um antígeno que se liga ao seu receptor de célula B (BCR, que é uma imunoglobulina de superfície). Geralmente, requerem ajuda de Linfócitos T Auxiliares (CD4+) para ativação completa.</li><li><strong>Diferenciação e Proliferação:</strong> Após a ativação, o linfócito B prolifera (expansão clonal) e se diferencia em dois tipos de células:
+    <ul>
+        <li><strong>Plasmócitos:</strong> Fábricas de anticorpos. Secretam grandes quantidades de anticorpos específicos para o antígeno que iniciou a resposta. Têm vida curta.</li>
+        <li><strong>Células B de Memória:</strong> Vivem por longos períodos e 'lembram-se' do antígeno. Em uma reexposição ao mesmo antígeno, respondem de forma mais rápida e intensa (resposta secundária).</li>
+    </ul>
+</li></ul>">
+            <h3>Linfócitos B (Humoral)</h3>
+            <div class="visual-representation">🅱️🏭💧🧠</div>
+            <p class="definition">Linfócitos B, ao serem ativados por antígenos, diferenciam-se em plasmócitos (produzem anticorpos) e células de memória.</p>
+            <p class="keywords">Plasmócitos, Células de Memória B, Anticorpos, Imunidade Humoral, BCR</p>
+        </div>
+
+        <div class="card" data-concept="Linfócitos T e Resposta Celular" data-details="A <strong>Resposta Imune Celular</strong> é mediada pelos Linfócitos T e é crucial para combater patógenos intracelulares (como vírus) e células cancerosas.<ul><li><strong>Reconhecimento de Antígenos:</strong> Linfócitos T não reconhecem antígenos diretamente. Eles reconhecem fragmentos de antígenos (peptídeos) apresentados na superfície de outras células por moléculas do <strong>Complexo Principal de Histocompatibilidade (MHC)</strong>.
+    <ul>
+        <li><strong>MHC de Classe I:</strong> Presente em quase todas as células nucleadas. Apresenta antígenos intracelulares (ex: virais) aos Linfócitos T Citotóxicos (CD8+).</li>
+        <li><strong>MHC de Classe II:</strong> Presente em células apresentadoras de antígenos (APCs) como macrófagos, células dendríticas e linfócitos B. Apresenta antígenos extracelulares (fagocitados) aos Linfócitos T Auxiliares (CD4+).</li>
+    </ul>
+</li><li><strong>Tipos de Linfócitos T:</strong>
+    <ul>
+        <li><strong>Linfócitos T Auxiliares (CD4+ ou T Helper):</strong> Coordenam a resposta imune. Ativam linfócitos B, linfócitos T citotóxicos e macrófagos através da liberação de citocinas.</li>
+        <li><strong>Linfócitos T Citotóxicos (CD8+ ou CTL):</strong> Matam diretamente células infectadas por vírus ou células tumorais, induzindo apoptose (morte celular programada).</li>
+        <li><strong>Linfócitos T Reguladores (Treg):</strong> Suprimem a resposta imune, prevenindo autoimunidade e mantendo a tolerância.</li>
+    </ul>
+</li><li>Também formam células T de memória.</li></ul>">
+            <h3>Linfócitos T (Celular)</h3>
+            <div class="visual-representation">⚔️🎯💥🧑‍🏫</div>
+            <p class="definition">Linfócitos T (CD4+ Auxiliares, CD8+ Citotóxicos) combatem células infectadas/cancerosas. Reconhecem antígenos via MHC.</p>
+            <p class="keywords">T Helper, T Citotóxico, Treg, MHC, Imunidade Celular, Apoptose</p>
+        </div>
+
+        <div class="card" data-concept="Memória Imunológica" data-details="A <strong>Memória Imunológica</strong> é uma característica fundamental da imunidade adaptativa.<ul><li><strong>Resposta Primária:</strong> Ocorre no primeiro contato com um antígeno. É geralmente mais lenta, com menor produção de anticorpos (principalmente IgM inicialmente, depois IgG) e menor número de células T efetoras.</li><li><strong>Resposta Secundária:</strong> Ocorre em contatos subsequentes com o mesmo antígeno. É muito mais rápida, mais intensa e mais duradoura devido à presença de células B e T de memória. Há uma produção rápida e elevada de anticorpos (principalmente IgG) e uma rápida expansão de células T efetoras.</li><li><strong>Base da Imunidade Duradoura:</strong> É por isso que, após certas infecções ou vacinação, ficamos imunes à doença por longos períodos, às vezes pela vida toda.</li></ul>">
+            <h3>Memória Imunológica</h3>
+            <div class="visual-representation">🧠📈➡️💪</div>
+            <p class="definition">Capacidade do sistema imune de 'lembrar' de um antígeno, permitindo uma resposta mais rápida e forte em futuras exposições.</p>
+            <p class="keywords">Resposta Primária, Resposta Secundária, Células de Memória, Vacinação, Longa Duração</p>
+        </div>
+
+        <div class="card" data-concept="Vacinação" data-details="A <strong>Vacinação</strong> é uma forma de imunização ativa artificial que induz memória imunológica protetora contra doenças específicas.<ul><li><strong>Princípio:</strong> Introduz no corpo antígenos de um patógeno (morto, atenuado, fragmentos ou toxinas inativadas) ou material genético que codifica esses antígenos. Isso estimula o sistema imune a montar uma resposta primária e gerar células de memória, sem causar a doença.</li><li><strong>Objetivo:</strong> Preparar o sistema imune para que, em caso de contato futuro com o patógeno real, a resposta secundária seja rápida e eficaz, prevenindo a doença ou suas formas graves.</li><li><strong>Tipos de Vacinas:</strong>
+    <ul>
+        <li><strong>Atenuadas:</strong> Patógenos vivos enfraquecidos (ex: sarampo, caxumba, rubéola, febre amarela).</li>
+        <li><strong>Inativadas (Mortas):</strong> Patógenos inteiros mortos (ex: gripe, raiva, poliomielite Salk).</li>
+        <li><strong>Subunidades/Componentes:</strong> Apenas partes do patógeno (proteínas, polissacarídeos) (ex: hepatite B, coqueluche acelular, pneumocócica).</li>
+        <li><strong>Toxoides:</strong> Toxinas bacterianas inativadas (ex: tétano, difteria).</li>
+        <li><strong>RNA/DNA:</strong> Utilizam material genético para que as células do corpo produzam o antígeno (ex: algumas vacinas COVID-19).</li>
+    </ul>
+</li><li><strong>Importância:</strong> Proteção individual e coletiva (imunidade de rebanho).</li></ul>">
+            <h3>Vacinação</h3>
+            <div class="visual-representation">💉🛡️🗓️🧑‍🤝‍🧑</div>
+            <p class="definition">Introdução de antígenos (patógenos mortos/atenuados) para estimular a memória imunológica e prevenir doenças.</p>
+            <p class="keywords">Imunização Ativa, Memória, Prevenção, Tipos de Vacina, Imunidade de Rebanho</p>
+        </div>
+
+        <div class="card" data-concept="Reação Inflamatória" data-details="A <strong>Inflamação</strong> é uma resposta complexa e fundamental da imunidade inata a uma lesão tecidual ou infecção.<ul><li><strong>Sinais Cardinais (Clássicos):</strong>
+    <ul>
+        <li><strong>Calor:</strong> Aumento do fluxo sanguíneo.</li>
+        <li><strong>Rubor (Vermelhidão):</strong> Vasodilatação e aumento do fluxo sanguíneo.</li>
+        <li><strong>Tumor (Inchaço ou Edema):</strong> Aumento da permeabilidade vascular e extravasamento de fluido para os tecidos.</li>
+        <li><strong>Dor:</strong> Liberação de mediadores químicos (prostaglandinas, bradicinina) que estimulam terminações nervosas.</li>
+        <li><strong>Perda de Função (às vezes):</strong> Devido à dor e ao inchaço.</li>
+    </ul>
+</li><li><strong>Processo:</strong> Vasodilatação, aumento da permeabilidade vascular, migração de leucócitos (especialmente neutrófilos e macrófagos) para o local, fagocitose de patógenos e detritos, liberação de mediadores inflamatórios (histamina, citocinas).</li><li><strong>Objetivos:</strong> Conter e isolar o agente agressor, destruir patógenos, remover tecido danificado e iniciar o processo de reparo tecidual. Pode ser aguda (curta duração) ou crônica (longa duração, pode ser prejudicial).</li></ul>">
+            <h3>Reação Inflamatória</h3>
+            <div class="visual-representation">🔥🩸🩹❗</div>
+            <p class="definition">Resposta local à lesão/infecção. Sinais: calor, rubor, inchaço, dor. Atrai células de defesa para o local.</p>
+            <p class="keywords">Calor, Rubor, Tumor, Dor, Vasodilatação, Leucócitos, Reparo</p>
+        </div>
+
+        <div class="card" data-concept="Disfunções Imunológicas" data-details="O sistema imunológico pode apresentar disfunções, levando a doenças:<ul><li><strong>Hipersensibilidades (Alergias):</strong> Resposta imune exagerada e inadequada a antígenos ambientais normalmente inofensivos (alérgenos), como pólen, ácaros, alimentos. Envolve IgE e mastócitos.</li><li><strong>Doenças Autoimunes:</strong> O sistema imune falha em reconhecer o 'próprio' e ataca os tecidos do próprio corpo. Exemplos: Lúpus Eritematoso Sistêmico, Artrite Reumatoide, Diabetes Mellitus Tipo 1, Esclerose Múltipla.</li><li><strong>Imunodeficiências:</strong> O sistema imune é deficiente ou ausente, tornando o indivíduo suscetível a infecções.
+    <ul>
+        <li><strong>Primárias (Congênitas):</strong> Defeitos genéticos (ex: SCID - Imunodeficiência Combinada Grave).</li>
+        <li><strong>Secundárias (Adquiridas):</strong> Causadas por fatores externos, como infecção pelo HIV (causador da AIDS), desnutrição, medicamentos imunossupressores.</li>
+    </ul>
+</li><li><strong>Rejeição a Transplantes:</strong> O sistema imune do receptor reconhece o órgão transplantado como estranho e o ataca.</li></ul>">
+            <h3>Disfunções Imunológicas</h3>
+            <div class="visual-representation">🤧💥💔🛡️</div>
+            <p class="definition">Problemas como alergias (resposta exagerada), autoimunidade (ataque ao próprio corpo) e imunodeficiências (defesa fraca).</p>
+            <p class="keywords">Alergia, Autoimunidade, Imunodeficiência, AIDS, Lúpus, Transplante</p>
+        </div>
+
+    </div>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sempre alerta, seu sistema imunológico é a linha de frente da sua saúde! 🛡️✨</p>
+    </footer>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close-button")[0];
+        var cards = document.querySelectorAll(".card");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDetails = document.getElementById("modalDetails");
+
+        cards.forEach(function(card) {
+            card.onclick = function() {
+                var concept = card.getAttribute("data-concept");
+                var details = card.getAttribute("data-details");
+                
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details; // Usar innerHTML para renderizar as tags <ul> e <li>
+                modal.style.display = "block";
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
