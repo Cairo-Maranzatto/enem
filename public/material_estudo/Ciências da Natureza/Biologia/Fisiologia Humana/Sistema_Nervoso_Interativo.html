@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Nervoso - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #ede7f6; /* Roxo bem claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #4527a0; /* Roxo escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #5e35b1; /* Roxo médio */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #311b92; /* Roxo mais escuro para a borda */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #311b92; /* Roxo bem escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #4527a0;
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 70px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #311b92;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #311b92; /* Roxo bem escuro */
+            color: #f3e5f5; /* Roxo muito claro */
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #311b92;
+            margin-top: 0;
+            border-bottom: 2px solid #4527a0;
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #4527a0; }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Nervoso</h1>
+        <p>A central de comando do corpo humano! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" data-concept="Visão Geral do Sistema Nervoso" data-details="O <strong>Sistema Nervoso (SN)</strong> é uma complexa rede de células e tecidos responsável por coordenar as ações voluntárias e involuntárias do corpo e transmitir sinais entre suas diferentes partes.<ul><li><strong>Funções Principais:</strong> Recepção de estímulos (internos e externos), processamento de informações, elaboração de respostas, controle e coordenação das funções corporais, aprendizado, memória, emoções.</li><li><strong>Divisões Anatômicas Principais:</strong>
+    <ul>
+        <li><strong>Sistema Nervoso Central (SNC):</strong> Formado pelo encéfalo e medula espinhal. Centro de processamento e comando.</li>
+        <li><strong>Sistema Nervoso Periférico (SNP):</strong> Formado por nervos e gânglios. Conecta o SNC ao restante do corpo.</li>
+    </ul>
+</li></ul>">
+            <h3>Visão Geral</h3>
+            <div class="visual-representation">🧠💡🔗⚙️</div>
+            <p class="definition">Rede de comando que recebe, processa e transmite informações, coordenando todas as funções do corpo.</p>
+            <p class="keywords">Comando, Informação, Coordenação, SNC, SNP</p>
+        </div>
+
+        <div class="card" data-concept="Células do Sistema Nervoso" data-details="O tecido nervoso é composto por dois tipos principais de células:<ul><li><strong>Neurônios:</strong> São as unidades funcionais básicas do sistema nervoso, especializadas na condução de impulsos nervosos.
+    <ul>
+        <li><strong>Estrutura:</strong> Corpo celular (com núcleo e organelas), dendritos (recebem estímulos) e axônio (transmite o impulso nervoso). O axônio pode ser revestido pela bainha de mielina (acelera a condução).</li>
+        <li><strong>Função:</strong> Gerar e propagar impulsos elétricos (potenciais de ação) e comunicar-se com outras células através de sinapses.</li>
+    </ul>
+</li><li><strong>Células da Glia (ou Neuróglia):</strong> Células de suporte que auxiliam as funções dos neurônios.
+    <ul>
+        <li><strong>Tipos e Funções:</strong> Astrócitos (sustentação, nutrição, barreira hematoencefálica), oligodendrócitos (formam a bainha de mielina no SNC), células de Schwann (formam a bainha de mielina no SNP), micróglia (defesa imunológica), células ependimárias (revestem cavidades, produzem líquido cefalorraquidiano).</li>
+    </ul>
+</li></ul>">
+            <h3>Células Nervosas</h3>
+            <div class="visual-representation">🧬🧠🤝🛠️</div>
+            <p class="definition">Neurônios (transmitem impulsos) e células da glia (suporte, nutrição, defesa, mielinização).</p>
+            <p class="keywords">Neurônio, Dendrito, Axônio, Bainha de Mielina, Células da Glia, Suporte</p>
+        </div>
+
+        <div class="card" data-concept="Impulso Nervoso" data-details="O <strong>Impulso Nervoso</strong> (ou potencial de ação) é um sinal elétrico que se propaga ao longo da membrana do neurônio.<ul><li><strong>Potencial de Repouso:</strong> Membrana polarizada (interior negativo em relação ao exterior), devido à distribuição desigual de íons (principalmente Na⁺ e K⁺) mantida pela bomba de sódio-potássio.</li><li><strong>Estímulo Limiar:</strong> Para que um impulso seja gerado, o estímulo deve atingir uma intensidade mínima (limiar de excitação).</li><li><strong>Despolarização:</strong> Com o estímulo limiar, canais de Na⁺ se abrem, e Na⁺ entra rapidamente na célula, invertendo a polaridade da membrana (interior positivo).</li><li><strong>Repolarização:</strong> Canais de Na⁺ se fecham e canais de K⁺ se abrem, permitindo a saída de K⁺ da célula, restaurando a polaridade negativa interna.</li><li><strong>Bomba de Sódio-Potássio:</strong> Restabelece as concentrações iônicas iniciais de Na⁺ e K⁺.</li><li><strong>Lei do Tudo ou Nada:</strong> Se o estímulo atinge o limiar, o potencial de ação é gerado com amplitude máxima; abaixo do limiar, nada acontece.</li><li><strong>Condução Saltatória:</strong> Em axônios mielinizados, o impulso 'salta' entre os nódulos de Ranvier (interrupções na bainha de mielina), tornando a condução muito mais rápida.</li></ul>">
+            <h3>Impulso Nervoso</h3>
+            <div class="visual-representation">⚡️📉📈🌊</div>
+            <p class="definition">Sinal elétrico (potencial de ação) que percorre o neurônio devido a mudanças na permeabilidade iônica da membrana.</p>
+            <p class="keywords">Potencial de Ação, Despolarização, Repolarização, Bomba Na⁺/K⁺, Condução Saltatória</p>
+        </div>
+
+        <div class="card" data-concept="Sinapses" data-details="<strong>Sinapses</strong> são as junções especializadas onde um neurônio transmite um sinal para outro neurônio ou para uma célula efetora (muscular ou glandular).<ul><li><strong>Tipos de Sinapses:</strong>
+    <ul>
+        <li><strong>Sinapses Químicas:</strong> Mais comuns. Utilizam substâncias químicas chamadas <strong>neurotransmissores</strong> para transmitir o sinal através da fenda sináptica (espaço entre as células). O impulso nervoso no neurônio pré-sináptico provoca a liberação de neurotransmissores, que se ligam a receptores na membrana do neurônio pós-sináptico, gerando um novo impulso (excitatório) ou inibindo-o.</li>
+        <li><strong>Sinapses Elétricas:</strong> Menos comuns. Permitem a passagem direta de íons entre células através de junções comunicantes (gap junctions), tornando a transmissão muito rápida.</li>
+    </ul>
+</li><li><strong>Neurotransmissores:</strong> Moléculas mensageiras. Exemplos: Acetilcolina (contração muscular, memória), Dopamina (prazer, movimento), Serotonina (humor, sono), Noradrenalina (alerta), GABA (inibitório).</li></ul>">
+            <h3>Sinapses</h3>
+            <div class="visual-representation">🔗🗣️🧪⚡</div>
+            <p class="definition">Junções onde neurônios se comunicam, quimicamente (via neurotransmissores) ou eletricamente.</p>
+            <p class="keywords">Neurotransmissores, Fenda Sináptica, Receptores, Excitatória, Inibitória</p>
+        </div>
+
+        <div class="card" data-concept="SNC: Encéfalo" data-details="O <strong>Encéfalo</strong> é a parte do SNC contida no crânio, o principal centro de processamento e controle. Compreende:<ul><li><strong>Cérebro:</strong> A maior parte do encéfalo, dividido em dois hemisférios (direito e esquerdo), conectados pelo corpo caloso. Responsável por funções superiores como pensamento, linguagem, memória, aprendizado, percepção sensorial e controle motor voluntário. Sua superfície é o córtex cerebral, com giros e sulcos.</li><li><strong>Cerebelo:</strong> Localizado na parte posterior e inferior do encéfalo. Coordena os movimentos voluntários, o equilíbrio, a postura e o tônus muscular.</li><li><strong>Tronco Encefálico:</strong> Conecta o cérebro à medula espinhal. Controla funções vitais básicas.
+    <ul>
+        <li><strong>Mesencéfalo:</strong> Relacionado a reflexos visuais e auditivos, tônus muscular.</li>
+        <li><strong>Ponte:</strong> Conecta diferentes partes do encéfalo, participa do controle da respiração.</li>
+        <li><strong>Bulbo Raquidiano (ou Medula Oblonga):</strong> Controla funções vitais como respiração, batimentos cardíacos, pressão arterial, deglutição, vômito.</li>
+    </ul>
+</li></ul>">
+            <h3>SNC: Encéfalo</h3>
+            <div class="visual-representation">🧠🧐🕹️❤️</div>
+            <p class="definition">Principal centro de processamento (cérebro, cerebelo, tronco encefálico), controla funções superiores e vitais.</p>
+            <p class="keywords">Cérebro, Cerebelo, Tronco Encefálico, Bulbo, Ponte, Funções Vitais</p>
+        </div>
+
+        <div class="card" data-concept="Cérebro: Detalhes" data-details="O <strong>Cérebro</strong> é a estrutura mais complexa do encéfalo.<ul><li><strong>Hemisférios Cerebrais:</strong> Direito e esquerdo, geralmente com especializações funcionais (lateralização). O esquerdo é frequentemente dominante para linguagem e lógica; o direito para habilidades espaciais e artísticas.</li><li><strong>Corpo Caloso:</strong> Feixe de fibras nervosas que conecta os dois hemisférios, permitindo a comunicação entre eles.</li><li><strong>Córtex Cerebral:</strong> Camada mais externa do cérebro, rica em corpos celulares de neurônios (substância cinzenta). Altamente dobrado (giros e sulcos) para aumentar a área de superfície. Responsável pelas funções cognitivas superiores.</li><li><strong>Lobos Cerebrais:</strong> Cada hemisfério é dividido em quatro lobos principais, nomeados de acordo com os ossos do crânio que os cobrem:
+    <ul>
+        <li><strong>Lobo Frontal:</strong> Planejamento, tomada de decisões, movimento voluntário, linguagem (Área de Broca), personalidade.</li>
+        <li><strong>Lobo Parietal:</strong> Processamento de sensações (tato, temperatura, dor, pressão), percepção espacial, navegação.</li>
+        <li><strong>Lobo Temporal:</strong> Audição, memória, compreensão da linguagem (Área de Wernicke), olfato.</li>
+        <li><strong>Lobo Occipital:</strong> Processamento visual.</li>
+    </ul>
+</li></ul>">
+            <h3>Cérebro: Detalhes</h3>
+            <div class="visual-representation">🗺️🧠🗣️👀👂</div>
+            <p class="definition">Dividido em hemisférios e lobos (frontal, parietal, temporal, occipital), com o córtex cerebral responsável por funções cognitivas.</p>
+            <p class="keywords">Hemisférios, Córtex, Lobo Frontal, Lobo Parietal, Lobo Temporal, Lobo Occipital</p>
+        </div>
+
+        <div class="card" data-concept="SNC: Medula Espinhal" data-details="A <strong>Medula Espinhal</strong> é um cordão cilíndrico de tecido nervoso localizado dentro do canal vertebral, estendendo-se do bulbo até a região lombar.<ul><li><strong>Estrutura:</strong> Protegida pelas vértebras e meninges. Em corte transversal, apresenta uma região central de substância cinzenta (forma de 'H' ou borboleta, contendo corpos celulares) e uma região periférica de substância branca (contendo axônios mielinizados).</li><li><strong>Funções:</strong>
+    <ul>
+        <li><strong>Condução de Impulsos Nervosos:</strong> Atua como uma via de comunicação bidirecional entre o encéfalo e o restante do corpo. Tratos ascendentes levam informações sensoriais ao encéfalo; tratos descendentes levam comandos motores do encéfalo aos músculos e glândulas.</li>
+        <li><strong>Centro de Reflexos:</strong> Coordena reflexos rápidos e involuntários (atos reflexos) sem a necessidade de processamento imediato pelo encéfalo.</li>
+    </ul>
+</li><li><strong>Meninges:</strong> Três membranas (dura-máter, aracnoide, pia-máter) que revestem e protegem o SNC. Entre a aracnoide e a pia-máter circula o líquido cefalorraquidiano (líquor).</li></ul>">
+            <h3>SNC: Medula Espinhal</h3>
+            <div class="visual-representation">🦴🔗🚦🔄</div>
+            <p class="definition">Cordão nervoso dentro da coluna vertebral que conduz impulsos entre o encéfalo e o corpo, e controla reflexos.</p>
+            <p class="keywords">Condução, Reflexos, Substância Cinzenta, Substância Branca, Meninges, Líquor</p>
+        </div>
+
+        <div class="card" data-concept="Sistema Nervoso Periférico (SNP)" data-details="O <strong>Sistema Nervoso Periférico (SNP)</strong> é constituído por nervos e gânglios nervosos que se localizam fora do SNC. Sua função é conectar o SNC a todas as partes do corpo.<ul><li><strong>Nervos:</strong> Feixes de axônios (fibras nervosas) envolvidos por tecido conjuntivo. Podem ser:
+    <ul>
+        <li><strong>Nervos Cranianos (12 pares):</strong> Originam-se no encéfalo e inervam principalmente estruturas da cabeça e pescoço (ex: nervo óptico, nervo vago).</li>
+        <li><strong>Nervos Espinhais ou Raquidianos (31 pares):</strong> Originam-se na medula espinhal e inervam o tronco, membros e vísceras. São mistos (contêm fibras sensitivas e motoras).</li>
+    </ul>
+</li><li><strong>Gânglios Nervosos:</strong> Aglomerados de corpos celulares de neurônios localizados fora do SNC.</li><li><strong>Fibras Nervosas:</strong>
+    <ul>
+        <li><strong>Fibras Aferentes (Sensitivas):</strong> Levam informações dos receptores sensoriais para o SNC.</li>
+        <li><strong>Fibras Eferentes (Motoras):</strong> Levam comandos do SNC para os músculos e glândulas (efetores).</li>
+    </ul>
+</li></ul>">
+            <h3>SNP: Periférico</h3>
+            <div class="visual-representation">🛣️🔌📡🖐️</div>
+            <p class="definition">Rede de nervos (cranianos e espinhais) e gânglios que conectam o SNC ao corpo, transmitindo informações.</p>
+            <p class="keywords">Nervos Cranianos, Nervos Espinhais, Gânglios, Fibras Aferentes, Fibras Eferentes</p>
+        </div>
+
+        <div class="card" data-concept="SNP Somático e SNP Autônomo" data-details="O SNP é funcionalmente dividido em:<ul><li><strong>Sistema Nervoso Somático (SNS):</strong> Controla as ações voluntárias e a musculatura esquelética. Envolve neurônios motores que inervam os músculos esqueléticos e neurônios sensitivos que trazem informações dos sentidos (pele, músculos, articulações). A via motora somática geralmente envolve um único neurônio do SNC até o efetor.</li><li><strong>Sistema Nervoso Autônomo (SNPA) ou Visceral:</strong> Controla as funções involuntárias e a musculatura lisa, musculatura cardíaca e glândulas. Mantém a homeostase. A via motora autonômica geralmente envolve dois neurônios: um pré-ganglionar (do SNC ao gânglio) e um pós-ganglionar (do gânglio ao efetor).</li></ul>">
+            <h3>SNP: Somático e Autônomo</h3>
+            <div class="visual-representation">🚶‍♂️❤️⚙️🧘</div>
+            <p class="definition">Divisão funcional do SNP: Somático (ações voluntárias, músculos esqueléticos) e Autônomo (ações involuntárias, órgãos internos).</p>
+            <p class="keywords">Voluntário, Involuntário, Músculo Esquelético, Músculo Liso, Homeostase</p>
+        </div>
+
+        <div class="card" data-concept="SNPA: Simpático e Parassimpático" data-details="O <strong>Sistema Nervoso Periférico Autônomo (SNPA)</strong> é subdividido em duas divisões com ações geralmente antagônicas:<ul><li><strong>Divisão Simpática:</strong> Prepara o corpo para situações de estresse ou emergência ('luta ou fuga').
+    <ul>
+        <li><strong>Efeitos:</strong> Aumento da frequência cardíaca e respiratória, dilatação das pupilas, aumento da pressão arterial, liberação de glicose pelo fígado, redirecionamento do fluxo sanguíneo para músculos esqueléticos, inibição da digestão e da micção.</li>
+        <li><strong>Neurotransmissor principal (pós-ganglionar):</strong> Noradrenalina.</li>
+    </ul>
+</li><li><strong>Divisão Parassimpática:</strong> Predomina em situações de repouso e digestão ('descansar e digerir').
+    <ul>
+        <li><strong>Efeitos:</strong> Diminuição da frequência cardíaca e respiratória, contração das pupilas, estímulo da digestão e da micção, relaxamento geral.</li>
+        <li><strong>Neurotransmissor principal (pós-ganglionar):</strong> Acetilcolina.</li>
+    </ul>
+</li>Ambas as divisões trabalham em conjunto para manter a homeostase do organismo.</ul>">
+            <h3>SNPA: Simpático e Parassimpático</h3>
+            <div class="visual-representation">🔥💧🏃‍♂️😴</div>
+            <p class="definition">Divisões do SNPA: Simpático (prepara para 'luta ou fuga', usa noradrenalina) e Parassimpático (promove 'descanso e digestão', usa acetilcolina).</p>
+            <p class="keywords">Luta ou Fuga, Descanso e Digestão, Noradrenalina, Acetilcolina, Antagonismo</p>
+        </div>
+
+        <div class="card" data-concept="Ato Reflexo e Arco Reflexo" data-details="<ul><li><strong>Ato Reflexo:</strong> É uma resposta rápida, automática e involuntária a um estímulo específico. Ocorre antes que o estímulo seja conscientemente percebido pelo cérebro. Ex: retirar a mão rapidamente de uma superfície quente, reflexo patelar.</li><li><strong>Arco Reflexo:</strong> É o caminho percorrido pelo impulso nervoso durante um ato reflexo. Componentes básicos:
+    <ol>
+        <li><strong>Receptor Sensorial:</strong> Detecta o estímulo.</li>
+        <li><strong>Neurônio Sensitivo (Aferente):</strong> Transmite o impulso do receptor para a medula espinhal (ou tronco encefálico).</li>
+        <li><strong>Centro Integrador (na medula ou tronco):</strong> Processa a informação. Pode envolver um ou mais interneurônios (neurônios de associação).</li>
+        <li><strong>Neurônio Motor (Eferente):</strong> Transmite o impulso do centro integrador para o efetor.</li>
+        <li><strong>Efetor (Músculo ou Glândula):</strong> Realiza a resposta.</li>
+    </ol>
+Embora a resposta seja imediata, a informação sensorial também é enviada ao cérebro, permitindo a percepção consciente do estímulo após o reflexo.</li></ul>">
+            <h3>Ato e Arco Reflexo</h3>
+            <div class="visual-representation">💥🦵🔥💨</div>
+            <p class="definition">Resposta rápida e involuntária a um estímulo (ato reflexo), mediada por um caminho neural específico (arco reflexo).</p>
+            <p class="keywords">Resposta Involuntária, Receptor, Neurônio Sensitivo, Interneurônio, Neurônio Motor, Efetor</p>
+        </div>
+
+        <div class="card" data-concept="Principais Doenças do Sistema Nervoso" data-details="O sistema nervoso pode ser afetado por diversas doenças, com impactos variados. Algumas incluem:<ul><li><strong>Doença de Alzheimer:</strong> Doença neurodegenerativa progressiva que causa perda de memória, confusão e declínio cognitivo.</li><li><strong>Doença de Parkinson:</strong> Distúrbio neurodegenerativo que afeta o movimento, causando tremores, rigidez e lentidão. Relacionada à deficiência de dopamina.</li><li><strong>Esclerose Múltipla:</strong> Doença autoimune que ataca a bainha de mielina dos neurônios no SNC, prejudicando a condução nervosa.</li><li><strong>Epilepsia:</strong> Distúrbio neurológico caracterizado por convulsões recorrentes, devido a atividade elétrica anormal no cérebro.</li><li><strong>Acidente Vascular Cerebral (AVC):</strong> Interrupção do suprimento sanguíneo para uma parte do cérebro (isquêmico) ou sangramento no cérebro (hemorrágico), causando dano neuronal.</li><li><strong>Meningite:</strong> Inflamação das meninges, geralmente causada por infecção.</li><li><strong>Depressão e Ansiedade:</strong> Transtornos de humor e ansiedade que envolvem desequilíbrios neuroquímicos e alterações na função cerebral.</li></ul>Muitas doenças neurológicas requerem acompanhamento médico especializado.">
+            <h3>Doenças Nervosas</h3>
+            <div class="visual-representation">🤕🧠💊📉</div>
+            <p class="definition">Condições como Alzheimer, Parkinson, Esclerose Múltipla, Epilepsia e AVC que afetam a estrutura ou função do sistema nervoso.</p>
+            <p class="keywords">Alzheimer, Parkinson, Esclerose Múltipla, Epilepsia, AVC, Neurodegenerativas</p>
+        </div>
+
+    </div>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Pensando, sentindo, agindo... tudo graças ao seu incrível sistema nervoso! 🧠✨</p>
+    </footer>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close-button")[0];
+        var cards = document.querySelectorAll(".card");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDetails = document.getElementById("modalDetails");
+
+        cards.forEach(function(card) {
+            card.onclick = function() {
+                var concept = card.getAttribute("data-concept");
+                var details = card.getAttribute("data-details");
+                
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details; // Usar innerHTML para renderizar as tags <ul> e <li>
+                modal.style.display = "block";
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

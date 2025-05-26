@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Química Geral e Inorgânica: Ligações Químicas - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #E8F5E9; /* COR_FUNDO_BODY */
+            color: #1B2631; /* COR_TEXTO_PRINCIPAL_BODY */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #1B5E20; /* COR_HEADER_H1 */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #388E3C; /* COR_HEADER_SUBTITULO */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff; 
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #4CAF50; /* COR_CARD_BORDA_ESQUERDA (Destaque) */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #2E7D32; /* COR_CARD_H3 */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #2E7D32; /* COR_CARD_VISUAL_REPRESENTATION */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #1B2631; /* COR_TEXTO_CARD_DEFINITION */
+            margin-bottom: 10px;
+            min-height: 80px; /* CARD_DEFINITION_MIN_HEIGHT */
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #388E3C; /* COR_CARD_KEYWORDS */
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #1B5E20; /* COR_FOOTER_BACKGROUND */
+            color: #FFFFFF; /* COR_FOOTER_TEXTO */
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.6); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #F1F8E9; /* COR_MODAL_FUNDO */
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #a5d6a7; /* Borda verde clara */
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #1B5E20; /* COR_MODAL_H2 */
+            margin-top: 0;
+            border-bottom: 2px solid #4CAF50; /* COR_MODAL_H2_BORDA_INFERIOR (Destaque) */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+            color: #2E7D32; /* COR_TEXTO_MODAL_CONTEUDO */
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong {
+            color: #1B5E20; /* COR_MODAL_STRONG */
+        }
+        .close-button {
+            color: #2E7D32; /* Verde médio para botão fechar */
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #1B5E20; /* Verde escuro no hover */
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ligações Químicas: A Arquitetura da Matéria</h1>
+        <p>Desvendando como os átomos se unem para formar o mundo ao nosso redor.</p>
+    </header>
+
+    <div class="concepts-grid">
+        <!-- Card 1: Introdução às Ligações e Regra do Octeto -->
+        <div class="card" 
+             data-concept="Introdução às Ligações e Regra do Octeto" 
+             data-details="<p>As <strong>ligações químicas</strong> são as forças que mantêm os átomos unidos na formação de moléculas, íons ou agregados atômicos. Os átomos tendem a se ligar para alcançar uma configuração eletrônica mais estável, geralmente semelhante à de um gás nobre.</p><h4>Regra do Octeto</h4><p>Proposta por Gilbert N. Lewis, a <strong>Regra do Octeto</strong> afirma que os átomos tendem a ganhar, perder ou compartilhar elétrons de valência (elétrons da camada mais externa) até atingirem oito elétrons nessa camada, assemelhando-se à configuração eletrônica estável dos gases nobres (com exceção do Hélio, que se estabiliza com 2 elétrons - Regra do Dueto).</p><ul><li><strong>Exceções à Regra do Octeto:</strong> Embora útil, a regra do octeto tem exceções, como moléculas com número ímpar de elétrons (ex: NO), octetos incompletos (ex: BeCl<sub>2</sub>, BF<sub>3</sub>) ou octetos expandidos (ex: PCl<sub>5</sub>, SF<sub>6</sub>), comuns em elementos a partir do terceiro período.</li></ul><h4>Elétrons de Valência</h4><p>São os elétrons da camada mais externa de um átomo e são os principais responsáveis pelas ligações químicas. O número de elétrons de valência de um elemento representativo (grupos 1, 2, 13-18) geralmente corresponde ao número do seu grupo na tabela periódica (usando a numeração antiga 1A-8A).</p><p>A natureza e a força das ligações químicas determinam as propriedades físicas e químicas das substâncias.</p>">
+            <h3>Ligações e Octeto</h3>
+            <div class="visual-representation">⚛️↔️⚛️</div>
+            <p class="definition">Forças que unem átomos para formar moléculas ou compostos, buscando estabilidade eletrônica.</p>
+            <p class="keywords">Estabilidade, Octeto, Valência, Forças</p>
+        </div>
+
+        <!-- Card 2: Ligação Iônica -->
+        <div class="card" 
+             data-concept="Ligação Iônica" 
+             data-details="<p>A <strong>ligação iônica</strong> ocorre pela atração eletrostática entre íons de cargas opostas. Geralmente se forma entre um <strong>metal</strong> (baixa energia de ionização, tende a perder elétrons) e um <strong>ametal</strong> (alta afinidade eletrônica, tende a ganhar elétrons).</p><h4>Formação:</h4><ol><li><strong>Transferência de Elétrons:</strong> O átomo metálico perde um ou mais elétrons de valência, tornando-se um íon positivo (<strong>cátion</strong>).</li><li>O átomo ametálico ganha esses elétrons, tornando-se um íon negativo (<strong>ânion</strong>).</li><li><strong>Atração Eletrostática:</strong> Os íons de cargas opostas se atraem fortemente, formando um composto iônico.</li></ol><h4>Características dos Compostos Iônicos:</h4><ul><li>Formam <strong>sólidos cristalinos</strong> à temperatura ambiente, com os íons arranjados em um retículo cristalino tridimensional.</li><li>Possuem <strong>altos pontos de fusão e ebulição</strong> devido à forte atração entre os íons.</li><li>São <strong>duros e quebradiços</strong>.</li><li>Conduzem eletricidade quando <strong>fundidos (líquidos) ou dissolvidos em água</strong>, pois os íons se tornam móveis. No estado sólido, não conduzem eletricidade.</li><li>Muitos são solúveis em solventes polares, como a água.</li></ul><p><strong>Exemplo:</strong> Cloreto de Sódio (NaCl) - O Sódio (Na) perde 1 elétron para formar Na<sup>+</sup>, e o Cloro (Cl) ganha 1 elétron para formar Cl<sup>-</sup>. Os íons Na<sup>+</sup> e Cl<sup>-</sup> se atraem, formando o sal de cozinha.</p>">
+            <h3>Ligação Iônica</h3>
+            <div class="visual-representation">Na<sup>+</sup>Cl<sup>-</sup>🧂</div>
+            <p class="definition">Transferência de elétrons entre átomos, formando íons que se atraem eletrostaticamente.</p>
+            <p class="keywords">Transferência, Cátion, Ânion, Retículo</p>
+        </div>
+
+        <!-- Card 3: Ligação Covalente -->
+        <div class="card" 
+             data-concept="Ligação Covalente" 
+             data-details="<p>A <strong>ligação covalente</strong> ocorre quando átomos compartilham um ou mais pares de elétrons para atingir uma configuração eletrônica estável, geralmente seguindo a regra do octeto. É comum entre ametais ou entre um ametal e o hidrogênio.</p><h4>Tipos de Ligações Covalentes (quanto ao número de pares compartilhados):</h4><ul><li><strong>Ligação Simples:</strong> Um par de elétrons compartilhado (ex: H-H na molécula de H<sub>2</sub>, C-H no CH<sub>4</sub>). Representada por um traço (—).</li><li><strong>Ligação Dupla:</strong> Dois pares de elétrons compartilhados (ex: O=O na molécula de O<sub>2</sub>, C=O no CO<sub>2</sub>). Representada por dois traços (=).</li><li><strong>Ligação Tripla:</strong> Três pares de elétrons compartilhados (ex: N≡N na molécula de N<sub>2</sub>). Representada por três traços (≡).</li></ul><h4>Polaridade da Ligação Covalente:</h4><ul><li><strong>Ligação Covalente Apolar:</strong> Ocorre quando os elétrons são compartilhados igualmente entre dois átomos idênticos (mesma eletronegatividade). Ex: H<sub>2</sub>, O<sub>2</sub>, Cl<sub>2</sub>.</li><li><strong>Ligação Covalente Polar:</strong> Ocorre quando os elétrons são compartilhados desigualmente entre dois átomos diferentes (diferentes eletronegatividades). O átomo mais eletronegativo atrai mais fortemente o par de elétrons, adquirindo uma carga parcial negativa (δ-), enquanto o outro átomo adquire uma carga parcial positiva (δ+). Ex: HCl, H<sub>2</sub>O.</li></ul><h4>Compostos Moleculares:</h4><p>Substâncias formadas por ligações covalentes são chamadas de compostos moleculares. Podem ser sólidos, líquidos ou gases à temperatura ambiente e geralmente têm pontos de fusão e ebulição mais baixos que os compostos iônicos.</p><p>A representação das ligações covalentes e dos elétrons de valência pode ser feita usando as <strong>Estruturas de Lewis</strong>.</p>">
+            <h3>Ligação Covalente</h3>
+            <div class="visual-representation">H:H O=C=O</div>
+            <p class="definition">Compartilhamento de pares de elétrons entre átomos para alcançar estabilidade.</p>
+            <p class="keywords">Compartilhamento, Pares, Polar, Apolar</p>
+        </div>
+
+        <!-- Card 4: Ligação Metálica -->
+        <div class="card" 
+             data-concept="Ligação Metálica" 
+             data-details="<p>A <strong>ligação metálica</strong> é o tipo de ligação que ocorre entre átomos de metais. Ela é responsável pelas propriedades características dos metais, como alta condutividade elétrica e térmica, maleabilidade, ductilidade e brilho.</p><h4>Modelo do Mar de Elétrons:</h4><p>O modelo mais simples para explicar a ligação metálica é o do <strong>&quot;mar de elétrons&quot;</strong>. Nesse modelo:</p><ul><li>Os átomos metálicos perdem seus elétrons de valência, que se tornam <strong>deslocalizados</strong>, ou seja, não pertencem a um átomo específico.</li><li>Esses elétrons de valência formam uma &quot;nuvem&quot; ou &quot;mar&quot; de elétrons que se move livremente por todo o metal.</li><li>Os átomos metálicos, agora cátions, ficam imersos nesse mar de elétrons, formando uma estrutura cristalina organizada.</li><li>A ligação metálica resulta da atração entre os cátions metálicos positivos e o mar de elétrons negativo que os envolve.</li></ul><h4>Propriedades Explicadas pelo Modelo:</h4><ul><li><strong>Condutividade Elétrica e Térmica:</strong> A livre movimentação dos elétrons permite a fácil condução de carga elétrica e energia térmica.</li><li><strong>Maleabilidade e Ductilidade:</strong> Quando uma força é aplicada, as camadas de cátions metálicos podem deslizar umas sobre as outras sem quebrar a ligação, pois o mar de elétrons se ajusta à nova configuração.</li><li><strong>Brilho Metálico:</strong> Os elétrons livres podem absorver e reemitir luz de várias frequências.</li></ul><p><strong>Ligas Metálicas:</strong> São misturas de dois ou more elementos, sendo pelo menos um deles um metal, que apresentam propriedades metálicas. Exemplos: aço (ferro e carbono), latão (cobre e zinco), bronze (cobre e estanho).</p>">
+            <h3>Ligação Metálica</h3>
+            <div class="visual-representation">⚙️e<sup>-</sup>⚙️</div>
+            <p class="definition">Elétrons de valência deslocalizados formando um "mar de elétrons" que envolve cátions metálicos.</p>
+            <p class="keywords">Mar de Elétrons, Deslocalizados, Condutividade</p>
+        </div>
+
+        <!-- Card 5: Forças Intermoleculares -->
+        <div class="card" 
+             data-concept="Forças Intermoleculares" 
+             data-details="<p>As <strong>forças intermoleculares</strong> (ou forças de Van der Waals, em um sentido mais amplo) são as forças de atração ou repulsão que atuam <strong>entre</strong> moléculas vizinhas. São geralmente mais fracas que as ligações intramoleculares (iônica, covalente, metálica) que unem os átomos dentro de uma molécula.</p><p>Essas forças são cruciais para determinar muitas propriedades físicas das substâncias moleculares, como ponto de fusão, ponto de ebulição, viscosidade e solubilidade.</p><h4>Principais Tipos de Forças Intermoleculares (em ordem crescente de intensidade típica):</h4><ol><li><strong>Forças de Dispersão de London (ou Dipolo Induzido-Dipolo Induzido):</strong><ul><li>Presentes em <strong>todas</strong> as moléculas (polares e apolares).</li><li>Originam-se de flutuações momentâneas na distribuição eletrônica, criando dipolos instantâneos que induzem dipolos em moléculas vizinhas.</li><li>São as únicas forças presentes em moléculas apolares.</li><li>Sua intensidade aumenta com o tamanho da molécula (maior número de elétrons, maior polarizabilidade).</li></ul></li><li><strong>Forças Dipolo-Dipolo (ou Dipolo Permanente-Dipolo Permanente):</strong><ul><li>Ocorrem entre moléculas <strong>polares</strong> (que possuem um dipolo elétrico permanente).</li><li>A extremidade positiva de uma molécula atrai a extremidade negativa de outra.</li><li>São mais fortes que as forças de London para moléculas de tamanho similar.</li></ul></li><li><strong>Ligações de Hidrogênio (ou Pontes de Hidrogênio):</strong><ul><li>Um tipo especial e particularmente forte de interação dipolo-dipolo.</li><li>Ocorre quando um átomo de <strong>Hidrogênio (H)</strong> está ligado covalentemente a um átomo pequeno e muito eletronegativo, como <strong>Flúor (F), Oxigênio (O) ou Nitrogênio (N)</strong>.</li><li>O H dessa ligação interage fortemente com um par de elétrons não ligantes de um átomo de F, O ou N de uma molécula vizinha.</li><li>Responsáveis por propriedades anômalas da água (alto ponto de ebulição, densidade da água líquida maior que a do gelo), estrutura do DNA, etc.</li></ul></li></ol><p>A intensidade relativa dessas forças influencia diretamente o estado físico da substância: substâncias com forças intermoleculares mais fortes tendem a ser sólidas ou líquidas à temperatura ambiente, enquanto aquelas com forças mais fracas tendem a ser gases.</p>">
+            <h3>Forças Intermoleculares</h3>
+            <div class="visual-representation">💧···H···💧</div>
+            <p class="definition">Atrações entre moléculas que influenciam propriedades como ponto de ebulição e solubilidade.</p>
+            <p class="keywords">Van der Waals, Dipolo-Dipolo, Pontes de Hidrogênio</p>
+        </div>
+
+        <!-- Card 6: Geometria Molecular e Polaridade -->
+        <div class="card" 
+             data-concept="Geometria Molecular e Polaridade da Molécula" 
+             data-details="<p>A <strong>geometria molecular</strong> descreve o arranjo tridimensional dos átomos em uma molécula. Ela é determinada principalmente pelo número de pares de elétrons (ligantes e não ligantes) ao redor do átomo central, conforme previsto pela teoria da <strong>Repulsão dos Pares de Elétrons da Camada de Valência (VSEPR)</strong>.</p><h4>Teoria VSEPR:</h4><p>Os pares de elétrons na camada de valência do átomo central se repelem e tendem a se arranjar de forma a minimizar essa repulsão, determinando a geometria da molécula.</p><h4>Geometrias Comuns (baseadas no número de pares de elétrons ao redor do átomo central):</h4><ul><li><strong>Linear:</strong> 2 pares de elétrons (ex: CO<sub>2</sub>, BeCl<sub>2</sub>). Ângulo de ligação de 180°.</li><li><strong>Trigonal Plana:</strong> 3 pares de elétrons (ex: BF<sub>3</sub>, SO<sub>3</sub>). Ângulos de ligação de 120°.</li><li><strong>Angular:</strong> 2 pares ligantes e 1 ou 2 pares não ligantes (ex: H<sub>2</sub>O - 2 ligantes, 2 não ligantes; SO<sub>2</sub> - 2 ligantes, 1 não ligante). Ângulos menores que os ideais devido à maior repulsão dos pares não ligantes.</li><li><strong>Tetraédrica:</strong> 4 pares de elétrons (ex: CH<sub>4</sub>, CCl<sub>4</sub>). Ângulos de ligação de 109.5°.</li><li><strong>Piramidal Trigonal:</strong> 3 pares ligantes e 1 par não ligante (ex: NH<sub>3</sub>). Ângulos próximos a 107°.</li></ul><h4>Polaridade da Molécula:</h4><p>A polaridade de uma molécula depende tanto da <strong>polaridade das suas ligações</strong> quanto da sua <strong>geometria molecular</strong>.</p><ul><li>Uma molécula será <strong>apolar</strong> se:<ul><li>Todas as suas ligações forem apolares.</li><li>Possuir ligações polares, mas a geometria da molécula for simétrica de tal forma que os momentos dipolares das ligações se cancelem (resultante do vetor momento dipolar é zero). Ex: CO<sub>2</sub> (linear), CCl<sub>4</sub> (tetraédrica).</li></ul></li><li>Uma molécula será <strong>polar</strong> se:<ul><li>Possuir ligações polares e a geometria da molécula for assimétrica, de modo que os momentos dipolares não se cancelem (resultante do vetor momento dipolar é diferente de zero). Ex: H<sub>2</sub>O (angular), NH<sub>3</sub> (piramidal), HCl.</li></ul></li></ul><p>A polaridade molecular influencia fortemente as propriedades físicas das substâncias, como solubilidade (semelhante dissolve semelhante), pontos de fusão e ebulição, e as forças intermoleculares.</p>">
+            <h3>Geometria e Polaridade</h3>
+            <div class="visual-representation">📐↔️🌐</div>
+            <p class="definition">O arranjo tridimensional dos átomos em uma molécula e a distribuição de cargas elétricas.</p>
+            <p class="keywords">VSEPR, Linear, Angular, Polaridade</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Conectando os átomos, construindo o universo! 🔗⚛️✨</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalConceptTitle"></h2>
+            <div id="modalConceptDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('myModal');
+        const modalTitle = document.getElementById('modalConceptTitle');
+        const modalDetails = document.getElementById('modalConceptDetails');
+        const closeButton = document.querySelector('.close-button');
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const concept = this.getAttribute('data-concept');
+                const details = this.getAttribute('data-details');
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details;
+                modal.style.display = 'block';
+            });
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+/* General body and layout */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f4f7f6; /* Light gray background for the page */
+  color: #333;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Prevent scrollbars on the main container */
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 280px;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+  position: relative; /* For positioning the toggle button */
+  z-index: 1000; /* Ensure sidebar is above content in some scenarios */
+  background-color: #2c3e50; /* Dark blue-gray */
+  color: #ecf0f1; /* Light gray text */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow-y: auto; /* Scrollbar for sidebar if content overflows */
+}
+
+.sidebar-header {
+  padding: 20px 15px;
+  background-color: #1a252f; /* Slightly darker header */
+  text-align: center;
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Aligns h2 and toggle button */
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.sidebar-toggle-btn {
+  background: none;
+  border: none;
+  color: #ecf0f1;
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0 10px;
+  display: block; /* Visible by default for desktop */
+  line-height: 1; /* Adjust if icon alignment is off */
+}
+
+.sidebar.collapsed .sidebar-header h2 {
+  display: none; /* Hide title when collapsed */
+}
+
+.sidebar.collapsed .sidebar-toggle-btn {
+  margin: 0 auto; /* Center icon when title is hidden */
+}
+
+/* Style for the title span inside menu items */
+.menu-item-title {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: opacity 0.2s ease-out;
+}
+
+.sidebar.collapsed .menu-item-title {
+  opacity: 0;
+  width: 0; /* Effectively hide text when collapsed */
+  display: none; /* More robust hiding */
+}
+
+.sidebar.collapsed .menu-toggle-icon {
+  display: none; /* Hide submenu toggle icons when collapsed */
+}
+
+.sidebar.collapsed .menu-item-header {
+  justify-content: center; /* Center icons if any are shown */
+}
+
+.sidebar.collapsed {
+  width: 60px;
+}
+
+
+/* Mobile specific toggle button */
+.sidebar-toggle-mobile-btn {
+  display: none; /* Hidden by default, shown only on mobile */
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1002; /* Above sidebar overlay */
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .sidebar-toggle-btn { /* Desktop toggle button */
+    display: none; /* Hide desktop toggle on mobile */
+  }
+  .sidebar-toggle-mobile-btn {
+    display: block;
+  }
+  .sidebar {
+    position: fixed; /* or absolute */
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-100%);
+    box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  }
+  .app-container:not(.sidebar-collapsed) .sidebar {
+    transform: translateX(0);
+  }
+  .main-content {
+    width: 100% !important; /* Full width on mobile */
+    margin-left: 0 !important; /* No margin when sidebar is overlay or hidden */
+  }
+  /* Optional: Overlay for when mobile menu is open */
+  .app-container:not(.sidebar-collapsed)::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* Below sidebar, above content */
+  }
+}
+
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1; /* Allows the list to take available space */
+}
+
+
+.menu-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #34495e; /* Separator */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.menu-item-header:hover {
+  background-color: #34495e; /* Slightly lighter on hover */
+}
+
+.menu-item-header.active {
+  background-color: #1abc9c; /* Teal for active link */
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.menu-item-header.has-children.active,
+.menu-item-header.parent-of-active {
+    background-color: #16a085; /* Darker teal if parent and active */
+}
+
+.menu-toggle-icon {
+  margin-left: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.submenu {
+  list-style: none;
+  padding-left: 0; /* Remove default padding */
+  margin: 0;
+  background-color: #233140; /* Slightly lighter dark for submenu background */
+}
+
+.submenu li .menu-item-header {
+  padding-left: 30px; /* Indent sub-items */
+}
+
+.submenu .submenu li .menu-item-header {
+  padding-left: 45px; /* Further indent nested sub-items */
+}
+
+/* Main Content Area Styles */
+.main-content {
+  flex-grow: 1;
+  padding: 0; /* Remove padding if iframe takes full space */
+  background-color: #ffffff; /* White background for content area */
+  overflow-y: auto; /* Scrollbar for content if it overflows */
+  height: 100%;
+  display: flex; /* To center welcome message */
+  flex-direction: column; /* Ensure iframe takes full height */
+}
+
+#welcomeMessage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  padding: 20px;
+  color: #34495e;
+}
+
+#welcomeMessage h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+#welcomeMessage p {
+  font-size: 1.2em;
+}
+
+#contentFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block; /* Ensure it takes up space */
+}
+
+/* Custom Scrollbar (optional, for WebKit browsers) */
+.sidebar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: #2c3e50;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: #4a6075;
+  border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: #5a7894;
+}

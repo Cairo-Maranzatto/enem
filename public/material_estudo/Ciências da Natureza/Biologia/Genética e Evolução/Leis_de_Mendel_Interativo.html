@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leis de Mendel - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f4c3; /* Verde-limão muito claro / Amarelo-esverdeado */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #33691e; /* Verde escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #558b2f; /* Verde médio */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #689f38; /* Verde-claro médio */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #689f38; /* Verde-claro médio */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #9ccc65; /* Verde-limão */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 60px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #689f38; /* Verde-claro médio */
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #33691e; /* Verde escuro */
+            color: #f0f4c3; /* Verde-limão muito claro */
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #33691e; /* Verde escuro */
+            margin-top: 0;
+            border-bottom: 2px solid #558b2f; /* Verde médio */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #9ccc65; /* Verde-limão */ }
+        .modal-content code {
+            background-color: #f9fbe7; /* Amarelo-esverdeado muito claro */
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #9ccc65; /* Verde-limão */
+        }
+        .modal-content .punnett-square {
+            margin: 15px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        .modal-content .punnett-square th, .modal-content .punnett-square td {
+            border: 1px solid #ccc;
+            width: 40px;
+            height: 40px;
+            font-size: 0.9em;
+        }
+        .modal-content .punnett-square th {
+            background-color: #f9fbe7; /* Amarelo-esverdeado muito claro */
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Leis de Mendel</h1>
+        <p>Descobrindo os segredos da hereditariedade! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" data-concept="Gregor Mendel e Conceitos Fundamentais"
+             data-details="<strong>Gregor Mendel (1822-1884)</strong>, um monge austríaco, é considerado o 'Pai da Genética'. Ele realizou experimentos com ervilhas (<em>Pisum sativum</em>) que revelaram os princípios básicos da hereditariedade.<ul><li><strong>Por que ervilhas?</strong> Fácil cultivo, ciclo de vida curto, produção de muitos descendentes, características contrastantes e de fácil identificação, e possibilidade de realizar autofecundação e fecundação cruzada controlada.</li><li><strong>Conceitos Chave:</strong><ul><li><strong>Gene:</strong> Segmento de DNA que determina uma característica. Mendel chamava de 'fator'.</li><li><strong>Alelos:</strong> Formas alternativas de um gene que ocupam o mesmo loco (posição) em cromossomos homólogos. Ex: alelo para semente amarela (V) e alelo para semente verde (v).</li><li><strong>Homozigoto:</strong> Indivíduo com dois alelos iguais para uma característica (Ex: VV ou vv).</li><li><strong>Heterozigoto:</strong> Indivíduo com dois alelos diferentes para uma característica (Ex: Vv). Também chamado de híbrido.</li><li><strong>Dominante:</strong> Alelo que se expressa em homozigose (VV) e heterozigose (Vv).</li><li><strong>Recessivo:</strong> Alelo que só se expressa em homozigose (vv).</li><li><strong>Genótipo:</strong> Constituição genética de um indivíduo (Ex: VV, Vv, vv).</li><li><strong>Fenótipo:</strong> Características observáveis de um indivíduo, resultantes da interação do genótipo com o ambiente (Ex: cor da semente amarela, cor da semente verde).</li></ul></ul>">
+            <h3>Mendel e Conceitos</h3>
+            <div class="visual-representation">👨‍🔬🌱🧬</div>
+            <p class="definition">O monge que desvendou a hereditariedade e os termos básicos para entendê-la.</p>
+            <p class="keywords">Gene, Alelo, Dominante, Recessivo, Genótipo, Fenótipo</p>
+        </div>
+
+        <div class="card" data-concept="Primeira Lei de Mendel (Lei da Segregação)"
+             data-details="Também conhecida como <strong>Lei da Segregação dos Fatores</strong> ou <strong>Princípio da Pureza dos Gametas</strong>. Mendel concluiu que: 'Cada característica é determinada por um par de fatores (alelos) que se separam (segregam) na formação dos gametas, de modo que cada gameta carrega apenas um fator para cada característica.'<ul><li><strong>Experimento Clássico (Monoibridismo):</strong> Cruzamento de plantas puras (homozigotas) com características contrastantes (ex: sementes amarelas VV x sementes verdes vv).<ul><li><strong>Geração Parental (P):</strong> VV (amarela) x vv (verde)</li><li><strong>Geração F1 (Primeira Filial):</strong> 100% Vv (amarelas). O fator para amarelo (V) é dominante sobre o verde (v).</li><li><strong>Autofecundação de F1 (F1 x F1):</strong> Vv x Vv</li><li><strong>Geração F2 (Segunda Filial):</strong> Proporção fenotípica de aproximadamente 3 amarelas para 1 verde (3:1). Proporção genotípica de 1 VV : 2 Vv : 1 vv (1:2:1).</li></ul></li><li><strong>Quadro de Punnett (para F1 x F1 - Vv x Vv):</strong><table class='punnett-square'><tr><th></th><th>V</th><th>v</th></tr><tr><th>V</th><td>VV</td><td>Vv</td></tr><tr><th>v</th><td>Vv</td><td>vv</td></tr></table><p>Resultados: 1 VV (Amarela), 2 Vv (Amarela), 1 vv (Verde)</p></li></ul>">
+            <h3>1ª Lei de Mendel</h3>
+            <div class="visual-representation">🌿⚖️🎲</div>
+            <p class="definition">Cada característica é definida por um par de fatores que se separam na formação dos gametas.</p>
+            <p class="keywords">Segregação, Monoibridismo, Gametas, Dominância, Proporção 3:1</p>
+        </div>
+
+        <div class="card" data-concept="Segunda Lei de Mendel (Lei da Segregação Independente)"
+             data-details="Também conhecida como <strong>Lei da Segregação Independente dos Fatores</strong> ou <strong>Diibridismo</strong>. Mendel concluiu que: 'Os fatores (alelos) para duas ou mais características se distribuem independentemente uns dos outros durante a formação dos gametas.' Isso é válido para genes localizados em cromossomos diferentes ou distantes no mesmo cromossomo.<ul><li><strong>Experimento Clássico (Diibridismo):</strong> Cruzamento de plantas puras para duas características (ex: sementes amarelas e lisas VVRR x sementes verdes e rugosas vvrr).<ul><li><strong>Geração Parental (P):</strong> VVRR (amarela-lisa) x vvrr (verde-rugosa)</li><li><strong>Geração F1:</strong> 100% VvRr (amarelas-lisas).</li><li><strong>Autofecundação de F1 (VvRr x VvRr):</strong> Produz 4 tipos de gametas (VR, Vr, vR, vr).</li><li><strong>Geração F2:</strong> Proporção fenotípica clássica de 9:3:3:1.<ul><li>9/16 Amarelas Lisas (V_R_)</li><li>3/16 Amarelas Rugosas (V_rr)</li><li>3/16 Verdes Lisas (vvR_)</li><li>1/16 Verdes Rugosas (vvrr)</li></ul></li></ul></li><li><strong>Quadro de Punnett (para F1 x F1 - VvRr x VvRr):</strong><table class='punnett-square'><tr><th>Gametas</th><th>VR</th><th>Vr</th><th>vR</th><th>vr</th></tr><tr><th>VR</th><td>VVRR</td><td>VVRr</td><td>VvRR</td><td>VvRr</td></tr><tr><th>Vr</th><td>VVRr</td><td>VVrr</td><td>VvRr</td><td>Vvrr</td></tr><tr><th>vR</th><td>VvRR</td><td>VvRr</td><td>vvRR</td><td>vvRr</td></tr><tr><th>vr</th><td>VvRr</td><td>Vvrr</td><td>vvRr</td><td>vvrr</td></tr></table></li></ul>">
+            <h3>2ª Lei de Mendel</h3>
+            <div class="visual-representation">🌿🌿🔗🎲</div>
+            <p class="definition">Fatores para diferentes características segregam-se de forma independente na formação dos gametas.</p>
+            <p class="keywords">Diibridismo, Segregação Independente, Proporção 9:3:3:1, Combinações</p>
+        </div>
+
+        <div class="card" data-concept="Casos Especiais de Herança (Além de Mendel)"
+             data-details="Embora as Leis de Mendel expliquem muitos padrões de herança, existem variações e interações mais complexas:<ul><li><strong>Dominância Incompleta:</strong> O heterozigoto apresenta um fenótipo intermediário entre os dos homozigotos. Ex: flor boca-de-leão (vermelha CV CV x branca CB CB = rosa CV CB).</li><li><strong>Codominância:</strong> O heterozigoto expressa ambos os fenótipos dos homozigotos simultaneamente. Ex: sistema sanguíneo MN (indivíduos LM LN expressam ambos os antígenos M e N). Tipo sanguíneo AB no sistema ABO.</li><li><strong>Alelos Múltiplos (Polialelia):</strong> Existência de três ou mais alelos para um mesmo gene na população, embora cada indivíduo diploide só possua dois. Ex: sistema sanguíneo ABO (alelos IA, IB, i).</li><li><strong>Pleiotropia:</strong> Um único gene afeta múltiplas características fenotípicas. Ex: fenilcetonúria, anemia falciforme.</li><li><strong>Interação Gênica:</strong> Vários genes interagem para determinar uma única característica. Pode ser epistática (um gene mascara o efeito de outro) ou não epistática. Ex: cor da pelagem em labradores (epistasia), forma da crista em galinhas.</li><li><strong>Herança Quantitativa (Poligênica):</strong> Características determinadas por múltiplos genes, com efeito aditivo, resultando em variação contínua. Ex: altura, cor da pele em humanos.</li><li><strong>Herança Ligada ao Sexo:</strong> Genes localizados nos cromossomos sexuais (X ou Y). Ex: daltonismo, hemofilia (ligados ao X).</li></ul>">
+            <h3>Casos Especiais</h3>
+            <div class="visual-representation">🧩🧬🎨➕</div>
+            <p class="definition">Variações da herança mendeliana, como dominância incompleta, codominância e alelos múltiplos.</p>
+            <p class="keywords">Codominância, Alelos Múltiplos, Pleiotropia, Interação Gênica, Ligada ao Sexo</p>
+        </div>
+
+        <div class="card" data-concept="Importância das Leis de Mendel"
+             data-details="As descobertas de Mendel, embora inicialmente não reconhecidas, revolucionaram a biologia e formaram a base da Genética Clássica.<ul><li><strong>Fundamento da Genética:</strong> As leis de Mendel forneceram os princípios básicos para entender como as características são transmitidas de pais para filhos.</li><li><strong>Melhoramento Genético:</strong> Essenciais para o desenvolvimento de novas variedades de plantas e raças de animais com características desejáveis (maior produtividade, resistência a doenças) na agricultura e pecuária.</li><li><strong>Medicina e Saúde:</strong> Ajudam a compreender a herança de doenças genéticas, permitindo o aconselhamento genético, diagnóstico e, em alguns casos, o desenvolvimento de terapias. Ex: fibrose cística, anemia falciforme.</li><li><strong>Biotecnologia:</strong> O conhecimento da herança genética é crucial para técnicas de engenharia genética, como a produção de organismos geneticamente modificados (OGMs) e terapia gênica.</li><li><strong>Evolução:</strong> A variabilidade genética, sobre a qual a seleção natural atua, é gerada e transmitida de acordo com os princípios mendelianos. A genética mendeliana foi fundamental para a Síntese Moderna da Evolução.</li><li><strong>Identificação Humana:</strong> Testes de paternidade e investigações forenses utilizam princípios de herança genética.</li></ul>">
+            <h3>Importância das Leis</h3>
+            <div class="visual-representation">🌍🔬💡📈</div>
+            <p class="definition">A base da genética moderna, com aplicações em agricultura, medicina e biotecnologia.</p>
+            <p class="keywords">Genética Clássica, Melhoramento, Doenças Genéticas, Biotecnologia, Evolução</p>
+        </div>
+
+    </div>
+
+    <div id="conceptModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalConceptTitle"></h2>
+            <div id="modalConceptDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Desvendando os segredos da hereditariedade, gene a gene! 🌱📊</p>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const modal = document.getElementById('conceptModal');
+        const modalTitle = document.getElementById('modalConceptTitle');
+        const modalDetails = document.getElementById('modalConceptDetails');
+        const closeButton = document.querySelector('.close-button');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                modalTitle.textContent = card.dataset.concept;
+                modalDetails.innerHTML = card.dataset.details;
+                modal.style.display = 'block';
+            });
+        });
+
+        closeButton.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Química Geral e Inorgânica: Tabela Periódica - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #F4F6F8; /* COR_FUNDO_BODY */
+            color: #212529; /* COR_TEXTO_PRINCIPAL_BODY */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #2C3E50; /* COR_HEADER_H1 */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #566573; /* COR_HEADER_SUBTITULO */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff; 
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #2980B9; /* COR_CARD_BORDA_ESQUERDA (Destaque) */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #34495E; /* COR_CARD_H3 */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #34495E; /* COR_CARD_VISUAL_REPRESENTATION */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #212529; /* COR_TEXTO_CARD_DEFINITION */
+            margin-bottom: 10px;
+            min-height: 80px; /* CARD_DEFINITION_MIN_HEIGHT */
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #566573; /* COR_CARD_KEYWORDS */
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #2C3E50; /* COR_FOOTER_BACKGROUND */
+            color: #FFFFFF; /* COR_FOOTER_TEXTO */
+        }
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1000; 
+            left: 0; top: 0; 
+            width: 100%; height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.6); 
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #ECF0F1; /* COR_MODAL_FUNDO */
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #bdc3c7; /* Cinza claro para borda modal */
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #2C3E50; /* COR_MODAL_H2 */
+            margin-top: 0;
+            border-bottom: 2px solid #2980B9; /* COR_MODAL_H2_BORDA_INFERIOR (Destaque) */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+            color: #34495E; /* COR_TEXTO_MODAL_CONTEUDO */
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong {
+            color: #2C3E50; /* COR_MODAL_STRONG */
+        }
+        .close-button {
+            color: #7f8c8d; /* Cinza para botão fechar */
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #2c3e50; /* Escurece no hover */
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Periodic Table Styles */
+        #periodic-table-container {
+            display: grid;
+            grid-template-columns: repeat(18, minmax(0, 1fr)); /* Ensure columns can shrink */
+            grid-template-rows: repeat(10, auto); /* Accommodate up to 10 rows (7 main + L/A series + spacing) */
+            gap: 4px;
+            width: 95%;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #e9ecef; /* Light gray background for the table area */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .element-cell {
+            border: 1px solid #adb5bd; /* Slightly darker border for cells */
+            padding: 5px;
+            text-align: center;
+            font-size: 0.75em; /* Adjust base font size for cells */
+            min-height: 70px; /* Minimum height for cells */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around; /* Distribute content within cell */
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background-color: #fff; /* Default background for cells */
+            border-radius: 4px;
+        }
+
+        .element-cell:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            z-index: 10; /* Bring to front on hover */
+            position: relative; /* Needed for z-index */
+        }
+
+        .element-number {
+            font-size: 0.8em;
+            align-self: flex-start; /* Position top-left */
+            margin-left: 2px;
+            color: #495057;
+        }
+
+        .element-symbol {
+            font-size: 1.4em; /* Larger symbol */
+            font-weight: bold;
+            margin: 2px 0;
+            color: #212529;
+        }
+
+        .element-name {
+            font-size: 0.7em;
+            word-break: break-word; /* Prevent overflow */
+            color: #343a40;
+        }
+        .element-atomic-mass {
+            font-size: 0.65em;
+            color: #6c757d;
+        }
+
+        /* Placeholder category colors - will be expanded */
+        .category-noble-gas { background-color: #E6E6FA; /* Lavender */ border-color: #B0E0E6; }
+        .category-alkali-metal { background-color: #FFDAB9; /* PeachPuff */ border-color: #FFA07A; }
+        .category-alkaline-earth-metal { background-color: #FFFACD; /* LemonChiffon */ border-color: #FFEC8B; }
+        .category-transition-metal { background-color: #ADD8E6; /* LightBlue */ border-color: #87CEEB; }
+        .category-post-transition-metal { background-color: #D3D3D3; /* LightGray */ border-color: #A9A9A9; }
+        .category-lanthanide { background-color: #F0E68C; /* Khaki */ border-color: #EEDD82; }
+        .category-actinide { background-color: #E0FFFF; /* LightCyan */ border-color: #AFEEEE; }
+        .category-metalloid { background-color: #98FB98; /* PaleGreen */ border-color: #8FBC8F; }
+        .category-diatomic-nonmetal, .category-polyatomic-nonmetal, .category-reactive-nonmetal { background-color: #FAFAD2; /* LightGoldenrodYellow */ border-color: #EEE8AA; }
+        .category-unknown-probably-transition-metal, .category-unknown-probably-post-transition-metal, .category-unknown-probably-metalloid, .category-unknown-newly-synthesized-probably-metallic, .category-unknown-predicted-to-be-noble-gas, .category-unknown-properties { background-color: #F5F5F5; /* WhiteSmoke */ border-color: #DCDCDC; }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tabela Periódica: O Mapa dos Elementos</h1>
+        <p>Explorando a organização e as propriedades dos blocos construtores da matéria.</p>
+    </header>
+
+    <div id="periodic-table-container">
+        <!-- Periodic table will be rendered here by JavaScript -->
+        <p style="text-align:center; padding: 20px;">Loading Periodic Table...</p>
+    </div>
+
+    <div class="concepts-grid">
+        <!-- Card 1: Descoberta e Evolução -->
+        <div class="card" 
+             data-concept="A Descoberta e Evolução da Tabela Periódica" 
+             data-details="<p>A Tabela Periódica dos Elementos Químicos é uma das ferramentas mais icônicas e úteis da química. Sua forma atual é o resultado de séculos de observações, hipóteses e experimentos por inúmeros cientistas.</p><ul><li><strong>Primeiras Tentativas:</strong> No início do século XIX, cientistas como Johann Döbereiner (Tríades) e John Newlands (Lei das Oitavas) notaram padrões nas propriedades dos elementos conhecidos e tentaram organizá-los.</li><li><strong>Dmitri Mendeleev (1869):</strong> Considerado o pai da tabela periódica moderna, Mendeleev organizou os 63 elementos conhecidos na época em ordem crescente de massa atômica. Sua genialidade residiu em:<ul><li>Deixar espaços vazios para elementos ainda não descobertos, prevendo suas propriedades com base nas tendências observadas (ex: eka-alumínio, eka-silício).</li><li>Em alguns casos, inverter a ordem da massa atômica para que elementos com propriedades semelhantes ficassem no mesmo grupo (ex: Telúrio e Iodo).</li></ul>Ele enunciou a <strong>Lei Periódica</strong>: &quot;as propriedades dos elementos são uma função periódica de suas massas atômicas&quot;.</li><li><strong>Lothar Meyer (1869):</strong> Independentemente de Mendeleev, Meyer também propôs uma tabela semelhante, baseada em volumes atômicos.</li><li><strong>Henry Moseley (1913):</strong> Através de experimentos com raios-X, Moseley descobriu que o número atômico (número de prótons) era a propriedade fundamental para ordenar os elementos, e não a massa atômica. Isso resolveu as inconsistências da tabela de Mendeleev e levou à formulação moderna da Lei Periódica: &quot;as propriedades dos elementos são uma função periódica de seus números atômicos&quot;.</li><li><strong>Glenn T. Seaborg (década de 1940):</strong> Propôs a reconfiguração da tabela para incluir a série dos Actinídeos abaixo dos Lantanídeos, dando à tabela sua forma longa familiar.</li></ul><p>A Tabela Periódica continua a evoluir à medida que novos elementos são sintetizados e caracterizados.</p>">
+            <h3>Descoberta e Evolução</h3>
+            <div class="visual-representation">📜➡️🧱</div>
+            <p class="definition">A organização sistemática dos elementos químicos, revelando padrões e prevendo propriedades.</p>
+            <p class="keywords">Mendeleev, Moseley, Lei Periódica, Histórico</p>
+        </div>
+
+        <!-- Card 2: Estrutura da Tabela -->
+        <div class="card" 
+             data-concept="Estrutura da Tabela: Períodos e Grupos" 
+             data-details="<p>A Tabela Periódica é organizada em uma grade, onde cada elemento ocupa uma célula específica. A disposição dos elementos segue uma lógica baseada em seus números atômicos e configurações eletrônicas.</p><h4>Períodos (Linhas Horizontais)</h4><ul><li>São as <strong>7 linhas horizontais</strong> da tabela.</li><li>O número do período (de 1 a 7) corresponde ao <strong>número quântico principal (n)</strong> da camada de valência (camada eletrônica mais externa) dos elementos naquele período.</li><li>Ao longo de um período, o número atômico aumenta da esquerda para a direita, e as propriedades dos elementos variam de forma gradual. Por exemplo, o raio atômico geralmente diminui e a eletronegatividade aumenta.</li></ul><h4>Grupos ou Famílias (Colunas Verticais)</h4><ul><li>São as <strong>18 colunas verticais</strong> da tabela.</li><li>Elementos no mesmo grupo possuem <strong>configurações eletrônicas de valência semelhantes</strong> (mesmo número de elétrons na camada de valência, ou mesma distribuição nesses elétrons).</li><li>Devido a essa semelhança na configuração eletrônica, elementos do mesmo grupo tendem a ter <strong>propriedades químicas semelhantes</strong>.</li><li>Alguns grupos possuem nomes tradicionais:<ul><li><strong>Grupo 1:</strong> Metais Alcalinos (exceto Hidrogênio)</li><li><strong>Grupo 2:</strong> Metais Alcalinoterrosos</li><li><strong>Grupo 13:</strong> Grupo do Boro</li><li><strong>Grupo 14:</strong> Grupo do Carbono</li><li><strong>Grupo 15:</strong> Grupo do Nitrogênio (Pnictogênios)</li><li><strong>Grupo 16:</strong> Calcogênios</li><li><strong>Grupo 17:</strong> Halogênios</li><li><strong>Grupo 18:</strong> Gases Nobres</li></ul></li><li>Os elementos dos grupos 3 a 12 são chamados de <strong>Metais de Transição</strong>.</li><li>As duas fileiras separadas na parte inferior da tabela são os <strong>Lantanídeos</strong> (primeira fileira) e os <strong>Actinídeos</strong> (segunda fileira), também conhecidos como Metais de Transição Interna.</li></ul>">
+            <h3>Períodos e Grupos</h3>
+            <div class="visual-representation">↔️↕️</div>
+            <p class="definition">Como os elementos são arranjados em linhas horizontais (períodos) e colunas verticais (grupos/famílias).</p>
+            <p class="keywords">Períodos, Grupos, Famílias, Linhas, Colunas</p>
+        </div>
+
+        <!-- Card 3: Classificação Geral -->
+        <div class="card" 
+             data-concept="Classificação Geral dos Elementos" 
+             data-details="<p>Os elementos da Tabela Periódica podem ser amplamente classificados com base em suas propriedades físicas e químicas. As principais categorias são Metais, Ametais (ou Não-Metais), Semimetais (ou Metaloides) e Gases Nobres. O Hidrogênio é um caso especial.</p><h4>Metais</h4><ul><li>Localização: A maioria dos elementos da tabela, localizados à esquerda e no centro.</li><li>Propriedades Típicas:<ul><li>Bons condutores de calor e eletricidade.</li><li>Brilho característico (lustro metálico).</li><li>Maleáveis (podem ser moldados em lâminas) e dúcteis (podem ser estirados em fios).</li><li>Geralmente sólidos à temperatura ambiente (exceto o Mercúrio, Hg).</li><li>Tendência a perder elétrons para formar cátions.</li></ul></li><li>Exemplos: Ferro (Fe), Cobre (Cu), Ouro (Au), Sódio (Na), Alumínio (Al).</li></ul><h4>Ametais (Não-Metais)</h4><ul><li>Localização: Geralmente no lado direito superior da tabela.</li><li>Propriedades Típicas:<ul><li>Maus condutores de calor e eletricidade (isolantes).</li><li>Sem brilho metálico, geralmente opacos ou coloridos.</li><li>Quebradiços quando sólidos.</li><li>Podem ser sólidos, líquidos (Bromo, Br) ou gases à temperatura ambiente.</li><li>Tendência a ganhar elétrons para formar ânions ou compartilhar elétrons em ligações covalentes.</li></ul></li><li>Exemplos: Oxigênio (O), Nitrogênio (N), Carbono (C), Enxofre (S), Cloro (Cl).</li></ul><h4>Semimetais (Metaloides)</h4><ul><li>Localização: Formam uma &quot;escada&quot; diagonal entre os metais e ametais.</li><li>Propriedades Típicas: Possuem propriedades intermediárias entre metais e ametais. Podem ser semicondutores de eletricidade.</li><li>Exemplos: Boro (B), Silício (Si), Germânio (Ge), Arsênio (As), Antimônio (Sb), Telúrio (Te), Polônio (Po).</li></ul><h4>Gases Nobres</h4><ul><li>Localização: Grupo 18 (última coluna à direita).</li><li>Propriedades Típicas:<ul><li>Gases monoatômicos à temperatura ambiente.</li><li>Extremamente inertes (pouco reativos) devido à sua camada de valência completa (8 elétrons, ou 2 para o Hélio).</li></ul></li><li>Exemplos: Hélio (He), Neônio (Ne), Argônio (Ar), Criptônio (Kr), Xenônio (Xe), Radônio (Rn).</li></ul><h4>Hidrogênio (H)</h4><ul><li>É um elemento único, geralmente posicionado no Grupo 1, mas com propriedades distintas dos metais alcalinos.</li><li>Pode perder um elétron (formando H<sup>+</sup>) ou ganhar um elétron (formando H<sup>-</sup>, o íon hidreto) ou compartilhar elétrons.</li><li>É o elemento mais abundante no universo.</li></ul>">
+            <h3>Classificação dos Elementos</h3>
+            <div class="visual-representation">M A G H</div>
+            <p class="definition">As grandes categorias de elementos com base em suas propriedades físico-químicas.</p>
+            <p class="keywords">Metais, Ametais, Semimetais, Gases Nobres, Hidrogênio</p>
+        </div>
+
+        <!-- Card 4: Propriedades Periódicas -->
+        <div class="card" 
+             data-concept="Propriedades Periódicas e Suas Tendências" 
+             data-details="<p>As propriedades periódicas são características dos elementos que variam de forma previsível e regular ao longo dos períodos e grupos da Tabela Periódica. Essas tendências são explicadas pela estrutura eletrônica dos átomos.</p><h4>1. Raio Atômico</h4><ul><li>Definição: Metade da distância entre os núcleos de dois átomos idênticos ligados quimicamente (para elementos que formam moléculas) ou em um cristal (para metais). Indica o &quot;tamanho&quot; do átomo.</li><li>Tendência:<ul><li><strong>Nos Grupos:</strong> Aumenta de cima para baixo (devido ao aumento do número de camadas eletrônicas).</li><li><strong>Nos Períodos:</strong> Diminui da esquerda para a direita (devido ao aumento da carga nuclear efetiva, que atrai mais fortemente os elétrons da camada de valência).</li></ul></li></ul><h4>2. Energia de Ionização (ou Potencial de Ionização)</h4><ul><li>Definição: A energia mínima necessária para remover um elétron de um átomo gasoso no seu estado fundamental, formando um cátion.</li><li>Tendência:<ul><li><strong>Nos Grupos:</strong> Diminui de cima para baixo (elétrons mais distantes do núcleo são mais fáceis de remover).</li><li><strong>Nos Períodos:</strong> Aumenta da esquerda para a direita (maior carga nuclear efetiva segura os elétrons mais firmemente).</li></ul></li><li>Gases nobres possuem as maiores energias de ionização.</li></ul><h4>3. Eletronegatividade</h4><ul><li>Definição: A medida da tendência de um átomo em atrair para si os elétrons de uma ligação química covalente.</li><li>Tendência (Escala de Pauling é a mais comum):<ul><li><strong>Nos Grupos:</strong> Diminui de cima para baixo.</li><li><strong>Nos Períodos:</strong> Aumenta da esquerda para a direita.</li></ul></li><li>O Flúor (F) é o elemento mais eletronegativo. Gases nobres geralmente não têm valores de eletronegatividade definidos, pois raramente formam ligações.</li></ul><h4>4. Afinidade Eletrônica (ou Eletroafinidade)</h4><ul><li>Definição: A energia liberada (ou absorvida) quando um átomo gasoso no seu estado fundamental ganha um elétron, formando um ânion.</li><li>Tendência (geral, com exceções):<ul><li><strong>Nos Grupos:</strong> Diminui (em módulo) de cima para baixo.</li><li><strong>Nos Períodos:</strong> Aumenta (em módulo) da esquerda para a direita.</li></ul></li><li>Halogênios (Grupo 17) possuem altas afinidades eletrônicas.</li></ul><p>Outras propriedades como caráter metálico, densidade, ponto de fusão e ebulição também exibem tendências periódicas.</p>">
+            <h3>Propriedades Periódicas</h3>
+            <div class="visual-representation">📏⚡️<span style='font-size:0.8em; color: #E74C3C;'>♥</span>️🔥</div>
+            <p class="definition">Propriedades dos elementos que variam de forma previsível ao longo da tabela.</p>
+            <p class="keywords">Raio Atômico, Ionização, Eletronegatividade, Afinidade</p>
+        </div>
+
+        <!-- Card 5: Blocos da Tabela -->
+        <div class="card" 
+             data-concept="Blocos da Tabela Periódica (s, p, d, f)" 
+             data-details="<p>A Tabela Periódica pode ser dividida em blocos (s, p, d, f) com base no subnível de energia mais externo (ou mais energético) que está sendo preenchido pelos elétrons de valência, de acordo com o Diagrama de Linus Pauling.</p><h4>Bloco s</h4><ul><li>Compreende os <strong>Grupos 1 (Metais Alcalinos) e 2 (Metais Alcalinoterrosos)</strong>, além do Hélio (He).</li><li>Os elétrons de valência desses elementos ocupam o subnível <strong>s</strong>.</li><li>Configuração eletrônica de valência: ns<sup>1</sup> (Grupo 1) e ns<sup>2</sup> (Grupo 2).</li><li>São metais reativos (exceto Hélio).</li></ul><h4>Bloco p</h4><ul><li>Compreende os <strong>Grupos 13 a 18</strong> (exceto o Hélio).</li><li>Os elétrons de valência desses elementos ocupam os subníveis <strong>s</strong> e <strong>p</strong> da camada mais externa.</li><li>Configuração eletrônica de valência: ns<sup>2</sup> np<sup>1</sup> a ns<sup>2</sup> np<sup>6</sup>.</li><li>Inclui metais, semimetais, ametais e gases nobres. É o bloco com maior diversidade de propriedades.</li></ul><h4>Bloco d</h4><ul><li>Compreende os <strong>Grupos 3 a 12</strong>, conhecidos como <strong>Metais de Transição</strong>.</li><li>Os elétrons de diferenciação (últimos a serem adicionados) preenchem o subnível <strong>d</strong> da penúltima camada eletrônica.</li><li>Configuração eletrônica geral: (n-1)d<sup>1-10</sup> ns<sup>0-2</sup>.</li><li>São todos metais, geralmente com alta densidade, pontos de fusão e ebulição elevados, e formam íons coloridos e compostos de coordenação.</li></ul><h4>Bloco f</h4><ul><li>Compreende as duas séries separadas na parte inferior da tabela:<ul><li><strong>Lantanídeos:</strong> Elementos após o Lantânio (La), preenchendo o subnível 4f.</li><li><strong>Actinídeos:</strong> Elementos após o Actínio (Ac), preenchendo o subnível 5f.</li></ul></li><li>Também são chamados de <strong>Metais de Transição Interna</strong>.</li><li>Os elétrons de diferenciação preenchem o subnível <strong>f</strong> da antepenúltima camada eletrônica.</li><li>São todos metais, e muitos actinídeos são radioativos.</li></ul><p>A divisão em blocos ajuda a entender a relação entre a configuração eletrônica e as propriedades dos elementos.</p>">
+            <h3>Blocos da Tabela (s,p,d,f)</h3>
+            <div class="visual-representation">[s] [p] [d] [f]</div>
+            <p class="definition">A divisão da tabela baseada no subnível mais energético ocupado por elétrons.</p>
+            <p class="keywords">Bloco s, Bloco p, Bloco d, Bloco f, Distribuição</p>
+        </div>
+
+        <!-- Card 6: Tabela como Ferramenta Essencial -->
+        <div class="card" 
+             data-concept="A Tabela Periódica como Ferramenta Essencial" 
+             data-details="<p>A Tabela Periódica é muito mais do que um simples catálogo de elementos. É uma ferramenta poderosa e indispensável em diversas áreas da ciência e tecnologia.</p><h4>Importância e Aplicações:</h4><ul><li><strong>Previsão de Propriedades:</strong> Permite prever as propriedades físicas e químicas de elementos ainda não descobertos ou pouco estudados, com base nas tendências periódicas.</li><li><strong>Entendimento de Reações Químicas:</strong> Ajuda a entender como e por que os elementos reagem entre si, como formam ligações e quais tipos de compostos podem originar. A posição de um elemento indica sua reatividade, eletronegatividade, e tipos de íons que forma.</li><li><strong>Desenvolvimento de Novos Materiais:</strong> Guia a pesquisa e o desenvolvimento de novos materiais com propriedades específicas (ex: semicondutores, supercondutores, ligas metálicas, catalisadores).</li><li><strong>Ensino e Aprendizagem de Química:</strong> É a base para o estudo da química, fornecendo um quadro organizado para compreender a diversidade da matéria.</li><li><strong>Ciências Ambientais:</strong> Ajuda a entender a distribuição e o ciclo de elementos no ambiente, bem como a toxicidade e o impacto de certos elementos.</li><li><strong>Bioquímica e Medicina:</strong> Essencial para entender o papel dos elementos nos organismos vivos (ex: metais em enzimas, íons em processos celulares) e no desenvolvimento de fármacos.</li><li><strong>Astrofísica e Cosmologia:</strong> Usada para entender a composição de estrelas e planetas, e a origem dos elementos no universo (nucleossíntese).</li></ul><p>Dominar a Tabela Periódica é fundamental para qualquer estudante ou profissional das ciências exatas e naturais. Ela é um mapa que revela a lógica e a beleza da química dos elementos.</p>">
+            <h3>Tabela: Ferramenta Essencial</h3>
+            <div class="visual-representation">🔬🧪💡</div>
+            <p class="definition">A importância da tabela para a química, ciência dos materiais, e outras áreas.</p>
+            <p class="keywords">Previsão, Pesquisa, Novos Materiais, Química</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Decifrando a linguagem dos elementos! 🧪🗺️✨</p>
+    </footer>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalConceptTitle"></h2>
+            <div id="modalConceptDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        const modal = document.getElementById('myModal');
+        const modalTitle = document.getElementById('modalConceptTitle');
+        const modalDetails = document.getElementById('modalConceptDetails');
+        const closeButton = document.querySelector('.close-button');
+        const cards = document.querySelectorAll('.card');
+
+        cards.forEach(card => {
+            card.addEventListener('click', function() {
+                const concept = this.getAttribute('data-concept');
+                const details = this.getAttribute('data-details');
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details;
+                modal.style.display = 'block';
+            });
+        });
+
+        closeButton.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+    <script src="../../../../js/periodic-table-data.js"></script>
+    <script src="../../../../js/periodic-table-renderer.js"></script>
+</body>
+</html>

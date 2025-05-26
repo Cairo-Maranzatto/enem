@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poluição da Água e Chuva Ácida - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #eef3f7; /* Tom de azul bem claro, quase branco */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #c2185b; /* Rosa escuro/vinho para problemas ambientais */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #d81b60; /* Rosa um pouco mais claro */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 900px; /* Ajustado para 2 cards principais */
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #ad1457; /* Rosa mais escuro para a borda */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #880e4f; /* Rosa bem escuro/vinho */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #c2185b;
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 50px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #ad1457;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #880e4f; /* Rosa bem escuro/vinho */
+            color: #fce4ec; /* Rosa muito claro */
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 700px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #880e4f;
+            margin-top: 0;
+            border-bottom: 2px solid #ad1457;
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #c2185b; }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Poluição Hídrica e Atmosférica</h1>
+        <p>Entendendo os impactos da Poluição da Água e da Chuva Ácida. (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" data-concept="Poluição da Água" 
+             data-details="A <strong>poluição da água</strong> é a alteração das características físicas, químicas ou biológicas da água, tornando-a imprópria para o consumo ou prejudicial aos organismos vivos. É um dos problemas ambientais mais graves do planeta.<ul>
+                <li><strong>Principais Tipos/Fontes:</strong>
+                    <ul>
+                        <li><strong>Doméstica:</strong> Esgotos residenciais (matéria orgânica, detergentes, patógenos).</li>
+                        <li><strong>Industrial:</strong> Efluentes de indústrias (metais pesados, produtos químicos tóxicos, óleos, calor).</li>
+                        <li><strong>Agrícola:</strong> Agrotóxicos (pesticidas, herbicidas) e fertilizantes que são carregados pela chuva para rios e lagos.</li>
+                        <li><strong>Acidental:</strong> Vazamentos de petróleo, descarte inadequado de resíduos.</li>
+                    </ul>
+                </li>
+                <li><strong>Principais Poluentes:</strong>
+                    <ul>
+                        <li>Matéria orgânica em excesso (causa eutrofização).</li>
+                        <li>Esgoto sanitário (rico em microrganismos patogênicos).</li>
+                        <li>Agrotóxicos e fertilizantes.</li>
+                        <li>Metais pesados (mercúrio, chumbo, cádmio - altamente tóxicos e bioacumulativos).</li>
+                        <li>Plásticos e microplásticos.</li>
+                        <li>Óleos e graxas.</li>
+                    </ul>
+                </li>
+                <li><strong>Consequências:</strong>
+                    <ul>
+                        <li><strong>Eutrofização:</strong> Enriquecimento excessivo da água por nutrientes, levando à proliferação de algas, consumo de oxigênio e morte de peixes.</li>
+                        <li>Transmissão de doenças de veiculação hídrica (cólera, hepatite A, febre tifoide).</li>
+                        <li>Perda de biodiversidade aquática.</li>
+                        <li>Contaminação de lençóis freáticos e solos.</li>
+                        <li>Impactos na saúde humana (intoxicações, problemas neurológicos por metais pesados).</li>
+                        <li>Prejuízos econômicos (pesca, turismo, tratamento da água).</li>
+                    </ul>
+                </li>
+                <li><strong>Soluções/Prevenção:</strong>
+                    <ul>
+                        <li>Saneamento básico universal (coleta e tratamento de esgoto).</li>
+                        <li>Tratamento adequado de efluentes industriais.</li>
+                        <li>Uso consciente e racional da água.</li>
+                        <li>Práticas agrícolas sustentáveis (manejo integrado de pragas, uso racional de fertilizantes).</li>
+                        <li>Fiscalização rigorosa e legislação ambiental eficaz.</li>
+                        <li>Educação ambiental e conscientização da população.</li>
+                        <li>Descarte correto de resíduos sólidos e líquidos.</li>
+                        <li>Proteção de mananciais e matas ciliares.</li>
+                    </ul>
+                </li>
+             </ul>">
+            <h3>Poluição da Água</h3>
+            <div class="visual-representation">💧🏭☣️🐠</div>
+            <p class="definition">Alteração da qualidade da água por substâncias que a tornam imprópria ou nociva.</p>
+            <p class="keywords">Esgoto, Agrotóxicos, Metais Pesados, Eutrofização</p>
+        </div>
+
+        <div class="card" data-concept="Chuva Ácida" 
+             data-details="A <strong>chuva ácida</strong> é qualquer forma de precipitação (chuva, neve, granizo, neblina) que apresenta acidez anormalmente elevada, ou seja, um pH inferior ao da chuva natural (que é levemente ácida, em torno de 5,6, devido à dissolução do CO₂ atmosférico).<ul>
+                <li><strong>Definição e pH:</strong> Considera-se chuva ácida aquela com pH abaixo de 5,5 - 5,0. Quanto menor o pH, maior a acidez.</li>
+                <li><strong>Formação:</strong>
+                    <ul>
+                        <li>Resulta da reação química entre o vapor d'água atmosférico e gases poluentes, principalmente dióxido de enxofre (SO₂) e óxidos de nitrogênio (NOx - NO, NO₂).</li>
+                        <li>Esses gases, ao reagirem com a água, formam ácido sulfúrico (H₂SO₄) e ácido nítrico (HNO₃), que se precipitam.</li>
+                        <li>SO₂ + H₂O → H₂SO₃ (ácido sulfuroso); H₂SO₃ + ½O₂ → H₂SO₄ (ácido sulfúrico)</li>
+                        <li>NOx + H₂O → HNO₂ (ácido nitroso) e HNO₃ (ácido nítrico)</li>
+                    </ul>
+                </li>
+                <li><strong>Fontes dos Poluentes:</strong>
+                    <ul>
+                        <li><strong>Dióxido de Enxofre (SO₂):</strong> Principalmente pela queima de combustíveis fósseis ricos em enxofre (carvão mineral, óleo diesel) em usinas termoelétricas, processos industriais e vulcões.</li>
+                        <li><strong>Óxidos de Nitrogênio (NOx):</strong> Gerados pela queima de combustíveis fósseis em altas temperaturas, como em motores de veículos (carros, caminhões, aviões) e algumas indústrias.</li>
+                    </ul>
+                </li>
+                <li><strong>Consequências:</strong>
+                    <ul>
+                        <li><strong>Ambientais:</strong> Acidificação de lagos, rios e solos, prejudicando a vida aquática (morte de peixes, anfíbios) e terrestre (liberação de metais tóxicos no solo, danos às raízes das plantas). Danos a florestas e plantações, tornando as plantas mais vulneráveis a pragas e doenças.</li>
+                        <li><strong>Materiais:</strong> Corrosão de monumentos históricos (mármore, calcário), estruturas metálicas, pinturas de veículos.</li>
+                        <li><strong>Saúde Humana:</strong> Agravamento de problemas respiratórios (asma, bronquite), irritação nos olhos e pele. Contaminação de fontes de água potável por metais tóxicos liberados do solo.</li>
+                    </ul>
+                </li>
+                <li><strong>Soluções/Prevenção:</strong>
+                    <ul>
+                        <li>Redução drástica da emissão de SO₂ e NOx.</li>
+                        <li>Uso de combustíveis com menor teor de enxofre e tecnologias de dessulfurização.</li>
+                        <li>Instalação de filtros e catalisadores em chaminés de indústrias e escapamentos de veículos.</li>
+                        <li>Incentivo ao uso de fontes de energia renováveis e limpas (solar, eólica, hidrelétrica).</li>
+                        <li>Melhora da eficiência energética.</li>
+                        <li>Incentivo ao transporte público e veículos menos poluentes.</li>
+                        <li>Acordos internacionais para controle da poluição transfronteiriça.</li>
+                    </ul>
+                </li>
+             </ul>">
+            <h3>Chuva Ácida</h3>
+            <div class="visual-representation">🌧️🏭🚗💨📉</div>
+            <p class="definition">Precipitação com pH ácido devido a poluentes atmosféricos como SO₂ e NOx.</p>
+            <p class="keywords">SOx, NOx, pH Ácido, Combustíveis Fósseis, Corrosão</p>
+        </div>
+    </div>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Cuidar do nosso planeta é cuidar da nossa saúde e futuro! 🌍💧</p>
+    </footer>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close-button")[0];
+        var cards = document.querySelectorAll(".card");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDetails = document.getElementById("modalDetails");
+
+        cards.forEach(function(card) {
+            card.onclick = function() {
+                var concept = card.getAttribute("data-concept");
+                var details = card.getAttribute("data-details");
+                
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details; // Usar innerHTML para renderizar as tags <ul> e <li>
+                modal.style.display = "block";
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metabolismo Celular - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff8e1; /* Amarelo/Creme muito claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #e65100; /* Laranja escuro, quase marrom */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #ef6c00; /* Laranja escuro */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #d84315; /* Laranja queimado escuro */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #d84315; /* Laranja queimado escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #f57c00; /* Laranja médio */
+            min-height: 70px; /* Para manter alinhamento dos emojis */
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 80px; /* Ajustado para definições */
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #d84315; /* Laranja queimado escuro */
+            font-weight: bold;
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #d84315; /* Laranja queimado escuro */
+            margin-top: 0;
+            border-bottom: 2px solid #e65100; /* Laranja escuro, quase marrom */
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul, .modal-content ol {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul, .modal-content ol {
+            padding-left: 30px;
+        }
+        .modal-content strong { color: #f57c00; /* Laranja médio */ }
+        .modal-content code {
+            background-color: #fff3e0; /* Laranja bem claro */
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #ef6c00; /* Laranja escuro */
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            transition: color 0.2s ease;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #bf360c; /* Laranja bem escuro/Terracota */
+            color: #fff8e1; /* Amarelo/Creme muito claro */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Metabolismo Celular</h1>
+        <p>As Reações Químicas que Sustentam a Vida! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" 
+             data-concept="Visão Geral do Metabolismo Celular" 
+             data-details="<p>O <strong>Metabolismo Celular</strong> é o conjunto de todas as reações químicas que ocorrem dentro de uma célula, essenciais para a manutenção da vida, crescimento, reparo e resposta ao ambiente. Ele é dividido em duas vias principais:</p><ul><li><strong>Anabolismo (Construção):</strong> Reações que sintetizam moléculas complexas a partir de moléculas mais simples, consumindo energia (ATP). Exemplos: síntese de proteínas, fotossíntese. São reações endergônicas.</li><li><strong>Catabolismo (Quebra):</strong> Reações que degradam moléculas complexas em moléculas mais simples, liberando energia (ATP). Exemplos: respiração celular, fermentação. São reações exergônicas.</li></ul><p>Essas vias são interdependentes e finamente reguladas para garantir a eficiência energética e a homeostase celular.</p>">
+            <h3>Visão Geral do Metabolismo</h3>
+            <div class="visual-representation">⚙️🔄⚡</div>
+            <p class="definition">Conjunto de reações químicas vitais na célula, divididas em anabolismo (construção) e catabolismo (quebra).</p>
+            <p class="keywords">Anabolismo, Catabolismo, Reações Químicas, Energia Celular</p>
+        </div>
+
+        <div class="card" 
+             data-concept="ATP: A Moeda Energética da Célula" 
+             data-details="<p>O <strong>ATP (Adenosina Trifosfato)</strong> é a principal molécula transportadora de energia nas células, funcionando como uma &quot;moeda energética&quot; universal.</p><h4>Estrutura do ATP:</h4><ul><li><strong>Adenina:</strong> Uma base nitrogenada.</li><li><strong>Ribose:</strong> Um açúcar de cinco carbonos.</li><li><strong>Três Grupos Fosfato:</strong> As ligações entre o segundo e o terceiro grupo fosfato são de alta energia.</li></ul><h4>Função e Ciclo ATP-ADP:</h4><p>A energia é liberada quando a ligação do último fosfato é quebrada por hidrólise, convertendo ATP em <strong>ADP (Adenosina Difosfato)</strong> e um fosfato inorgânico (Pi):</p><p style='text-align:center;'><code>ATP + H<sub>2</sub>O → ADP + Pi + Energia</code></p><p>Essa energia liberada é utilizada para realizar trabalho celular (ex: contração muscular, transporte ativo, síntese de moléculas).</p><p>O ATP é continuamente regenerado a partir de ADP e Pi através de processos catabólicos como a respiração celular e a fotossíntese (fosforilação):</p><p style='text-align:center;'><code>ADP + Pi + Energia (dos alimentos/luz) → ATP</code></p><p>Este ciclo ATP-ADP é fundamental para o fluxo de energia na célula.</p>">
+            <h3>ATP: A Moeda Energética</h3>
+            <div class="visual-representation">🔋💰⚡</div>
+            <p class="definition">Molécula (Adenosina Trifosfato) que armazena e transporta energia química para as atividades celulares.</p>
+            <p class="keywords">Adenosina Trifosfato, Energia Celular, Fosforilação, Hidrólise, ADP</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Enzimas: Catalisadores Biológicos" 
+             data-details="<p>As <strong>Enzimas</strong> são proteínas (ou, raramente, RNA - ribozimas) que atuam como catalisadores biológicos, acelerando a velocidade das reações metabólicas sem serem consumidas no processo. Elas fazem isso diminuindo a energia de ativação necessária para que a reação ocorra.</p><h4>Características das Enzimas:</h4><ul><li><strong>Especificidade:</strong> Cada enzima geralmente catalisa apenas um tipo de reação ou atua sobre um substrato específico. Isso se deve à forma tridimensional única do seu <strong>sítio ativo</strong>.</li><li><strong>Eficiência:</strong> Aumentam drasticamente a velocidade das reações.</li><li><strong>Regulação:</strong> A atividade enzimática pode ser regulada por diversos fatores.</li></ul><h4>Fatores que Afetam a Atividade Enzimática:</h4><ul><li><strong>Temperatura:</strong> Possuem uma temperatura ótima; altas temperaturas podem desnaturar.</li><li><strong>pH:</strong> Possuem um pH ótimo; variações extremas alteram a atividade.</li><li><strong>Concentração do Substrato:</strong> A velocidade aumenta até a saturação da enzima.</li><li><strong>Inibidores:</strong> Substâncias que diminuem a atividade enzimática.</li><li><strong>Ativadores e Cofatores:</strong> Muitas enzimas requerem íons metálicos (cofatores) ou moléculas orgânicas (coenzimas, muitas derivadas de vitaminas) para sua atividade.</li></ul>">
+            <h3>Enzimas: Catalisadores Biológicos</h3>
+            <div class="visual-representation">🧩⚙️🔑</div>
+            <p class="definition">Proteínas que aceleram reações químicas específicas na célula, diminuindo a energia de ativação.</p>
+            <p class="keywords">Proteínas, Catálise, Sítio Ativo, Substrato, pH, Temperatura, Cofatores, Coenzimas</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Respiração Celular Aeróbica" 
+             data-details="<p>A <strong>Respiração Celular Aeróbica</strong> é o principal processo catabólico pelo qual as células obtêm energia da quebra completa de moléculas orgânicas (principalmente glicose) na presença de oxigênio (O<sub>2</sub>).</p><p>Equação Geral Simplificada:</p><p style='text-align:center;'><code>C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> (glicose) + 6 O<sub>2</sub> → 6 CO<sub>2</sub> + 6 H<sub>2</sub>O + Energia (ATP + calor)</code></p><h4>Principais Etapas e Localização:</h4><ol><li><strong>Glicólise:</strong> Ocorre no citosol. Glicose (6C) é quebrada em 2 Piruvato (3C). Produz saldo de 2 ATP e 2 NADH.</li><li><strong>Oxidação do Piruvato (Formação de Acetil-CoA):</strong> Ocorre na matriz mitocondrial. Cada Piruvato é convertido em Acetil-CoA (2C), liberando CO<sub>2</sub> e formando NADH.</li><li><strong>Ciclo de Krebs (Ciclo do Ácido Cítrico):</strong> Ocorre na matriz mitocondrial. Acetil-CoA é completamente oxidado, liberando CO<sub>2</sub> e gerando ATP (ou GTP), NADH e FADH<sub>2</sub>.</li><li><strong>Cadeia Respiratória e Fosforilação Oxidativa:</strong> Ocorre nas cristas mitocondriais (membrana interna). Elétrons de NADH e FADH<sub>2</sub> são transferidos por uma cadeia de transportadores, e a energia liberada é usada para produzir a maior parte do ATP. O<sub>2</sub> é o aceptor final de elétrons, formando água.</li></ol><p>Rendimento total: aproximadamente 30-32 ATP por molécula de glicose.</p>">
+            <h3>Respiração Celular Aeróbica</h3>
+            <div class="visual-representation">💨🧬🔥</div>
+            <p class="definition">Processo de obtenção de energia (ATP) pela oxidação completa da glicose na presença de oxigênio.</p>
+            <p class="keywords">Glicose, Oxigênio, Mitocôndria, ATP, Glicólise, Ciclo de Krebs, Cadeia Respiratória</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Fermentação: Energia na Ausência de Oxigênio" 
+             data-details="<p>A <strong>Fermentação</strong> é um processo catabólico anaeróbico (sem O<sub>2</sub>) que ocorre no <strong>citosol</strong> após a glicólise. Seu principal objetivo não é produzir ATP adicional (além do saldo da glicólise), mas sim regenerar o NAD<sup>+</sup> a partir do NADH, permitindo que a glicólise continue a ocorrer e produzir ATP em condições anaeróbicas.</p><h4>Tipos Principais:</h4><ul><li><strong>Fermentação Láctica:</strong> O piruvato é convertido em lactato (ácido láctico). Realizada por algumas bactérias (ex: Lactobacillus em iogurte) e células musculares humanas durante exercício intenso.<p style='text-align:center;'><code>Glicose → 2 Piruvato → 2 Lactato</code> (Saldo: 2 ATP da glicólise)</p></li><li><strong>Fermentação Alcoólica:</strong> O piruvato é convertido em etanol e CO<sub>2</sub>. Realizada por leveduras (ex: Saccharomyces cerevisiae em pães e bebidas alcoólicas) e algumas plantas.<p style='text-align:center;'><code>Glicose → 2 Piruvato → 2 Etanol + 2 CO<sub>2</sub></code> (Saldo: 2 ATP da glicólise)</p></li></ul><p>A fermentação produz muito menos ATP por molécula de glicose em comparação com a respiração aeróbica.</p>">
+            <h3>Fermentação</h3>
+            <div class="visual-representation">🍷🍞💪</div>
+            <p class="definition">Processo anaeróbico de obtenção de energia e regeneração de NAD+, ocorrendo no citosol.</p>
+            <p class="keywords">Anaeróbico, Glicólise, NAD+, Lactato, Etanol, Citosol</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Fotossíntese: Convertendo Luz em Energia Química" 
+             data-details="<p>A <strong>Fotossíntese</strong> é um processo anabólico realizado por plantas, algas e algumas bactérias (cianobactérias), que converte energia luminosa em energia química, armazenada nas ligações de moléculas orgânicas (glicose).</p><p>Equação Geral Simplificada:</p><p style='text-align:center;'><code>6 CO<sub>2</sub> + 6 H<sub>2</sub>O + Luz → C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> (glicose) + 6 O<sub>2</sub></code></p><p>Ocorre nos <strong>cloroplastos</strong> em células eucarióticas.</p><h4>Principais Etapas:</h4><ol><li><strong>Fase Clara (ou Fotoquímica):</strong> Dependente diretamente da luz. Ocorre nos tilacoides dos cloroplastos.<ul><li>A energia luminosa é capturada pela clorofila e outros pigmentos.</li><li>A água (H<sub>2</sub>O) é quebrada (fotólise), liberando O<sub>2</sub>, elétrons e prótons (H<sup>+</sup>).</li><li>ATP e NADPH (molécula transportadora de elétrons) são produzidos.</li></ul></li><li><strong>Fase Escura (ou Ciclo de Calvin-Benson):</strong> Independente diretamente da luz, mas utiliza os produtos da fase clara (ATP e NADPH). Ocorre no estroma dos cloroplastos.<ul><li>O CO<sub>2</sub> atmosférico é capturado (fixação do carbono) e reduzido para formar glicose e outros carboidratos, utilizando a energia do ATP e o poder redutor do NADPH.</li></ul></li></ol><p>A fotossíntese é fundamental para a vida na Terra, pois produz oxigênio e a base da maioria das cadeias alimentares.</p>">
+            <h3>Fotossíntese</h3>
+            <div class="visual-representation">☀️🌿💧➡️🍬💨</div>
+            <p class="definition">Processo realizado por seres autótrofos para converter energia luminosa em energia química (glicose).</p>
+            <p class="keywords">Luz Solar, Glicose, Cloroplastos, CO2, O2, Fase Clara, Ciclo de Calvin, Clorofila</p>
+        </div>
+
+        <div class="card" 
+             data-concept="Quimiossíntese: Energia de Reações Químicas" 
+             data-details="<p>A <strong>Quimiossíntese</strong> é um processo de produção de matéria orgânica (autotrofia) que utiliza energia liberada por reações químicas inorgânicas, em vez de energia luminosa como na fotossíntese.</p><p>É realizada por algumas bactérias e arqueias, chamadas quimiossintetizantes ou quimioautotróficas. Esses organismos são frequentemente encontrados em ambientes onde a luz solar é ausente, como fontes hidrotermais no fundo do oceano ou em solos profundos.</p><h4>Processo Geral:</h4><ol><li><strong>Oxidação de Substâncias Inorgânicas:</strong> Os organismos quimiossintetizantes oxidam compostos inorgânicos específicos do seu ambiente, como sulfeto de hidrogênio (H<sub>2</sub>S), amônia (NH<sub>3</sub>), íons ferrosos (Fe<sup>2+</sup>) ou nitrito (NO<sub>2</sub><sup>-</sup>). Essa oxidação libera energia.</li><li><strong>Produção de ATP e Poder Redutor:</strong> A energia liberada na oxidação é utilizada para produzir ATP e moléculas redutoras (como NADPH).</li><li><strong>Fixação de Carbono:</strong> O ATP e o poder redutor são então utilizados para fixar o dióxido de carbono (CO<sub>2</sub>) e sintetizar moléculas orgânicas (carboidratos), de forma similar ao Ciclo de Calvin da fotossíntese.</li></ol><p>Exemplo com bactérias sulfurosas:</p><p style='text-align:center;'><code>CO<sub>2</sub> + O<sub>2</sub> + 4 H<sub>2</sub>S → CH<sub>2</sub>O (matéria orgânica) + 4 S + 3 H<sub>2</sub>O</code></p><p>A quimiossíntese é crucial para sustentar ecossistemas em locais extremos e desempenha um papel importante nos ciclos biogeoquímicos (ex: ciclo do nitrogênio).</p>">
+            <h3>Quimiossíntese</h3>
+            <div class="visual-representation">🧪🌋🦠</div>
+            <p class="definition">Produção de matéria orgânica utilizando energia de reações químicas inorgânicas, sem luz solar.</p>
+            <p class="keywords">Autotrofia, Bactérias, Reações Inorgânicas, Fontes Hidrotermais, Ciclos Biogeoquímicos</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Transformando energia, impulsionando a vida! ⚡️🌱</p>
+    </footer>
+
+    <!-- Modal Structure -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var modal = document.getElementById("myModal");
+            var modalTitle = document.getElementById("modalTitle");
+            var modalDetails = document.getElementById("modalDetails");
+            var span = document.getElementsByClassName("close-button")[0];
+
+            document.querySelectorAll('.card').forEach(function(card) {
+                card.onclick = function() {
+                    modalTitle.textContent = card.getAttribute('data-concept');
+                    modalDetails.innerHTML = card.getAttribute('data-details');
+                    modal.style.display = "block";
+                }
+            });
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

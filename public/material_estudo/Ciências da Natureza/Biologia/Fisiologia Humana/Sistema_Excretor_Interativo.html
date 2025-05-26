@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Excretor (Urinário) - Interativo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fff9c4; /* Amarelo bem claro */
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        header h1 {
+            color: #f57f17; /* Laranja escuro */
+            font-size: 2.8em;
+            margin-bottom: 5px;
+        }
+        header p {
+            font-size: 1.2em;
+            color: #fbc02d; /* Amarelo escuro */
+        }
+        .concepts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #f57f17; /* Laranja escuro para a borda */
+            cursor: pointer; 
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.8em;
+            color: #e65100; /* Laranja mais escuro */
+            margin-bottom: 15px;
+        }
+        .card .visual-representation {
+            font-size: 4.5em;
+            margin-bottom: 15px;
+            line-height: 1;
+            color: #f57f17;
+        }
+        .card .definition {
+            font-size: 1.1em;
+            color: #444;
+            margin-bottom: 10px;
+            min-height: 60px; 
+        }
+        .card .keywords {
+            font-size: 0.95em;
+            color: #e65100;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            width:100%;
+            background-color: #e65100; /* Laranja mais escuro */
+            color: #fffde7; /* Amarelo muito claro */
+        }
+        .modal {
+            display: none; position: fixed; z-index: 1000; 
+            left: 0; top: 0; width: 100%; height: 100%; 
+            overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            width: 70%;
+            max-width: 750px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .modal-content h2 {
+            color: #e65100;
+            margin-top: 0;
+            border-bottom: 2px solid #f57f17;
+            padding-bottom: 10px;
+        }
+        .modal-content p, .modal-content ul {
+            font-size: 1.1em;
+            line-height: 1.7;
+            text-align: justify;
+        }
+        .modal-content ul {
+            padding-left: 20px;
+        }
+        .modal-content strong { color: #f57f17; }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 32px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sistema Excretor (Urinário)</h1>
+        <p>Filtrando o essencial e eliminando o desnecessário! (Clique nos cards para saber mais)</p>
+    </header>
+
+    <div class="concepts-grid">
+        <div class="card" data-concept="Visão Geral do Sistema Excretor" data-details="O <strong>Sistema Excretor</strong> é responsável pela eliminação de resíduos metabólicos nitrogenados (principalmente ureia), excesso de sais e água do organismo, mantendo o equilíbrio interno (homeostase).<ul><li><strong>Funções Principais:</strong> Eliminação de excretas, regulação do volume de líquidos corporais, controle do equilíbrio hidroeletrolítico (água e sais) e do pH sanguíneo. Produção de hormônios (ex: eritropoetina, renina).</li><li><strong>Órgãos Principais:</strong> Rins (2), ureteres (2), bexiga urinária (1) e uretra (1).</li></ul>A excreção também ocorre por outros sistemas, como o respiratório (CO₂) e a pele (suor), mas o sistema urinário é o principal na eliminação de resíduos nitrogenados. ">
+            <h3>Visão Geral</h3>
+            <div class="visual-representation">🚽💧⚖️🗑️</div>
+            <p class="definition">Conjunto de órgãos que filtram o sangue, produzem e eliminam a urina, mantendo a homeostase.</p>
+            <p class="keywords">Filtração, Eliminação, Ureia, Homeostase, Equilíbrio Hídrico</p>
+        </div>
+
+        <div class="card" data-concept="Rins: Os Filtros do Corpo" data-details="Os <strong>Rins</strong> são dois órgãos em forma de feijão, localizados na região posterior do abdômen, um de cada lado da coluna vertebral. São os principais órgãos do sistema urinário.<ul><li><strong>Estrutura Macroscópica:</strong>
+    <ul>
+        <li><strong>Córtex Renal:</strong> Camada externa, mais clara, onde se localizam os glomérulos e túbulos contorcidos dos néfrons.</li>
+        <li><strong>Medula Renal:</strong> Camada interna, mais escura, formada por pirâmides renais. Contém as alças de Henle e os ductos coletores.</li>
+        <li><strong>Pelve Renal (Bacinete):</strong> Cavidade em forma de funil que coleta a urina produzida e a encaminha para o ureter.</li>
+    </ul>
+</li><li><strong>Néfrons:</strong> São as unidades funcionais microscópicas dos rins, responsáveis pela filtração do sangue e formação da urina. Cada rim possui cerca de 1 milhão de néfrons.</li></ul>">
+            <h3>Rins: Os Filtros</h3>
+            <div class="visual-representation">🫘🫘🔬💧</div>
+            <p class="definition">Órgãos em forma de feijão que filtram o sangue e produzem a urina, contendo milhões de néfrons.</p>
+            <p class="keywords">Córtex, Medula, Pelve Renal, Néfrons, Filtração</p>
+        </div>
+
+        <div class="card" data-concept="Néfrons: Estrutura Detalhada" data-details="Cada <strong>Néfron</strong> é um longo túbulo microscópico com diferentes porções especializadas:<ul><li><strong>Corpúsculo Renal:</strong> Responsável pela filtração do sangue.
+    <ul>
+        <li><strong>Glomérulo de Malpighi:</strong> Emaranhado de capilares sanguíneos provenientes da arteríola aferente.</li>
+        <li><strong>Cápsula de Bowman (ou Cápsula Glomerular):</strong> Estrutura em forma de taça que envolve o glomérulo e coleta o filtrado glomerular.</li>
+    </ul>
+</li><li><strong>Túbulo Renal:</strong> Responsável pela reabsorção e secreção de substâncias.
+    <ul>
+        <li><strong>Túbulo Contorcido Proximal (TCP):</strong> Primeira porção do túbulo, onde ocorre intensa reabsorção de água, glicose, aminoácidos, íons, etc.</li>
+        <li><strong>Alça de Henle (ou Alça Néfritica):</strong> Porção em forma de 'U', com um ramo descendente (permeável à água) e um ramo ascendente (impermeável à água, mas reabsorve sais). Importante na concentração da urina.</li>
+        <li><strong>Túbulo Contorcido Distal (TCD):</strong> Porção final do túbulo, onde ocorrem ajustes finos na reabsorção e secreção de íons, sob influência hormonal (ex: aldosterona, ADH).</li>
+    </ul>
+</li><li><strong>Ducto Coletor:</strong> Recebe o filtrado de vários néfrons. A reabsorção final de água ocorre aqui, sob influência do ADH, determinando a concentração final da urina. Os ductos coletores desembocam na pelve renal.</li></ul>">
+            <h3>Néfrons: Detalhes</h3>
+            <div class="visual-representation">🧬🔬🔄💧</div>
+            <p class="definition">Unidades funcionais dos rins (glomérulo, cápsula, túbulos proximal e distal, alça de Henle, ducto coletor) onde a urina é formada.</p>
+            <p class="keywords">Glomérulo, Cápsula de Bowman, Túbulos Renais, Alça de Henle, Ducto Coletor</p>
+        </div>
+
+        <div class="card" data-concept="Formação da Urina: Etapas" data-details="A formação da urina nos néfrons ocorre em três etapas principais:<ul><li><strong>1. Filtração Glomerular:</strong> Ocorre no corpúsculo renal. O sangue sob alta pressão nos capilares do glomérulo é filtrado para dentro da cápsula de Bowman. Água, íons, glicose, aminoácidos, ureia e outras pequenas moléculas passam para a cápsula, formando o <strong>filtrado glomerular</strong> (ou urina inicial). Células sanguíneas e proteínas grandes normalmente não são filtradas.</li><li><strong>2. Reabsorção Tubular:</strong> Ocorre ao longo dos túbulos renais (TCP, Alça de Henle, TCD, ducto coletor). Substâncias úteis presentes no filtrado glomerular, como água (grande parte), glicose, aminoácidos e íons essenciais, são reabsorvidas ativamente ou passivamente de volta para o sangue nos capilares peritubulares.</li><li><strong>3. Secreção Tubular:</strong> Ocorre principalmente nos túbulos contorcidos proximal e distal. Substâncias indesejáveis ou em excesso no sangue (como íons H⁺, K⁺, amônia, creatinina, resíduos de medicamentos) são transportadas ativamente do sangue dos capilares peritubulares para dentro do filtrado nos túbulos renais, para serem eliminadas na urina.</li></ul>O líquido resultante após essas três etapas é a <strong>urina final</strong>.">
+            <h3>Formação da Urina</h3>
+            <div class="visual-representation">🩸➡️💧🔄🗑️</div>
+            <p class="definition">Processo em três etapas: filtração (sangue para o néfron), reabsorção (substâncias úteis de volta ao sangue) e secreção (resíduos do sangue para a urina).</p>
+            <p class="keywords">Filtração, Reabsorção, Secreção, Filtrado Glomerular, Urina Final</p>
+        </div>
+
+        <div class="card" data-concept="Vias Urinárias: Ureteres, Bexiga e Uretra" data-details="Após ser formada nos rins, a urina é transportada e eliminada pelas vias urinárias:<ul><li><strong>Ureteres:</strong> Dois tubos musculares finos que conectam cada rim à bexiga urinária. Transportam a urina dos rins para a bexiga através de contrações peristálticas.</li><li><strong>Bexiga Urinária:</strong> Órgão muscular oco e elástico localizado na pelve, responsável por armazenar temporariamente a urina. Sua parede muscular (músculo detrusor) se distende à medida que se enche. A capacidade média é de 400-600 mL.</li><li><strong>Uretra:</strong> Tubo que conduz a urina da bexiga para fora do corpo. No homem, a uretra é mais longa e também serve como via para a passagem do sêmen. Na mulher, é mais curta e exclusiva do sistema urinário. A micção (ato de urinar) é controlada por esfíncteres uretrais.</li></ul>">
+            <h3>Vias Urinárias</h3>
+            <div class="visual-representation">🛣️🎈🚽</div>
+            <p class="definition">Ureteres (transportam), bexiga (armazena) e uretra (elimina) conduzem a urina para fora do corpo.</p>
+            <p class="keywords">Ureteres, Bexiga Urinária, Uretra, Armazenamento, Micção</p>
+        </div>
+
+        <div class="card" data-concept="Composição da Urina" data-details="A urina normal é um líquido amarelado, transparente e com odor característico. Sua composição pode variar dependendo da dieta, hidratação e estado de saúde.<ul><li><strong>Principais Componentes Normais:</strong>
+    <ul>
+        <li><strong>Água:</strong> Cerca de 95% do volume.</li>
+        <li><strong>Ureia:</strong> Principal resíduo nitrogenado do metabolismo de proteínas (2%).</li>
+        <li><strong>Sais Minerais:</strong> Cloreto de sódio, potássio, fosfatos, sulfatos, etc.</li>
+        <li><strong>Outros Resíduos:</strong> Creatinina, ácido úrico, amônia (em pequenas quantidades).</li>
+        <li><strong>Urobilina:</strong> Pigmento que dá a cor amarelada à urina, derivado da bilirrubina.</li>
+    </ul>
+</li><li><strong>Componentes Anormais (Podem Indicar Doenças):</strong>
+    <ul>
+        <li><strong>Glicose (Glicosúria):</strong> Pode indicar diabetes mellitus.</li>
+        <li><strong>Proteínas (Proteinúria):</strong> Pode indicar lesão renal.</li>
+        <li><strong>Hemácias (Hematúria):</strong> Pode indicar infecções, cálculos, tumores.</li>
+        <li><strong>Leucócitos (Leucocitúria/Piúria):</strong> Pode indicar infecção urinária.</li>
+        <li><strong>Corpos Cetônicos (Cetonúria):</strong> Pode indicar diabetes descompensada, jejum prolongado.</li>
+        <li><strong>Bilirrubina/Bilirrubinogênio:</strong> Pode indicar problemas hepáticos.</li>
+    </ul>
+</li></ul>O exame de urina (EAS ou Urina Tipo I) é uma ferramenta diagnóstica importante.">
+            <h3>Composição da Urina</h3>
+            <div class="visual-representation">🧪💧🟡📊</div>
+            <p class="definition">Principalmente água, ureia e sais. A presença de glicose, proteínas ou sangue pode indicar problemas de saúde.</p>
+            <p class="keywords">Água, Ureia, Sais, Glicose, Proteínas, Hematúria, Exame de Urina</p>
+        </div>
+
+        <div class="card" data-concept="Regulação da Função Renal e Equilíbrio Hídrico" data-details="A função renal é finamente regulada para manter a homeostase, especialmente o equilíbrio de água e eletrólitos.<ul><li><strong>Hormônio Antidiurético (ADH ou Vasopressina):</strong> Produzido no hipotálamo e liberado pela neuroipófise. Atua nos ductos coletores e túbulos distais, aumentando a reabsorção de água de volta para o sangue. Se o corpo está desidratado, mais ADH é liberado, a urina fica mais concentrada e menos volume é excretado. Se há excesso de água, menos ADH é liberado, e a urina fica mais diluída e abundante.</li><li><strong>Aldosterona:</strong> Hormônio produzido pelas glândulas suprarrenais. Atua nos túbulos distais e ductos coletores, promovendo a reabsorção de sódio (Na⁺) e a secreção de potássio (K⁺). A reabsorção de sódio leva à reabsorção de água por osmose, ajudando a manter o volume sanguíneo e a pressão arterial.</li><li><strong>Sistema Renina-Angiotensina-Aldosterona (SRAA):</strong> Complexo sistema hormonal ativado quando a pressão arterial ou o fluxo sanguíneo renal diminuem. A renina (enzima produzida pelos rins) desencadeia uma cascata que leva à produção de angiotensina II (potente vasoconstritor e estimulador da liberação de aldosterona) e aldosterona, aumentando a pressão arterial.</li><li><strong>Osmorregulação:</strong> Processo de manutenção do equilíbrio osmótico dos fluidos corporais, principalmente pela regulação da quantidade de água e sais. Os rins desempenham um papel central.</li></ul>">
+            <h3>Regulação Renal</h3>
+            <div class="visual-representation">🧠💧⚙️📊🧂</div>
+            <p class="definition">Controlada por hormônios (ADH, Aldosterona) e pelo sistema nervoso para manter o equilíbrio de água e sais (osmorregulação).</p>
+            <p class="keywords">ADH, Aldosterona, Renina, Angiotensina, Osmorregulação, Equilíbrio Hídrico</p>
+        </div>
+
+        <div class="card" data-concept="Importância da Hidratação" data-details="A ingestão adequada de água é fundamental para o bom funcionamento do sistema excretor e da saúde em geral.<ul><li><strong>Funções da Água no Sistema Excretor:</strong>
+    <ul>
+        <li>Solvente para os resíduos metabólicos, facilitando sua eliminação.</li>
+        <li>Essencial para a formação da urina e o processo de filtração renal.</li>
+        <li>Ajuda a prevenir a formação de cálculos renais (pedras nos rins) ao diluir as substâncias que podem cristalizar.</li>
+        <li>Mantém o volume sanguíneo adequado para a filtração glomerular.</li>
+    </ul>
+</li><li><strong>Sinais de Desidratação:</strong> Sede intensa, urina escura e em pouca quantidade, boca seca, fadiga, tontura.</li><li><strong>Recomendação Geral:</strong> Varia conforme idade, sexo, nível de atividade física e condições climáticas, mas geralmente em torno de 2-3 litros de líquidos por dia para adultos.</li></ul>">
+            <h3>Importância da Hidratação</h3>
+            <div class="visual-representation">💧🚰👍🏽🫘</div>
+            <p class="definition">A água é crucial para dissolver resíduos, formar urina, prevenir cálculos renais e manter a saúde geral.</p>
+            <p class="keywords">Água, Hidratação, Prevenção, Cálculos Renais, Saúde Renal</p>
+        </div>
+
+        <div class="card" data-concept="Principais Doenças do Sistema Urinário" data-details="Diversas condições podem afetar o sistema urinário.<ul><li><strong>Cálculos Renais (Nefrolitíase ou Pedras nos Rins):</strong> Formação de massas sólidas (cálculos) nos rins ou vias urinárias, a partir da cristalização de sais minerais presentes na urina. Podem causar dor intensa (cólica renal), sangue na urina e obstrução.</li><li><strong>Infecções do Trato Urinário (ITU):</strong> Infecções bacterianas que podem afetar qualquer parte do sistema urinário (uretra - uretrite; bexiga - cistite; rins - pielonefrite). Mais comuns em mulheres. Sintomas incluem dor/ardor ao urinar, urgência miccional, febre.</li><li><strong>Insuficiência Renal (Aguda ou Crônica):</strong> Perda da capacidade dos rins de filtrar adequadamente os resíduos do sangue. Na forma crônica, pode levar à necessidade de diálise ou transplante renal. Causas incluem diabetes, hipertensão, doenças renais primárias.</li><li><strong>Nefrites:</strong> Termo geral para inflamação dos rins (ex: glomerulonefrite).</li><li><strong>Doença Renal Policística:</strong> Doença genética caracterizada pela formação de múltiplos cistos nos rins.</li></ul><strong>Prevenção e Cuidados:</strong> Boa hidratação, higiene adequada, controle de doenças crônicas (diabetes, hipertensão), evitar automedicação.">
+            <h3>Doenças Urinárias</h3>
+            <div class="visual-representation">🤕💊🩺💎🚽</div>
+            <p class="definition">Condições como cálculos renais, infecções urinárias e insuficiência renal que afetam a função excretora.</p>
+            <p class="keywords">Cálculos Renais, Infecção Urinária, Insuficiência Renal, Cistite, Pielonefrite</p>
+        </div>
+
+    </div>
+
+    <!-- O Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Mantenha-se hidratado, seus rins agradecem! 💧💛</p>
+    </footer>
+
+    <script>
+        var modal = document.getElementById("myModal");
+        var span = document.getElementsByClassName("close-button")[0];
+        var cards = document.querySelectorAll(".card");
+        var modalTitle = document.getElementById("modalTitle");
+        var modalDetails = document.getElementById("modalDetails");
+
+        cards.forEach(function(card) {
+            card.onclick = function() {
+                var concept = card.getAttribute("data-concept");
+                var details = card.getAttribute("data-details");
+                
+                modalTitle.textContent = concept;
+                modalDetails.innerHTML = details; // Usar innerHTML para renderizar as tags <ul> e <li>
+                modal.style.display = "block";
+            }
+        });
+
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>
