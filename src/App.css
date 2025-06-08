@@ -206,10 +206,12 @@ body {
 
 /* Main Content Area Styles */
 .main-content {
+  display: flex; /* Added */
+  flex-direction: column; /* Added */
   flex-grow: 1;
   padding: 0; /* Remove padding if iframe takes full space */
-  background-color: #ffffff; /* White background for content area */
-  overflow-y: auto; /* Scrollbar for content if it overflows */
+  overflow-y: auto; /* Scroll for content longer than screen */
+  transition: margin-left 0.3s ease-in-out;
   height: 100%;
   display: flex; /* To center welcome message */
   flex-direction: column; /* Ensure iframe takes full height */

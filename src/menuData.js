@@ -8,53 +8,171 @@ const menuData = [
           {
             title: 'Citologia',
             children: [
-              { title: 'Divisão Celular', path: '/material_estudo/Ciências da Natureza/Biologia/Citologia/Divisao_Celular_Interativo.html' },
-              { title: 'Membrana Plasmática', path: '/material_estudo/Ciências da Natureza/Biologia/Citologia/Membrana_Plasmatica_Interativo.html' },
-              { title: 'Metabolismo Celular', path: '/material_estudo/Ciências da Natureza/Biologia/Citologia/Metabolismo_Celular_Interativo.html' },
-              { title: 'Organelas Citoplasmáticas', path: '/material_estudo/Ciências da Natureza/Biologia/Citologia/Organelas_Citoplasmaticas_Interativo.html' },
-              { title: 'Vírus', path: '/material_estudo/Ciências da Natureza/Biologia/Citologia/Virus_Interativo.html' },
+              { 
+                title: 'Divisão Celular', 
+                path: 'reactPage_DivisaoCelular', 
+                component: 'DivisaoCelularPage' 
+              },
+              {
+                id: 'membrana-plasmatica',
+                title: 'Membrana Plasmática',
+                path: 'MembranaPlasmatica', 
+                icon: 'fas fa-border-all',
+                component: 'MembranaPlasmaticaPage' 
+              },
+              {
+                id: 'metabolismo-celular',
+                title: 'Metabolismo Celular',
+                path: 'MetabolismoCelular', // Path for React component routing
+                icon: 'fas fa-fire', // Example icon, can be changed
+                component: 'MetabolismoCelularPage' // Specify the component
+              },
+              {
+                id: 'organelas-citoplasmaticas',
+                title: 'Organelas Citoplasmáticas',
+                path: 'OrganelasCitoplasmaticas', // Path for React component routing
+                icon: 'fas fa-cogs', // Example icon, can be changed
+                component: 'OrganelasCitoplasmaticasPage' // Specify the component
+              },
+              {
+                id: 'virus',
+                title: 'Vírus',
+                path: 'Virus', // Path para o roteamento do componente React
+                icon: 'fas fa-viruses', // Ícone sugerido
+                component: 'VirusPage' // Especifica o componente
+              },
             ],
           },
           {
             title: 'Ecologia',
             children: [
-              { title: 'Cadeia Alimentar', path: '/material_estudo/Ciências da Natureza/Biologia/Ecologia/Cadeia_Alimentar_Interativo.html' },
-              { title: 'Ciclos Biogeoquímicos', path: '/material_estudo/Ciências da Natureza/Biologia/Ecologia/Ciclos_Biogeoquimicos_Interativo.html' },
-              { title: 'Conceitos de Ecologia', path: '/material_estudo/Ciências da Natureza/Biologia/Ecologia/Conceitos_Ecologia_Interativo.html' },
-              { title: 'Poluição da Água e Chuva Ácida', path: '/material_estudo/Ciências da Natureza/Biologia/Ecologia/Poluicao_Agua_Chuva_Acida_Interativo.html' },
-              { title: 'Problemas Ambientais e Biomas', path: '/material_estudo/Ciências da Natureza/Biologia/Ecologia/Problemas_Ambientais_Biomas_Interativo.html' },
-              { title: 'Relações Ecológicas', path: '/material_estudo/Ciências da Natureza/Biologia/Ecologia/Relacoes_Ecologicas_Interativo.html' },
+              {
+                id: 'cadeia-alimentar',
+                title: 'Cadeia Alimentar',
+                path: 'CadeiaAlimentar', // Path for React component routing
+                icon: 'fas fa-sitemap', // Ícone para cadeia/teia alimentar
+                component: 'CadeiaAlimentarPage' // Especifica o componente
+              },
+              {
+                id: 'ciclos-biogeoquimicos',
+                title: 'Ciclos Biogeoquímicos',
+                path: 'CiclosBiogeoquimicos',
+                icon: 'fas fa-sync-alt',
+                component: 'CiclosBiogeoquimicosPage'
+              },
+              {
+                id: 'conceitos-ecologia',
+                title: 'Conceitos de Ecologia',
+                path: 'ConceitosEcologia',
+                icon: 'fas fa-brain',
+                component: 'ConceitosEcologiaPage'
+              },
+              {
+                id: 'poluicao-agua-chuva-acida',
+                title: 'Poluição da Água e Chuva Ácida',
+                path: 'PoluicaoDaAgua',
+                icon: 'fas fa-smog',
+                component: 'PoluicaoDaAguaPage'
+              },
+              {
+                id: 'problemas-ambientais-biomas',
+                title: 'Problemas Ambientais e Biomas',
+                path: 'ProblemasAmbientais',
+                icon: 'fas fa-globe-americas',
+                component: 'ProblemasAmbientaisPage'
+              },
+              {
+                id: 'relacoes-ecologicas',
+                title: 'Relações Ecológicas',
+                path: 'RelacoesEcologicas',
+                icon: 'fas fa-people-arrows',
+                component: 'RelacoesEcologicasPage'
+              },
             ],
           },
           {
             title: 'Fisiologia Humana',
             children: [
-                { title: 'Sistema Circulatório', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Circulatorio_Interativo.html'},
-                { title: 'Sistema Digestório', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Digestorio_Interativo.html'},
-                { title: 'Sistema Endócrino', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Endocrino_Interativo.html'},
-                { title: 'Sistema Excretor', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Excretor_Interativo.html'},
-                { title: 'Sistema Imunológico', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Imunologico_Interativo.html'},
-                { title: 'Sistema Nervoso', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Nervoso_Interativo.html'},
-                { title: 'Sistema Reprodutor', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Reprodutor_Interativo.html'},
-                { title: 'Sistema Respiratório', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Respiratorio_Interativo.html'},
-                { title: 'Sistema Tegumentar', path: '/material_estudo/Ciências da Natureza/Biologia/Fisiologia Humana/Sistema_Tegumentar_Interativo.html'},
+                {
+                  id: 'sistema-circulatorio',
+                  title: 'Sistema Circulatório',
+                  path: 'SistemaCirculatorio',
+                  icon: 'fas fa-heartbeat',
+                  component: 'SistemaCirculatorioPage'
+                },
+                {
+                  id: 'sistema-digestorio',
+                  title: 'Sistema Digestório',
+                  path: 'SistemaDigestorio',
+                  icon: 'fas fa-utensils', 
+                  component: 'SistemaDigestorioPage'
+                },
+                {
+                  id: 'sistema-endocrino',
+                  title: 'Sistema Endócrino',
+                  path: 'SistemaEndocrino',
+                  icon: 'fas fa-brain', 
+                  component: 'SistemaEndocrinoPage'
+                },
+                {
+                  id: 'sistema-excretor',
+                  title: 'Sistema Excretor',
+                  path: 'SistemaExcretor',
+                  icon: 'fas fa-toilet',
+                  component: 'SistemaExcretorPage'
+                },
+                {
+                  id: 'sistema-imunologico',
+                  title: 'Sistema Imunológico',
+                  path: 'SistemaImunologico',
+                  icon: 'fas fa-shield-alt',
+                  component: 'SistemaImunologicoPage'
+                },
+                {
+                  id: 'sistema-nervoso',
+                  title: 'Sistema Nervoso',
+                  path: 'SistemaNervoso',
+                  icon: 'fas fa-brain',
+                  component: 'SistemaNervosoPage'
+                },
+                {
+                  id: 'sistema-reprodutor',
+                  title: 'Sistema Reprodutor',
+                  path: 'SistemaReprodutor',
+                  icon: 'fas fa-venus-mars',
+                  component: 'SistemaReprodutorPage'
+                },
+                {
+                  id: 'sistema-respiratorio',
+                  title: 'Sistema Respiratório',
+                  path: 'SistemaRespiratorio',
+                  icon: 'fas fa-lungs',
+                  component: 'SistemaRespiratorioPage'
+                },
+                {
+                  id: 'sistema-tegumentar',
+                  title: 'Sistema Tegumentar',
+                  path: 'SistemaTegumentar',
+                  icon: 'fas fa-user-shield',
+                  component: 'SistemaTegumentarPage'
+                },
             ]
           },
           {
             title: 'Genética e Evolução',
             children: [
-                { title: 'Biotecnologia', path: '/material_estudo/Ciências da Natureza/Biologia/Genética e Evolução/Biotecnologia_Interativo.html'},
-                { title: 'Leis de Mendel', path: '/material_estudo/Ciências da Natureza/Biologia/Genética e Evolução/Leis_de_Mendel_Interativo.html'},
-                { title: 'Teorias Evolutivas', path: '/material_estudo/Ciências da Natureza/Biologia/Genética e Evolução/Teorias_Evolutivas_Interativo.html'},
+                { id: 'biotecnologia', title: 'Biotecnologia', path: 'Biotecnologia', icon: 'fas fa-dna', component: 'BiotecnologiaPage' },
+                { id: 'leis-de-mendel', title: 'Leis de Mendel', path: 'LeisDeMendel', icon: 'fas fa-seedling', component: 'LeisDeMendelPage' },
+                { id: 'teorias-evolutivas', title: 'Teorias Evolutivas', path: 'TeoriasEvolutivas', icon: 'fas fa-book-open', component: 'TeoriasEvolutivasPage' },
             ]
           },
           {
             title: 'Saúde e Programas de Saúde',
             children: [
-                { title: 'Doenças', path: '/material_estudo/Ciências da Natureza/Biologia/Saúde e Programas de Saúde/Doencas_Interativo.html'},
-                { title: 'Políticas Públicas de Saúde', path: '/material_estudo/Ciências da Natureza/Biologia/Saúde e Programas de Saúde/Politicas_Publicas_Saude_Brasil_Interativo.html'},
-                { title: 'Saneamento Básico', path: '/material_estudo/Ciências da Natureza/Biologia/Saúde e Programas de Saúde/Saneamento_Basico_Interativo.html'},
-                { title: 'Vacinas', path: '/material_estudo/Ciências da Natureza/Biologia/Saúde e Programas de Saúde/Vacinas_Interativo.html'},
+                { id: 'doencas', title: 'Doenças', path: 'Doencas', icon: 'fas fa-notes-medical', component: 'DoencasPage' },
+                { id: 'politicasPublicas', title: 'Políticas Públicas de Saúde', path: 'PoliticasPublicas', icon: 'fas fa-landmark', component: 'PoliticasPublicasPage' },
+                { id: 'saneamentoBasico', title: 'Saneamento Básico', path: 'SaneamentoBasico', icon: 'fas fa-tint', component: 'SaneamentoBasicoPage' },
+                { id: 'vacinas', title: 'Vacinas', path: 'Vacinas', icon: 'fas fa-syringe', component: 'VacinasPage' },
             ]
           }
         ],
@@ -65,11 +183,17 @@ const menuData = [
           {
             title: 'Química Geral e Inorgânica',
             children: [
-              { title: 'Atomística', path: '/material_estudo/Ciências da Natureza/Química/Química Geral e Inorgânica/Atomistica_Interativo.html' },
-              { title: 'Funções Inorgânicas', path: '/material_estudo/Ciências da Natureza/Química/Química Geral e Inorgânica/Funcoes_Inorganicas_Interativo.html' },
-              { title: 'Ligações Químicas', path: '/material_estudo/Ciências da Natureza/Química/Química Geral e Inorgânica/Ligacoes_Quimicas_Interativo.html' },
-              { title: 'Reações Inorgânicas', path: '/material_estudo/Ciências da Natureza/Química/Química Geral e Inorgânica/Reacoes_Inorganicas_Interativo.html' },
-              { title: 'Tabela Periódica', path: '/material_estudo/Ciências da Natureza/Química/Química Geral e Inorgânica/TabelaPeriodica_Interativo.html' },
+              { id: 'atomistica', title: 'Atomística', path: '/quimica/quimica-geral-e-inorganica/atomistica', icon: 'fas fa-atom', component: 'AtomisticaPage' },
+              {
+                id: 'funcoesInorganicas',
+                title: 'Funções Inorgânicas',
+                path: '/quimica/quimica-geral-e-inorganica/funcoes-inorganicas',
+                icon: 'fas fa-flask',
+                component: 'FuncoesInorganicasPage'
+              },
+              { id: 'ligacoesQuimicas', title: 'Ligações Químicas', path: '/quimica/quimica-geral-e-inorganica/ligacoes-quimicas', icon: 'fas fa-link', component: 'LigacoesQuimicasPage' },
+              { id: 'reacoesInorganicas', title: 'Reações Inorgânicas', path: '/quimica/quimica-geral-e-inorganica/reacoes-inorganicas', icon: 'fas fa-exchange-alt', component: 'ReacoesInorganicasPage' },
+              { id: 'tabelaPeriodica', title: 'Tabela Periódica', path: '/quimica/quimica-geral-e-inorganica/tabela-periodica', icon: 'fas fa-table', component: 'TabelaPeriodicaPage' },
             ],
           },
         ],

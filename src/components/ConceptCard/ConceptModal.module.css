@@ -1,0 +1,101 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px; /* Adiciona padding para evitar que o modal toque as bordas em telas pequenas */
+}
+
+.modalContent {
+  background-color: #fefefe;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 850px;
+  max-height: 90vh; /* Garante que o modal não exceda a altura da viewport */
+  overflow-y: auto; /* Adiciona scroll se o conteúdo for muito grande */
+  position: relative; /* Para posicionamento do botão de fechar */
+}
+
+.modalContent h2 {
+  color: #004d40; /* Teal bem escuro */
+  margin-top: 0;
+  border-bottom: 2px solid #00695c; /* Teal escuro */
+  padding-bottom: 10px;
+  margin-bottom: 20px; /* Espaço abaixo do título */
+}
+
+/* Estilos para o conteúdo injetado via dangerouslySetInnerHTML */
+.modalContent p,
+.modalContent ul,
+.modalContent ol,
+.modalContent table {
+  font-size: 1.1em;
+  line-height: 1.7;
+  text-align: justify;
+  margin-bottom: 15px; /* Espaçamento entre parágrafos/listas */
+}
+
+.modalContent ul,
+.modalContent ol {
+  padding-left: 30px;
+}
+
+.modalContent strong {
+  color: #00796b; /* Teal escuro */
+}
+
+.modalContent h4 {
+  color: #00897b; /* Teal médio */
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-size: 1.3em; /* Aumentado um pouco */
+  border-bottom: 1px dashed #b2dfdb; /* Linha sutil abaixo de h4 */
+  padding-bottom: 5px;
+}
+
+/* Estilos para tabelas (se houver no HTML) */
+.modalContent table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.modalContent th,
+.modalContent td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.modalContent th {
+  background-color: #e0f2f1; /* Verde menta bem claro */
+  color: #004d40;
+}
+
+.closeButton {
+  color: #aaa;
+  position: absolute;
+  top: 15px; /* Ajustado para melhor posicionamento */
+  right: 20px;
+  font-size: 32px;
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1; /* Para alinhar melhor o 'x' */
+  padding: 0; /* Remove padding padrão de botões */
+}
+
+.closeButton:hover,
+.closeButton:focus {
+  color: black;
+  text-decoration: none;
+}

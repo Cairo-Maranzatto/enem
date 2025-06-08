@@ -44,13 +44,13 @@ const MenuItem = ({ item, onItemClick, activeItemPath, initiallyOpen, isSidebarC
   const handleClick = useCallback((e) => {
     e.stopPropagation();
     if (item.path) {
-      onItemClick(item.path);
+      onItemClick(item);
     } else if (hasChildren && !isSidebarCollapsed) {
       setIsOpen(prevOpen => !prevOpen);
     }
     // If sidebar is collapsed and it's a parent item, clicking it should probably expand the sidebar
     // This logic would be better handled in Sidebar.js or App.js by passing an expandSidebar function
-  }, [item.path, hasChildren, onItemClick, isSidebarCollapsed]);
+  }, [item, hasChildren, onItemClick, isSidebarCollapsed, setIsOpen]);
 
   const isActive = activeItemPath === item.path;
   const isParentOfActive = hasChildren && isOpen && item.children.some(child => child.path === activeItemPath || (child.children && child.children.some(subChild => subChild.path === activeItemPath)));

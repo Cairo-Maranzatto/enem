@@ -1,8 +1,28 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const periodicTableContainer = document.getElementById('periodic-table-container');
-    const modal = document.getElementById('myModal'); // Assuming this is your existing modal ID
-    const modalTitle = document.getElementById('modalConceptTitle'); // Assuming this is your modal title ID
-    const modalDetails = document.getElementById('modalConceptDetails'); // Assuming this is your modal details ID
+(function() { // IIFE para encapsular o escopo
+    console.log('PT_RENDERER: Script periodic-table-renderer.js está sendo parseado.');
+
+    let periodicTableContainer;
+    let modal;
+    let modalTitle;
+    let modalDetails;
+
+    periodicTableContainer = document.getElementById('periodic-table-container');
+    modal = document.getElementById('myModal'); 
+    modalTitle = document.getElementById('modalConceptTitle'); 
+    modalDetails = document.getElementById('modalConceptDetails'); 
+
+    // O botão de fechar é tratado pelo React agora, então não precisamos de um listener aqui.
+    // const closeButton = modal ? modal.getElementsByClassName('close-button')[0] : null;
+    // if (closeButton) {
+    //     closeButton.onclick = function() {
+    //         modal.style.display = 'none';
+    //     }
+    // }
+    // window.onclick = function(event) {
+    //     if (event.target == modal) {
+    //         modal.style.display = 'none';
+    //     }
+    // }
 
 
 
@@ -154,7 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         modalDetails.innerHTML = detailsHtml;
-        modal.style.display = 'block';
+        // modal.style.display = 'block'; // Comentado: React agora controla a exibição do modal
+        document.dispatchEvent(new CustomEvent('openElementDetailsModal', { detail: element }));
     }
 
     function init() {
@@ -170,5 +191,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    init();
-});
+    // As definições de categoryCssMap, getCategoryClass, renderPeriodicTable, displayElementDetails permanecem aqui dentro da IIFE
+
+    function mainInitLogic() {
+        console.log('PT_RENDERER: mainInitLogic() iniciada.');
+        periodicTableContainer = document.getElementById('periodic-table-container');
+        modal = document.getElementById('myModal'); 
+        modalTitle = document.getElementById('modalConceptTitle'); 
+        modalDetails = document.getElementById('modalConceptDetails');
+
+        if (!periodicTableContainer) {
+            console.error('PT_RENDERER: ERRO CRÍTICO - Contêiner da tabela periódica (periodic-table-container) não encontrado no DOM no momento da inicialização. A tabela não pode ser renderizada.');
+            return;
+        }
+        if (!modal || !modalTitle || !modalDetails) {
+            console.warn('PT_RENDERER: AVISO - Um ou mais elementos do modal (myModal, modalConceptTitle, modalConceptDetails) não foram encontrados. A funcionalidade do modal pode ser afetada.');
+        }
+        // O código para tratar closeButton e window.onclick foi removido pois o React cuida disso.
+
+        if (window.localPeriodicTableRawData && window.localPeriodicTableRawData.elements) {
+            console.log('PT_RENDERER: Dados encontrados (window.localPeriodicTableRawData). Chamando renderPeriodicTable().');
+            renderPeriodicTable(window.localPeriodicTableRawData.elements);
+        } else {
+            console.error('PT_RENDERER: ERRO - Dados locais da tabela periódica (window.localPeriodicTableRawData) não encontrados ou não estão no formato esperado.');
+            if (periodicTableContainer) {
+                 periodicTableContainer.innerHTML = '<p style="color: red; text-align: center; padding: 20px;">Falha ao carregar os dados para a tabela periódica. Verifique o console para mais detalhes.</p>';
+            } else {
+                // Este caso não deveria ocorrer se o primeiro if (!periodicTableContainer) já barrou.
+                console.error("PT_RENDERER: Contêiner da tabela periódica também não encontrado para exibir mensagem de erro de dados.");
+            }
+        }
+    }
+
+    // Expor a função de inicialização principal globalmente
+    window.initPeriodicTableRenderer = function() {
+        console.log("PT_RENDERER: window.initPeriodicTableRenderer() foi chamada.");
+        // Garante que a lógica só rode uma vez ou reseta se necessário (opcional, dependendo da idempotência)
+        // Por agora, apenas chama a lógica principal.
+        mainInitLogic();
+    };
+
+    // Tenta auto-inicializar
+    // Verifica o estado do DOM. Se já estiver 'interactive' ou 'complete', DOMContentLoaded já ocorreu.
+    if (document.readyState === 'loading') {
+        // Ainda carregando, espera por DOMContentLoaded
+        console.log('PT_RENDERER: DOM está em estado de carregamento. Adicionando listener para DOMContentLoaded.');
+        document.addEventListener('DOMContentLoaded', window.initPeriodicTableRenderer);
+    } else {
+        // DOM já está 'interactive' ou 'complete'
+        console.log('PT_RENDERER: DOM já está pronto (' + document.readyState + '). Chamando initPeriodicTableRenderer() diretamente como fallback.');
+        // Chama como fallback, mas a chamada explícita do React é preferível.
+        // Para evitar múltiplas renderizações se o React também chamar, pode-se adicionar uma flag.
+        // if (!window.periodicTableRendererInitialized) {
+        //     window.initPeriodicTableRenderer();
+        //     window.periodicTableRendererInitialized = true;
+        // }
+        // Por simplicidade, vamos permitir que seja chamado. A função renderPeriodicTable limpa o container.
+        window.initPeriodicTableRenderer(); 
+    }
+
+})();

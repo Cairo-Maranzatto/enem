@@ -1,0 +1,99 @@
+.pageContainer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #e9e7f7; /* Lilás/Lavanda claro */
+  color: #333; /* Default text color from HTML body */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+flex-grow: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.headerH1 {
+    color: #4a148c; /* Roxo escuro */
+    font-size: 2.8em;
+    margin-bottom: 5px;
+}
+
+.headerP {
+    font-size: 1.2em;
+    color: #6a1b9a; /* Roxo médio */
+}
+
+.conceptsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    width: 100%;
+    background-color: #28004d; /* Roxo muito escuro */
+    color: #e9e7f7; /* Lilás/Lavanda claro */
+    font-size: 0.9em;
+}
+
+/* Styles for ConceptCard (to be used by ConceptCard.module.css if global overrides are needed, or pass as props) */
+/* For OrganelasCitoplasmaticasPage, we ensure these variables are available if ConceptCard uses them */
+:root {
+    --card-border-color-organelas: #311b92; /* Índigo escuro */
+    --card-title-color-organelas: #311b92; /* Índigo escuro */
+    --card-visual-color-organelas: #5e35b1; /* Roxo médio-escuro */
+    --card-keywords-color-organelas: #311b92; /* Índigo escuro */
+}
+
+/* Styles for ConceptModal (to be used by ConceptModal.module.css or passed as props) */
+:root {
+    --modal-title-color-organelas: #311b92; /* Índigo escuro */
+    --modal-title-border-color-organelas: #4a148c; /* Roxo escuro */
+    --modal-strong-text-color-organelas: #4a148c; /* Roxo escuro */
+}
+
+.modalContentCustom img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 15px auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.modalContentCustom h4 {
+    color: #4a148c; /* Roxo escuro, consistent with strong text */
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.3em;
+}
+
+.modalContentCustom ul {
+    padding-left: 20px; /* Standard padding for lists */
+    list-style-type: disc; /* Standard disc for ul */
+    margin-bottom: 15px;
+}
+
+.modalContentCustom li {
+    margin-bottom: 8px; /* Spacing between list items */
+    line-height: 1.6;
+}
+
+.modalContentCustom p {
+    text-align: justify;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.modalContentCustom strong {
+    color: var(--modal-strong-text-color-organelas, #4a148c);
+}

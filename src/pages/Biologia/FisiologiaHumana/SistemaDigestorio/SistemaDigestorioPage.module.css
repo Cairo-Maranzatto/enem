@@ -1,0 +1,127 @@
+/* Adapted styles from Sistema_Digestorio_Interativo.html */
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff0f0; /* Rosa bem claro / Fundo pêssego claro */
+    color: #444;
+    padding: 20px;
+}
+
+.pageHeader {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.pageHeader h1 {
+    color: #c0392b; /* Vermelho escuro */
+    font-size: 2.8em;
+    margin-bottom: 5px;
+}
+
+.pageHeader p {
+    font-size: 1.2em;
+    color: #e74c3c; /* Vermelho claro */
+}
+
+.conceptsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 5px solid #a93226; /* Vermelho mais escuro para a borda */
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.8em;
+    color: #922b21; /* Vermelho bem escuro */
+    margin-bottom: 15px;
+}
+
+.card .visual-representation {
+    font-size: 4.5em;
+    margin-bottom: 15px;
+    line-height: 1;
+    color: #c0392b;
+}
+
+.card .definition {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 10px;
+    min-height: 60px;
+}
+
+.card .keywords {
+    font-size: 0.95em;
+    color: #a93226;
+    font-weight: bold;
+}
+
+.pageFooter {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    width: 100%;
+    background-color: #922b21; /* Vermelho bem escuro */
+    color: #fdedec; /* Rosa muito claro */
+}
+
+.modalOverlay {
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modalContent {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 70%;
+    max-width: 750px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.modalTitle {
+    color: #922b21;
+    margin-top: 0;
+    border-bottom: 2px solid #a93226;
+    padding-bottom: 10px;
+}
+
+.modalCloseButton {
+    color: #aaa;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.modalCloseButton:hover,
+.modalCloseButton:focus {
+    color: black;
+    text-decoration: none;
+}

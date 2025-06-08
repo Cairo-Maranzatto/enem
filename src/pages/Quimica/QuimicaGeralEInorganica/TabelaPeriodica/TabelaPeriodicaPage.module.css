@@ -1,0 +1,499 @@
+/* TabelaPeriodicaPage.module.css */
+:root {
+  --tp-primary-color: #607D8B; /* Cinza Azulado Médio */
+  --tp-secondary-color: #B0BEC5; /* Cinza Azulado Claro */
+  --tp-accent-color: #455A64; /* Cinza Azulado Escuro */
+  --tp-background-color: #ECEFF1; /* Cinza Muito Claro */
+  --tp-text-color: #263238; /* Cinza Escuro */
+  --tp-card-bg-color: #FFFFFF;
+  --tp-card-border-color: #CFD8DC; /* Usado para borda do modal */
+  --tp-footer-bg-color: #546E7A; /* Tom mais escuro para o rodapé */
+  --tp-footer-text-color: #ECEFF1;
+}
+
+.pageContainer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: var(--tp-background-color);
+  color: var(--tp-text-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  min-height: 100vh; /* Mantido para garantir altura total */
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  /* Removido background e cor daqui, pois o componente JS pode aplicar */
+  /* Se for para manter como estava no original TabelaPeriodica, descomente abaixo */
+  /* background-color: var(--tp-primary-color); */
+  /* color: white; */
+  /* padding: 25px 20px; */
+  /* border-radius: 8px; */
+  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+}
+
+.pageHeader h1 {
+  color: var(--tp-primary-color); /* Cor principal para o título H1 */
+  font-size: 2.8em;
+  margin-bottom: 5px;
+  /* font-weight: bold; */ /* Padrão dos refs não usa bold explicitamente aqui */
+}
+
+.pageHeader p {
+  font-size: 1.2em;
+  color: var(--tp-accent-color); /* Cor de destaque para o subtítulo */
+  /* font-style: italic; */ /* Removido para seguir padrão */
+}
+
+.conceptsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  flex-grow: 1;
+}
+
+.card {
+  background-color: var(--tp-card-bg-color);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid var(--tp-primary-color);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.cardTitle {
+  margin-top: 0;
+  font-size: 1.8em;
+  color: var(--tp-primary-color);
+  margin-bottom: 15px;
+}
+
+.cardVisual {
+  font-size: 4.5em;
+  margin-bottom: 15px;
+  line-height: 1;
+  color: var(--tp-primary-color);
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardDefinition {
+  font-size: 1.1em;
+  color: var(--tp-text-color);
+  margin-bottom: 10px;
+  min-height: 60px;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.cardKeywords {
+  font-size: 0.95em;
+  color: var(--tp-accent-color);
+  font-weight: bold;
+  margin-top: auto;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Padrão dos refs, 0.7 no original Tabela */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  background-color: var(--tp-card-bg-color); /* Mantido branco, como em LigacoesQuimicas */
+  padding: 30px;
+  border-radius: 10px; /* Padrão dos refs, 8px no original Tabela */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  width: 70%;
+  max-width: 750px;
+  position: relative;
+  border: 1px solid var(--tp-card-border-color);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modalTitle {
+  color: var(--tp-primary-color);
+  margin-top: 0;
+  border-bottom: 2px solid var(--tp-secondary-color);
+  padding-bottom: 10px;
+  font-size: 1.8em;
+  margin-bottom: 20px;
+}
+
+.modalContent :global(.modal-content-custom) p,
+.modalContent :global(.modal-content-custom) ul,
+.modalContent :global(.modal-content-custom) ol {
+  font-size: 1.1em;
+  line-height: 1.7; /* Padrão dos refs, 1.6 no original Tabela */
+  text-align: justify;
+  color: var(--tp-text-color);
+  margin-bottom: 1em;
+}
+
+.modalContent :global(.modal-content-custom) ul,
+.modalContent :global(.modal-content-custom) ol {
+  padding-left: 20px; /* Padrão dos refs, margin-left no original Tabela */
+}
+
+/* .modalContent li não é estilizado separadamente nos refs, herda de ul/ol */
+
+.modalContent :global(.modal-content-custom) strong {
+  color: var(--tp-primary-color);
+  font-weight: bold; /* Explícito, embora seja padrão */
+}
+
+.modalContent :global(.modal-content-custom) code {
+  background-color: var(--tp-secondary-color); /* Cor de fundo clara */
+  color: var(--tp-text-color); /* Cor de texto escura */
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.modalContent :global(.modal-content-custom) h4 {
+  font-size: 1.2em;
+  color: var(--tp-accent-color);
+  margin-top: 20px; /* Padrão dos refs, 1.5em no original Tabela */
+  margin-bottom: 10px; /* Padrão dos refs, 0.5em no original Tabela */
+}
+
+.modalCloseButton {
+  color: var(--tp-text-color); /* Cor base do texto */
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 32px; /* Padrão dos refs, 1.8em no original Tabela */
+  font-weight: bold;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+/* Estilos para o container da tabela periódica interativa */
+:global(#periodic-table-container) {
+  display: grid;
+  grid-template-columns: repeat(18, minmax(32px, 1fr)); /* Reduzido o mínimo para melhor encaixe */
+  grid-template-rows: repeat(10, minmax(40px, 60px));    /* Ajustado para 10 linhas (incluindo lantanídeos/actinídeos) */
+  gap: 4px;
+  margin: 30px auto;
+  padding: 10px;
+  background-color: var(--tp-background-color);
+  border: 1px solid var(--tp-secondary-color);
+  border-radius: 8px;
+  grid-auto-rows: minmax(48px, auto); /* Ajustado para proporção com colunas mais estreitas */
+  max-width: 100%;
+  /* overflow-x: auto; */ /* Removido para a tabela tentar se ajustar ou vazar */
+}
+
+/* Estilos para as células dos elementos */
+:global(.element-cell) {
+  border: 1px solid var(--tp-secondary-color);
+  padding: 5px;
+  text-align: center;
+  font-size: 0.70em; /* Reduzido um pouco mais para garantir que tudo caiba */
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around; 
+  align-items: center;
+  min-height: 50px; 
+  box-sizing: border-box;
+  background-color: #fff; 
+  color: var(--tp-text-color); /* Cor de texto padrão para células */
+  position: relative; /* Para z-index no hover */
+}
+
+:global(.element-cell:hover) {
+  transform: scale(1.15); /* Aumentar um pouco mais o scale no hover */
+  background-color: var(--tp-secondary-color) !important; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.3); /* Adicionar sombra no hover */
+  z-index: 10;
+}
+
+:global(.element-number) {
+  font-size: 0.8em; /* Relativo ao font-size da célula */
+  font-weight: bold;
+  position: absolute; /* Posicionamento absoluto para canto superior esquerdo */
+  top: 2px;
+  left: 3px;
+}
+
+:global(.element-symbol) {
+  font-size: 1.5em; /* Relativo ao font-size da célula */
+  font-weight: bold;
+  margin-top: 8px; /* Ajuste para dar espaço ao número atômico */
+  margin-bottom: 1px;
+}
+
+:global(.element-name) {
+  font-size: 0.75em; /* Relativo ao font-size da célula */
+  word-break: break-word; 
+  line-height: 1.1;
+  margin-bottom: 1px;
+}
+
+:global(.element-atomic-mass) {
+  font-size: 0.7em; /* Relativo ao font-size da célula */
+}
+
+/* Classes de Categoria dos Elementos (cores do HTML original) */
+:global(.category-diatomic-nonmetal) { background-color: #a1ffc8; }
+:global(.category-noble-gas) { background-color: #c0ffff; }
+:global(.category-alkali-metal) { background-color: #ffb0b0; }
+:global(.category-alkaline-earth-metal) { background-color: #ffdead; }
+:global(.category-metalloid) { background-color: #cccc99; }
+:global(.category-polyatomic-nonmetal) { background-color: #ffffb0; } 
+:global(.category-other-nonmetal) { background-color: #a1ffc8; } 
+:global(.category-transition-metal) { background-color: #ffc0c0; }
+:global(.category-post-transition-metal) { background-color: #cccccc; }
+:global(.category-lanthanide) { background-color: #ffdbff; }
+:global(.category-actinide) { background-color: #ffbfff; }
+:global(.category-unknown) { background-color: #e8e8e8; }
+
+/* Garante que o texto dentro das células coloridas seja legível */
+:global(.category-diatomic-nonmetal),
+:global(.category-noble-gas),
+:global(.category-alkali-metal),
+:global(.category-alkaline-earth-metal),
+:global(.category-metalloid),
+:global(.category-polyatomic-nonmetal),
+:global(.category-other-nonmetal),
+:global(.category-transition-metal),
+:global(.category-post-transition-metal),
+:global(.category-lanthanide),
+:global(.category-actinide),
+:global(.category-unknown) {
+  color: #333; /* Cor de texto escura para contraste */
+}
+
+
+.conceptsTitle {
+  text-align: center;
+  font-size: 2em;
+  color: var(--tp-primary-color);
+  margin-top: 40px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+/* Estilos para o Modal da Tabela Periódica */
+.ptModal { 
+  display: none; 
+  position: fixed;
+  z-index: 1001; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.55); 
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+}
+
+.ptModalContent { 
+  background-color: var(--tp-card-bg-color);
+  margin: auto; 
+  padding: 25px;
+  border: 1px solid var(--tp-card-border-color);
+  border-radius: 8px;
+  width: 65%; 
+  max-width: 650px; 
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  position: relative;
+  color: var(--tp-text-color);
+  max-height: 85vh; 
+  overflow-y: auto;
+}
+
+.ptModalContent :global(#modalConceptTitle) {
+  font-size: 1.7em; 
+  color: var(--tp-primary-color);
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid var(--tp-secondary-color);
+  padding-bottom: 10px;
+}
+
+.ptModalDetails :global(#modalConceptDetails) p,
+.ptModalDetails :global(#modalConceptDetails) ul,
+.ptModalDetails :global(#modalConceptDetails) ol {
+  font-size: 1.05em; 
+  line-height: 1.65;
+  margin-bottom: 12px;
+  text-align: left; 
+}
+
+.ptModalDetails :global(#modalConceptDetails) ul,
+.ptModalDetails :global(#modalConceptDetails) ol {
+  padding-left: 25px; 
+}
+
+.ptModalDetails :global(#modalConceptDetails) strong {
+  color: var(--tp-accent-color);
+  font-weight: 600; 
+}
+
+.ptCloseButton {
+  color: var(--tp-accent-color);
+  position: absolute;
+  top: 12px; 
+  right: 18px; 
+  font-size: 30px; 
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  line-height: 1; 
+}
+
+.ptCloseButton:hover,
+.ptCloseButton:focus {
+  color: var(--tp-primary-color);
+  text-decoration: none;
+}
+
+/* Ajustes para responsividade da tabela */
+@media (max-width: 1200px) {
+  :global(#periodic-table-container) {
+    grid-template-columns: repeat(18, minmax(35px, 55px));
+    grid-template-rows: repeat(10, minmax(35px, 55px));
+    gap: 3px;
+  }
+  :global(.element-cell) {
+    font-size: 0.65em;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 900px) {
+  :global(#periodic-table-container) {
+    grid-template-columns: repeat(9, minmax(30px, 50px)); 
+    grid-template-rows: auto; 
+    gap: 2px;
+  }
+   :global(.element-cell) {
+    font-size: 0.6em;
+    padding: 3px;
+    min-height: 45px;
+  }
+  :global(.element-symbol) {
+    font-size: 1.3em;
+  }
+  .ptModalContent {
+    width: 85%;
+  }
+}
+
+@media (max-width: 600px) {
+  :global(#periodic-table-container) {
+    grid-template-columns: repeat(6, minmax(28px, 45px)); 
+  }
+  :global(.element-cell) {
+    font-size: 0.55em;
+    min-height: 40px;
+  }
+   :global(.element-symbol) {
+    font-size: 1.2em;
+  }
+  .ptModalContent {
+    width: 95%;
+    padding: 15px;
+  }
+  .ptModalContent :global(#modalConceptTitle) {
+    font-size: 1.4em;
+  }
+  .ptModalDetails :global(#modalConceptDetails) p,
+  .ptModalDetails :global(#modalConceptDetails) ul,
+  .ptModalDetails :global(#modalConceptDetails) ol {
+    font-size: 0.95em;
+  }
+}
+
+.pageFooter {
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: var(--tp-footer-bg-color);
+  color: var(--tp-footer-text-color);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pageFooter p {
+  margin: 0;
+  font-size: 1em;
+}
+
+.modalCloseButton:hover,
+.modalCloseButton:focus {
+  color: var(--tp-accent-color); /* Cor de destaque ao pairar */
+  text-decoration: none;
+}
+
+.pageFooter {
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  width: 100%;
+  background-color: var(--tp-footer-bg-color);
+  color: var(--tp-footer-text-color);
+  box-sizing: border-box;
+}
+
+.pageFooter p {
+  margin: 0;
+  font-size: 1em; /* Padrão dos refs, 0.9em no original Tabela */
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  .pageHeader h1 {
+    font-size: 2em;
+  }
+  .pageHeader p {
+    font-size: 1em;
+  }
+  .conceptsGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .modalContent {
+    width: 95%;
+    padding: 20px;
+  }
+  .modalTitle {
+    font-size: 1.5em;
+  }
+}

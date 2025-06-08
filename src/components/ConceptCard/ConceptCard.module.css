@@ -1,0 +1,52 @@
+.card {
+  background-color: var(--card-bg-color, #fff);
+  border-radius: 10px;
+  padding: 25px;
+  box-shadow: var(--card-box-shadow, 0 4px 8px rgba(0,0,0,0.1));
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 5px solid var(--card-border-color, #004d40); /* Teal bem escuro */
+  cursor: pointer; 
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 280px; /* Ajuste conforme necessário */
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-box-shadow, 0 6px 12px rgba(0,0,0,0.15));
+}
+
+.card h3 {
+  margin-top: 0;
+  font-size: 1.8em;
+  color: var(--card-title-color, #004d40); /* Teal bem escuro - Fallback for Title */
+  margin-bottom: 15px;
+}
+
+.visualRepresentation {
+  font-size: 3.5em; /* Reduzido um pouco para caber melhor */
+  margin-bottom: 15px;
+  line-height: 1;
+  color: var(--card-icon-color, #00796b); /* Teal escuro - Fallback */
+  min-height: 60px; /* Ajustado */
+}
+
+.definition {
+  font-size: 1.0em; /* Ajustado para consistência */
+  color: #444;
+  margin-bottom: 10px;
+  flex-grow: 1; /* Para ocupar espaço e empurrar keywords para baixo */
+  min-height: 70px; /* Ajustado */
+}
+
+.keywords {
+  font-size: 0.9em; /* Ajustado */
+  color: var(--card-keywords-color, #004d40); /* Teal bem escuro - Fallback */
+  font-weight: normal; /* Ajustado, o strong já faz o negrito */
+}
+
+.keywords strong {
+  font-weight: bold;
+}

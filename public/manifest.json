@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "ENEM",
+  "name": "Plataforma de Estudos para o ENEM",
   "icons": [
     {
       "src": "favicon.ico",
