@@ -204,6 +204,15 @@ const menuData = [
   { title: 'Linguagens, Códigos e suas Tecnologias', children: [] },
   { title: 'Matemática', children: [] },
   { title: 'Redação', children: [] },
+  { title: 'Afonso', children: [
+      { 
+        title: 'Ben 10', 
+        path: 'reactPage_Ben10', 
+        component: 'Ben10Page' 
+      },
+    ] 
+  },
+  
 ];
 
 export default menuData;

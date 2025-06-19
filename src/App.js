@@ -18,6 +18,7 @@ import SistemaCirculatorioPage from './pages/Biologia/FisiologiaHumana/SistemaCi
 import SistemaEndocrinoPage from './pages/Biologia/FisiologiaHumana/SistemaEndocrino/SistemaEndocrinoPage';
 import SistemaExcretorPage from './pages/Biologia/FisiologiaHumana/SistemaExcretor/SistemaExcretorPage';
 import SistemaImunologicoPage from './pages/Biologia/FisiologiaHumana/SistemaImunologico/SistemaImunologicoPage';
+import Ben10Page from './pages/Afonso/Ben10/Ben10Page';
 import SistemaNervosoPage from './pages/Biologia/FisiologiaHumana/SistemaNervoso/SistemaNervosoPage';
 import SistemaReprodutorPage from './pages/Biologia/FisiologiaHumana/SistemaReprodutor/SistemaReprodutorPage';
 import SistemaRespiratorioPage from './pages/Biologia/FisiologiaHumana/SistemaRespiratorio/SistemaRespiratorioPage';
@@ -113,6 +114,8 @@ function App() {
         setReactComponentToRender(() => ReacoesInorganicasPage);
       } else if (item.component === 'TabelaPeriodicaPage') {
         setReactComponentToRender(() => TabelaPeriodicaPage);
+      } else if (item.component === 'Ben10Page') {
+        setReactComponentToRender(() => Ben10Page);
       }
       // Adicionar mais 'else if' para outros componentes React
     } else {

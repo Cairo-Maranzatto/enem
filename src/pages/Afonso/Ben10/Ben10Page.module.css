@@ -1,0 +1,152 @@
+/* Estilos inspirados em mockup_ben10_omnitrix.css e DivisaoCelularPage.module.css */
+.pageContainer {
+  font-family: 'Arial Black', 'Gadget', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #e8f5e9; /* Verde bem claro */
+  color: #212121;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.pageHeader {
+  text-align: center;
+  margin-bottom: 30px;
+  width: 100%;
+  background: #4CAF50; /* Verde Ben 10 */
+  color: #fff;
+  padding: 1rem 0;
+  border-bottom: 5px solid #000;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  font-size: 2.3em;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.module {
+  background: #fff;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+  max-width: 750px;
+  border: 3px solid #000;
+}
+
+.module h2 {
+  color: #388E3C;
+  font-size: 1.6em;
+}
+
+.omnitrixActivity {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 25px 0;
+  gap: 20px;
+}
+
+.baseSyllableContainer, .variableSyllablesContainer {
+  background-color: #f1f8e9;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #c8e6c9;
+  width: 45%;
+}
+
+.omnitrixDisplay {
+  background-color: #212121;
+  color: #4CAF50;
+  padding: 20px;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  margin: 10px auto;
+  font-size: 2.5em;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid #757575;
+}
+
+.syllableWheel {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.syllableWheel button {
+  background-color: #757575;
+  color: white;
+  border: 2px solid #424242;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+.syllableWheel button:hover {
+  background-color: #616161;
+  transform: scale(1.05);
+}
+.syllableWheel button.selected,
+.syllableWheel button:active {
+  background-color: #4CAF50;
+  color: #000;
+  border-color: #000;
+}
+.selectedVariableSyllable {
+  font-weight: bold;
+  color: #388E3C;
+}
+#activateOmnitrixButton, .activateOmnitrixButton {
+  background: linear-gradient(90deg, #4CAF50 60%, #388E3C 100%);
+  color: #fff;
+  border: 2px solid #212121;
+  padding: 12px 30px;
+  font-size: 1.3em;
+  border-radius: 8px;
+  margin: 15px 0 10px 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+#activateOmnitrixButton:disabled, .activateOmnitrixButton:disabled {
+  background: #bdbdbd;
+  color: #757575;
+  cursor: not-allowed;
+}
+.resultArea {
+  margin: 15px 0 10px 0;
+  min-height: 40px;
+}
+.formedWord {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #388E3C;
+}
+.wordEmojiDisplay {
+  font-size: 2.5em;
+  margin-top: 8px;
+  display: block;
+}
+.characterImage {
+  margin-top: 20px;
+  text-align: center;
+}
+.characterImage img {
+  width: 150px;
+  opacity: 0.8;
+}
+.pageFooter {
+  text-align: center;
+  padding: 20px;
+  margin-top: auto;
+  width: 100%;
+  background-color: #00332e;
+  color: #e9e7f7;
+}
