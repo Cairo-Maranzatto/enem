@@ -1,0 +1,1982 @@
+[
+    {
+        "materia": "Matemática",
+        "nome": "Leitura de gráficos e tabelas",
+        "status": "precisa_revisar",
+        "compreensao": "Profundo",
+        "data": "",
+        "observacoes": "",
+        "ordem": 1
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Análise de gráficos, tabelas e dados em todas as áreas",
+        "status": "precisa_aprofundar",
+        "compreensao": "Médio",
+        "data": "",
+        "observacoes": "",
+        "ordem": 2
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Atomística",
+        "status": "precisa_revisar",
+        "compreensao": "Profundo",
+        "data": "",
+        "observacoes": "",
+        "ordem": 3
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Tabela periódica",
+        "status": "precisa_revisar",
+        "compreensao": "Médio",
+        "data": "",
+        "observacoes": "",
+        "ordem": 4
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Ligações químicas",
+        "status": "precisa_aprofundar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 5
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Funções inorgânicas",
+        "status": "precisa_revisar",
+        "compreensao": "Médio",
+        "data": "",
+        "observacoes": "",
+        "ordem": 6
+    },
+    {
+        "materia": "Química",
+        "nome": "Físico-Química: Soluções",
+        "status": "precisa_revisar",
+        "compreensao": "Médio",
+        "data": "",
+        "observacoes": "",
+        "ordem": 7
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Membrana plasmática",
+        "status": "precisa_revisar",
+        "compreensao": "Profundo",
+        "data": "",
+        "observacoes": "",
+        "ordem": 8
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Organelas",
+        "status": "precisa_revisar",
+        "compreensao": "Profundo",
+        "data": "",
+        "observacoes": "",
+        "ordem": 9
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Metabolismo celular",
+        "status": "precisa_aprofundar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 10
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Respiração celular",
+        "status": "precisa_aprofundar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 11
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Fotossíntese",
+        "status": "precisa_aprofundar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 12
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Porcentagem",
+        "status": "precisa_revisar",
+        "compreensao": "Médio",
+        "data": "",
+        "observacoes": "",
+        "ordem": 13
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Regra de três",
+        "status": "precisa_revisar",
+        "compreensao": "Médio",
+        "data": "",
+        "observacoes": "",
+        "ordem": 14
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Razão e proporção",
+        "status": "precisa_revisar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 15
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Juros simples",
+        "status": "precisa_aprofundar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 16
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Reações químicas",
+        "status": "precisa_revisar",
+        "compreensao": "Médio",
+        "data": "",
+        "observacoes": "",
+        "ordem": 17
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Estequiometria",
+        "status": "precisa_aprofundar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 18
+    },
+    {
+        "materia": "Química",
+        "nome": "Físico-Química: Termoquímica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 19
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Ecologia: Relações ecológicas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 20
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Ecologia: Ciclos biogeoquímicos",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 21
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Ecologia: Biomas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 22
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Ecologia: Problemas ambientais",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 23
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Ambiental: Poluição",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 24
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Ambiental: Chuva ácida",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 25
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Ambiental: Efeito estufa",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 26
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Ambiental: Química verde",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 27
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Ecologia e Química Ambiental: problemas ambientais, desenvolvimento sustentável, poluição",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 28
+    },
+    {
+        "materia": "Física",
+        "nome": "Termologia: Calorimetria",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 29
+    },
+    {
+        "materia": "Física",
+        "nome": "Termologia: Termodinâmica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 30
+    },
+    {
+        "materia": "Física",
+        "nome": "Termologia: Gases",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 31
+    },
+    {
+        "materia": "Química",
+        "nome": "Físico-Química: Cinética química",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 32
+    },
+    {
+        "materia": "Química",
+        "nome": "Físico-Química: Equilíbrio químico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 33
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Funções orgânicas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 34
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Isomeria",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 35
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Reações orgânicas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 36
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Polímeros",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 37
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Biomoléculas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 38
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema digestório",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 39
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema respiratório",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 40
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema circulatório",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 41
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema excretor",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 42
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema nervoso",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 43
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema endócrino",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 44
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema locomotor",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 45
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema sensorial",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 46
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema imunológico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 47
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema reprodutor",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 48
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Leis de Mendel",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 49
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Herança",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 50
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Mutações",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 51
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Biotecnologia",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 52
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Teorias evolutivas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 53
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Bioética: dilemas genéticos, reprodução assistida, eutanásia",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 54
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Doenças",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 55
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Vacinas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 56
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Saneamento básico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 57
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: SUS",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 58
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Saúde Pública: SUS, políticas públicas de saúde, desigualdade social e acesso à saúde",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 59
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Funções do 1º grau",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 60
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Funções do 2º grau",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 61
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Função exponencial",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 62
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Função logarítmica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 63
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Função trigonométrica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 64
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Geometria plana",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 65
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Geometria espacial",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 66
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Trigonometria",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 67
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Análise combinatória",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 68
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Probabilidade",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 69
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Média",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 70
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Moda",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 71
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Mediana",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 72
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Desvio padrão",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 73
+    },
+    {
+        "materia": "Física",
+        "nome": "Mecânica: Cinemática",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 74
+    },
+    {
+        "materia": "Física",
+        "nome": "Mecânica: Leis de Newton",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 75
+    },
+    {
+        "materia": "Física",
+        "nome": "Mecânica: Trabalho e energia",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 76
+    },
+    {
+        "materia": "Física",
+        "nome": "Mecânica: Hidrostática",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 77
+    },
+    {
+        "materia": "Física",
+        "nome": "Óptica: Reflexão",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 78
+    },
+    {
+        "materia": "Física",
+        "nome": "Óptica: Refração",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 79
+    },
+    {
+        "materia": "Física",
+        "nome": "Óptica: Lentes",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 80
+    },
+    {
+        "materia": "Física",
+        "nome": "Óptica: Visão",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 81
+    },
+    {
+        "materia": "Física",
+        "nome": "Ondulatória: Fenômenos ondulatórios",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 82
+    },
+    {
+        "materia": "Física",
+        "nome": "Ondulatória: Som",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 83
+    },
+    {
+        "materia": "Física",
+        "nome": "Ondulatória: Audição",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 84
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Eletrostática",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 85
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Eletrodinâmica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 86
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Circuitos elétricos",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 87
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Eletromagnetismo",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 88
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Impulso nervoso",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 89
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Interpretação de Texto: gêneros textuais diversos",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 90
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Gramática Aplicada ao Texto",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 91
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Funções da Linguagem e Variação Linguística",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 92
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Literatura: escolas literárias brasileiras, autores, obras, contexto histórico-social",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 93
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Artes e Educação Física: interpretação de imagens, movimentos culturais, corpo e saúde",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 94
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Língua Estrangeira (Inglês): interpretação de texto, vocabulário básico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 95
+    },
+    {
+        "materia": "História",
+        "nome": "Brasil: Colônia, Império, República Velha, Era Vargas, Ditadura Militar, Nova República",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 96
+    },
+    {
+        "materia": "História",
+        "nome": "História Geral: Antiguidade Clássica, Idade Média, Moderna, Contemporânea",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 97
+    },
+    {
+        "materia": "Geografia",
+        "nome": "Brasil: aspectos físicos, humanos, econômicos, regionais, urbanização, agricultura, indústria, meio ambiente",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 98
+    },
+    {
+        "materia": "Geografia",
+        "nome": "Geografia Geral: globalização, geopolítica, blocos econômicos, clima, recursos hídricos, demografia, urbanização mundial",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 99
+    },
+    {
+        "materia": "Filosofia",
+        "nome": "Principais pensadores: Sócrates, Platão, Aristóteles, Descartes, Locke, Rousseau, Kant, ética, política, conhecimento",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 100
+    },
+    {
+        "materia": "Sociologia",
+        "nome": "Conceitos: cultura, trabalho, cidadania, movimentos sociais, desigualdade, pensadores clássicos (Durkheim, Weber, Marx)",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 101
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Projetos temáticos: crise hídrica, sustentabilidade, desigualdade, saúde pública",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 102
+    },
+    {
+        "materia": "Redação",
+        "nome": "Competências da Redação: Norma padrão, compreensão do tema, organização de ideias, coesão e coerência, proposta de intervenção",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 103
+    },
+    {
+        "materia": "Redação",
+        "nome": "Prática semanal de redação: temas atuais, análise de redações nota 1000",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 104
+    },
+    {
+        "materia": "Redação",
+        "nome": "Repertório Sociocultural: leitura de notícias, artigos, livros, documentários",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 105
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema circulatório",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 106
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema excretor",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 107
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema nervoso",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 108
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema endócrino",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 109
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema locomotor",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 110
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema sensorial",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 111
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema imunológico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 112
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema reprodutor",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 113
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Membrana plasmática",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 114
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Organelas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 115
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Metabolismo celular",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 116
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Respiração celular",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 117
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Fotossíntese",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 118
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Leis de Mendel",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 119
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Herança",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 120
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Mutações",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 121
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Biotecnologia",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 122
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Teorias evolutivas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 123
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Doenças",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 124
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Vacinas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 125
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Saneamento básico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 126
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: SUS",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 127
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema imunológico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 128
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Fisiologia Humana: Sistema reprodutor",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 129
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Membrana plasmática",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 130
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Organelas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 131
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Metabolismo celular",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 132
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Respiração celular",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 133
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Citologia: Fotossíntese",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 134
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Leis de Mendel",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 135
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Herança",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 136
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Mutações",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 137
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Biotecnologia",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 138
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Genética: Teorias evolutivas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 139
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Doenças",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 140
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Vacinas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 141
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: Saneamento básico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 142
+    },
+    {
+        "materia": "Biologia",
+        "nome": "Saúde: SUS",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 143
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Atomística",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 144
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Tabela periódica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 145
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Ligações químicas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 146
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Funções inorgânicas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 147
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Reações químicas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 148
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Geral: Estequiometria",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 149
+    },
+    {
+        "materia": "Química",
+        "nome": "Físico-Química: Soluções",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 150
+    },
+    {
+        "materia": "Química",
+        "nome": "Físico-Química: Termoquímica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 151
+    },
+    {
+        "materia": "Química",
+        "nome": "Físico-Química: Cinética química",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 152
+    },
+    {
+        "materia": "Química",
+        "nome": "Físico-Química: Equilíbrio químico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 153
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Funções orgânicas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 154
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Isomeria",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 155
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Reações orgânicas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 156
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Polímeros",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 157
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Orgânica: Biomoléculas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 158
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Ambiental: Química verde",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 159
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Ambiental: Poluição",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 160
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Ambiental: Chuva ácida",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 161
+    },
+    {
+        "materia": "Química",
+        "nome": "Química Ambiental: Efeito estufa",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 162
+    },
+    {
+        "materia": "Física",
+        "nome": "Mecânica: Cinemática",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 163
+    },
+    {
+        "materia": "Física",
+        "nome": "Mecânica: Leis de Newton",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 164
+    },
+    {
+        "materia": "Física",
+        "nome": "Mecânica: Trabalho e energia",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 165
+    },
+    {
+        "materia": "Física",
+        "nome": "Mecânica: Hidrostática",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 166
+    },
+    {
+        "materia": "Física",
+        "nome": "Termologia: Calorimetria",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 167
+    },
+    {
+        "materia": "Física",
+        "nome": "Termologia: Termodinâmica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 168
+    },
+    {
+        "materia": "Física",
+        "nome": "Termologia: Gases",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 169
+    },
+    {
+        "materia": "Física",
+        "nome": "Óptica: Reflexão",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 170
+    },
+    {
+        "materia": "Física",
+        "nome": "Óptica: Refração",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 171
+    },
+    {
+        "materia": "Física",
+        "nome": "Óptica: Lentes",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 172
+    },
+    {
+        "materia": "Física",
+        "nome": "Óptica: Visão",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 173
+    },
+    {
+        "materia": "Física",
+        "nome": "Ondulatória: Fenômenos ondulatórios",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 174
+    },
+    {
+        "materia": "Física",
+        "nome": "Ondulatória: Som",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 175
+    },
+    {
+        "materia": "Física",
+        "nome": "Ondulatória: Audição",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 176
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Eletrostática",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 177
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Eletrodinâmica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 178
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Circuitos elétricos",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 179
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Eletromagnetismo",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 180
+    },
+    {
+        "materia": "Física",
+        "nome": "Eletricidade: Impulso nervoso",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 181
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Porcentagem",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 182
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Regra de três",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 183
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Razão e proporção",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 184
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Juros simples",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 185
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Funções do 1º grau",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 186
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Funções do 2º grau",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 187
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Função exponencial",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 188
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Função logarítmica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 189
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Função trigonométrica",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 190
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Geometria plana",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 191
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Geometria espacial",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 192
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Trigonometria",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 193
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Análise combinatória",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 194
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Probabilidade",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 195
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Média",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 196
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Moda",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 197
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Mediana",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 198
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Desvio padrão",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 199
+    },
+    {
+        "materia": "Matemática",
+        "nome": "Leitura de gráficos e tabelas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 200
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Interpretação de Texto: gêneros textuais diversos",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 201
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Literatura: escolas literárias brasileiras, autores, obras, contexto histórico-social",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 202
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Gramática Aplicada ao Texto",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 203
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Funções da Linguagem e Variação Linguística",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 204
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Artes e Educação Física: interpretação de imagens, movimentos culturais, corpo e saúde",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 205
+    },
+    {
+        "materia": "Linguagens",
+        "nome": "Língua Estrangeira (Inglês): interpretação de texto, vocabulário básico",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 206
+    },
+    {
+        "materia": "Redação",
+        "nome": "Competências da Redação: Norma padrão, compreensão do tema, organização de ideias, coesão e coerência, proposta de intervenção",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 207
+    },
+    {
+        "materia": "Redação",
+        "nome": "Prática semanal de redação: temas atuais, análise de redações nota 1000",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 208
+    },
+    {
+        "materia": "Redação",
+        "nome": "Repertório Sociocultural: leitura de notícias, artigos, livros, documentários",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 209
+    },
+    {
+        "materia": "História",
+        "nome": "Brasil: Colônia, Império, República Velha, Era Vargas, Ditadura Militar, Nova República",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 210
+    },
+    {
+        "materia": "História",
+        "nome": "História Geral: Antiguidade Clássica, Idade Média, Moderna, Contemporânea",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 211
+    },
+    {
+        "materia": "Geografia",
+        "nome": "Brasil: aspectos físicos, humanos, econômicos, regionais, urbanização, agricultura, indústria, meio ambiente",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 212
+    },
+    {
+        "materia": "Geografia",
+        "nome": "Geografia Geral: globalização, geopolítica, blocos econômicos, clima, recursos hídricos, demografia, urbanização mundial",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 213
+    },
+    {
+        "materia": "Filosofia",
+        "nome": "Principais pensadores: Sócrates, Platão, Aristóteles, Descartes, Locke, Rousseau, Kant, ética, política, conhecimento",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 214
+    },
+    {
+        "materia": "Sociologia",
+        "nome": "Conceitos: cultura, trabalho, cidadania, movimentos sociais, desigualdade, pensadores clássicos (Durkheim, Weber, Marx)",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 215
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Ecologia e Química Ambiental: problemas ambientais, desenvolvimento sustentável, poluição",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 216
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Saúde Pública: SUS, políticas públicas de saúde, desigualdade social e acesso à saúde",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 217
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Bioética: dilemas genéticos, reprodução assistida, eutanásia",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 218
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Análise de gráficos, tabelas e dados em todas as áreas",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 219
+    },
+    {
+        "materia": "Interdisciplinar",
+        "nome": "Projetos temáticos: crise hídrica, sustentabilidade, desigualdade, saúde pública",
+        "status": "a_estudar",
+        "compreensao": "Raso",
+        "data": "",
+        "observacoes": "",
+        "ordem": 220
+    }
+]

@@ -1,0 +1,49 @@
+.topRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0;
+}
+
+.sidebarHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 16px 12px 8px 12px;
+}
+
+.sidebarTitle {
+  margin: 0;
+  margin-bottom: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+}
+
+.loginBtn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 0;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s;
+}
+.loginBtn:hover {
+  background: #115293;
+}

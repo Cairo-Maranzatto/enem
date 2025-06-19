@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Sidebar from './components/Sidebar';
 import ContentArea from './components/ContentArea';
+import Home from './pages/home/home';
+import PublicHome from './components/PublicHome';
+import { onAuthStateChanged } from './Services/FirebaseService';
 import DivisaoCelularPage from './pages/Biologia/Citologia/DivisaoCelular/DivisaoCelularPage';
 import MembranaPlasmaticaPage from './pages/Biologia/Citologia/MembranaPlasmatica/MembranaPlasmaticaPage';
 import MetabolismoCelularPage from './pages/Biologia/Citologia/MetabolismoCelular/MetabolismoCelularPage';
@@ -39,16 +42,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
-  const [selectedUrl, setSelectedUrl] = useState('');
+
   const [activeItemPath, setActiveItemPath] = useState('');
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(window.innerWidth < 768);
   const [ReactComponentToRender, setReactComponentToRender] = useState(null); // Estado para o componente React real
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+  const [user, setUser] = useState(null);
+  const [authChecked, setAuthChecked] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(u => {
+      setUser(u);
+      setAuthChecked(true);
+    });
+    return () => unsubscribe();
+  }, []);
 
   const handleMenuItemClick = (item) => { // 'item' é o objeto do menuData
     if (item.component) {
-      setSelectedUrl('');
-      
       setReactComponentToRender(null); // Limpa antes de definir o novo
       if (item.component === 'DivisaoCelularPage') {
         setReactComponentToRender(() => DivisaoCelularPage);
@@ -120,7 +131,7 @@ function App() {
       // Adicionar mais 'else if' para outros componentes React
     } else {
       setReactComponentToRender(null);
-      setSelectedUrl(item.path);
+
     }
     setActiveItemPath(item.path);
     if (isMobileView) { // Close sidebar on item click in mobile view
@@ -133,7 +144,6 @@ function App() {
   };
 
   const handleGoHome = () => {
-    setSelectedUrl('');
     setReactComponentToRender(null); // Limpa o componente React
     setActiveItemPath('');
     if (isMobileView && !isSidebarCollapsed) {
@@ -166,6 +176,10 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  if (!authChecked) {
+    return <div>Carregando...</div>;
+  }
+
   return (
     <div className={`app-container ${isSidebarCollapsed ? 'sidebar-collapsed' : ''} ${isMobileView ? 'mobile-view' : ''}`}>
       <button className="sidebar-toggle-mobile-btn" onClick={toggleSidebar}>
@@ -178,10 +192,13 @@ function App() {
         toggleSidebar={toggleSidebar} 
         handleGoHome={handleGoHome}
       />
-      {ReactComponentToRender ? 
-        <ContentArea ReactComponentToRender={ReactComponentToRender} /> : 
-        <ContentArea selectedUrl={selectedUrl} />
-      }
+      {ReactComponentToRender ? (
+        <ContentArea ReactComponentToRender={ReactComponentToRender} />
+      ) : user ? (
+        <Home userId={user?.uid} />
+      ) : (
+        <PublicHome />
+      )}
     </div>
   );
 }
