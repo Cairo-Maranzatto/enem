@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/enem/static/css/main.e0228056.css",
-    "main.js": "/enem/static/js/main.b72fa092.js",
+    "main.css": "/enem/static/css/main.b006f0ae.css",
+    "main.js": "/enem/static/js/main.f06d9e3e.js",
     "static/js/453.a6a97343.chunk.js": "/enem/static/js/453.a6a97343.chunk.js",
     "static/media/omnitrix-power-down.mp3": "/enem/static/media/omnitrix-power-down.1c037d5828fb6d73c6fd.mp3",
     "static/media/placeholder_ben10.png": "/enem/static/media/placeholder_ben10.6bdd8580993fb6660425.png",
     "static/media/omnitrix.mp3": "/enem/static/media/omnitrix.d43195a4bfc6d4ee6b1e.mp3",
     "index.html": "/enem/index.html",
-    "main.e0228056.css.map": "/enem/static/css/main.e0228056.css.map",
-    "main.b72fa092.js.map": "/enem/static/js/main.b72fa092.js.map",
+    "main.b006f0ae.css.map": "/enem/static/css/main.b006f0ae.css.map",
+    "main.f06d9e3e.js.map": "/enem/static/js/main.f06d9e3e.js.map",
     "453.a6a97343.chunk.js.map": "/enem/static/js/453.a6a97343.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e0228056.css",
-    "static/js/main.b72fa092.js"
+    "static/css/main.b006f0ae.css",
+    "static/js/main.f06d9e3e.js"
   ]
 }
