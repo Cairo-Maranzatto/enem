@@ -56,7 +56,7 @@ const MenuItem = ({ item, onItemClick, activeItemPath, initiallyOpen, isSidebarC
   const isParentOfActive = hasChildren && isOpen && item.children.some(child => child.path === activeItemPath || (child.children && child.children.some(subChild => subChild.path === activeItemPath)));
 
   return (
-    <li>
+    <li style={{ background: 'inherit' }}>
       <div 
         onClick={handleClick} 
         className={`menu-item-header ${isActive ? 'active' : ''} ${hasChildren ? 'has-children' : ''} ${isParentOfActive && !isActive ? 'parent-of-active' : ''}`}

@@ -47,11 +47,15 @@ function AuthBox() {
 
   if (user) {
     return (
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
-        <span style={{ color: '#fff', fontWeight: 'bold', maxWidth: 120, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={user.displayName || user.email}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', marginBottom: 8 }}>
+        <span style={{ color: '#FFF', fontWeight: 'bold' }} title={user.displayName || user.email}>
           {user.displayName || user.email}
         </span>
-        <button style={{ fontSize: 12, padding: '4px 8px', background: '#fff', color: '#1976d2', border: 'none', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold' }} onClick={handleLogout} title="Sair">Sair</button>
+        <button 
+          style={{ width: '100%', marginTop: 8, fontSize: 12, padding: '6px 0', background: '#D0EBFF', color: '#007BFF', border: 'none', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold', transition: 'background 0.2s, color 0.2s' }} 
+          onClick={handleLogout} 
+          title="Sair"
+        >Sair</button>
       </div>
     );
   }
@@ -100,7 +104,9 @@ function AuthBox() {
   );
 }
 
+
 const Sidebar = ({ onItemClick, activeItemPath, isCollapsed, toggleSidebar, handleGoHome }) => {
+  const [toggleIconColor, setToggleIconColor] = useState('#FFF');
   return (
     <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <div className={styles.sidebarHeader}>
@@ -111,7 +117,7 @@ const Sidebar = ({ onItemClick, activeItemPath, isCollapsed, toggleSidebar, hand
             title={isCollapsed ? 'Expandir menu' : 'Recolher menu'}
             style={{ alignSelf: 'flex-end', margin: '8px 0' }}
           >
-            <FontAwesomeIcon icon={isCollapsed ? faAngleDoubleRight : faAngleDoubleLeft} />
+            <FontAwesomeIcon icon={isCollapsed ? faAngleDoubleRight : faAngleDoubleLeft} color={toggleIconColor || '#FFF'} />
           </button>
         ) : (
           <>
@@ -121,7 +127,7 @@ const Sidebar = ({ onItemClick, activeItemPath, isCollapsed, toggleSidebar, hand
                 onClick={handleGoHome}
                 className={styles.sidebarTitle}
                 title="Ir para a página inicial"
-                style={{ marginBottom: 0 }}
+                style={{ marginBottom: 0, color: '#FFF' }}
               >
                 ENEM Digital
               </h2>
